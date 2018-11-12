@@ -1,0 +1,93 @@
+﻿@model IEnumerable<E3DBPI.Models.SubProject>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Sub-Projects</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubProjectID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubProjectName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubProjectStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BiDOpenDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BidCloseDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequiredDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AcceptedBid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AcceptedCompany)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActionDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dependencies)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubProjectID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubProjectName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubProjectStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BiDOpenDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BidCloseDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequiredDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AcceptedBid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AcceptedCompany)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActionDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dependencies)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SubProjectID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SubProjectID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SubProjectID })
+        </td>
+    </tr>
+}
+
+</table>

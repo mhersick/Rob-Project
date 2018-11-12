@@ -1,0 +1,81 @@
+﻿@model IEnumerable<E3DBPI.Models.ItemBox>
+
+@{
+    ViewBag.Title = "Item Boxes";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BoxID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BoxDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BoxWidth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BoxLength)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BoxHeight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BoxNW)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BoxCF)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InnerOuter)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InnerBoxFor)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BoxID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BoxDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BoxWidth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BoxLength)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BoxHeight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BoxNW)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BoxCF)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InnerOuter)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InnerBoxFor)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BoxID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BoxID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BoxID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,184 @@
+﻿@model E3DBPI.Models.BlogPost
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>BlogPost</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Post_author)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Post_author)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Post_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Post_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Post_Tite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Post_Tite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Post_Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Post_Content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Post_Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Post_Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Post_Deleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Post_Deleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Post_Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Post_Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Post_Featured)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Post_Featured)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Post_Views)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Post_Views)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Post_CommentsAllowed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Post_CommentsAllowed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Post_Image1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Post_Image1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Post_Image2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Post_Image2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Post_Image3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Post_Image3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Post_Banner1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Post_Banner1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Post_Article)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Post_Article)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Post_ArticleContent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Post_ArticleContent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Post_URL1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Post_URL1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Post_URL2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Post_URL2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Post_CommentsReview)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Post_CommentsReview)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogCategory.Post_CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BlogCategory.Post_CategoryName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

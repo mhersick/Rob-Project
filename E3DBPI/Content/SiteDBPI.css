@@ -1,0 +1,478 @@
+﻿body {
+    /*padding-top: 10px;*/
+    padding-bottom: 20px;
+    background-color:#dddddd;
+    /*background-image: url(../../images/AdobeStock_142704236.jpeg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;*/
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color:#eeeeee;
+}
+
+/* Set the font and padding in the LIST items. Get's buttons to display properly at full width */
+.table tbody > tr > th {
+    padding: 4px
+}
+.table tbody > tr > td {
+    padding: 4px;
+    font-size:12px;
+}
+
+
+/* Set size of textarea fields on forms */
+textarea {
+    width:100%;
+    height:150px
+}
+
+/* Set size of date fields on forms */
+.datefield {
+    width: 260px;
+}
+
+/* Set size of textarea fields on forms */
+.check-box {
+    width: 20px;
+    height: 20px
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+    width:auto;
+}
+
+.textoverimg {
+    position:relative;
+    text-align:center;
+    color:#000
+}
+.textovercenter {
+    position: absolute;
+    top:45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size:16px;
+    font-weight:700;
+}
+
+
+/* This is setting the height for any textarea */
+textarea.form-control {
+    height:150px;
+}
+/*----------------------------------------------------------------------------------------------------------------------------- */
+/* Menu Styling  */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+.navbar-default {
+    background-color: none;
+    border-color: none;
+}
+
+.navbar-fixed-top {
+    max-height:150px;
+}
+
+.divider-vertical {
+    border: none;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    /*color: #ffffff;*/
+    font-size:18px;
+}
+
+.dropdown-submenu {
+    position: relative;
+}
+
+    .dropdown-submenu > .dropdown-menu {
+        top: 0;
+        left: 100%;
+        margin-top: -6px;
+        margin-left: -1px;
+        -webkit-border-radius: 0 6px 6px 6px;
+        -moz-border-radius: 0 6px 6px 6px;
+        border-radius: 0 6px 6px 6px;
+    }
+
+    .dropdown-submenu:hover > .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-submenu > a:after {
+        display: block;
+        content: " ";
+        float: right;
+        width: 0;
+        height: 0;
+        border-color: transparent;
+        border-style: solid;
+        border-width: 5px 0 5px 5px;
+        border-left-color: #cccccc;
+        margin-top: 5px;
+        margin-right: -10px;
+    }
+
+    .dropdown-submenu:hover > a:after {
+        border-left-color: #ffffff;
+    }
+
+    .dropdown-submenu.pull-left {
+        float: none;
+    }
+
+        .dropdown-submenu.pull-left > .dropdown-menu {
+            left: -100%;
+            margin-left: 10px;
+            -webkit-border-radius: 6px 0 6px 6px;
+            -moz-border-radius: 6px 0 6px 6px;
+            border-radius: 6px 0 6px 6px;
+        }
+
+.navbar-nav .divider-vertical {
+    /*height: 40px;
+    margin: 0 9px;
+    border-left: 1px solid #f2f2f2;
+    border-right: 1px solid #ffffff;*/
+}
+
+
+
+.vmenutext {font-size:14px;font-weight:700;text-shadow:20px 12px 2px #333; text-align:left;}
+
+/*----------------------------------------------------------------------------------------------------------------------------- */
+/* List page Styling - */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+
+.listing h2 {
+    margin-bottom: 40px;
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------------- */
+/* Home page Styling - */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+/*If you want to set a different body background for a given section, do it here*/
+section#home body {
+    /*background-image: url(../images/AdobeStock_142704236.jpeg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;*/
+}
+
+section#home {
+    /*background-color: #dddddd;*/
+    /*padding-top: 20px;
+    padding-bottom: 20px*/
+}
+
+    section#home .topfold {
+        background-image: url(~/Images/AdobeStock_142704236.jpg);
+        background-position: left center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    section#home .botfold {
+        background-color:#ffffff;
+    }
+
+   section#home .obackground {
+        background-color: slategray;
+        opacity: .7;
+        margin-left: 40px;
+        margin-bottom: 100px;
+        margin-top:40px;
+    }
+
+    section#home p {
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        color: #ffffff;
+    }
+
+    section#home h2 {
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 26px;
+        font-weight: 700;
+        color: aqua;
+    }
+
+    section#home h3 {
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 26px;
+        font-weight: 700;
+        color: #ffffff;
+        letter-spacing: 3px;
+    }
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------------- */
+/* Contact Styling  */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+section #contact body {
+    background-image: url(/images/wmr660ymcag3.JPG);
+}
+
+section#contact {
+    background-color: #dddddd;
+    /*background-image:url(../images/wmr660ymcag3.JPG);*/
+    background-position: center;
+    background-repeat: no-repeat;
+    /*margin-top:145px;
+	margin-top:50px;*/
+    padding-top: 20px;
+    padding-bottom: 20px
+}
+
+    section#contact .form-group {
+        margin-bottom: 25px
+    }
+
+        section#contact .form-group input, section#contact .form-group textarea {
+            padding: 10px
+        }
+
+            section#contact .form-group input.form-control {
+                height: auto
+            }
+
+            section#contact .form-group textarea.form-control {
+                height: 236px
+            }
+
+
+    section#contact ::-webkit-input-placeholder {
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #bbb
+    }
+
+    section#contact :-moz-placeholder {
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #bbb
+    }
+
+    section#contact :-ms-input-placeholder {
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #bbb
+    }
+
+    section#contact .text-danger {
+        color: #e74c3c
+    }
+
+input, select, textarea {
+    max-width: none;
+}
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+/* Buttons & Button colors */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+
+.btn {
+    margin-top: 5px;
+    z-index: auto;
+}
+
+.btn-primary {
+    color: #000;
+    background-color: #00ffff;
+    border-color: #00ffff;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-image: none;
+    border-radius: 3px;
+}
+
+    .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+        color: #000;
+        background-color: #00dddd;
+        border-color: #00ffff;
+        z-index:1040;
+    }
+
+    .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+        background-image: none
+    }
+
+    .btn-primary.disabled, .btn-primary[disabled], fieldset[disabled] .btn-primary, .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover, .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus, .btn-primary.disabled:active, .btn-primary[disabled]:active, fieldset[disabled] .btn-primary:active, .btn-primary.disabled.active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary.active {
+        /*background-color: #0094ff;*/
+        background-color: #00dddd;
+        border-color: #00dddd;
+    }
+
+    .btn-primary .badge {
+        color: #00dddd;
+        background-color: #fff;
+    }
+
+.btn-sm {
+    font-size: 12px;
+    padding: 4px 6px ;
+    margin-top: 10px;
+}
+
+.btn-smform {
+    font-size: 12px;
+    padding: 2px 2px 2px 2px;
+    margin: 2px;
+    font-size:10px;
+    font-weight:300;
+}
+
+  .nav .btn-sm {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        color:#000;
+    }
+
+.btn-lg {
+    font-size: 16px;
+    padding: 15px 30px;
+}
+
+.btn-xl {
+    font-size: 18px;
+    padding: 20px 40px;
+}
+
+.form-control:focus {
+    border-color: #00dddd;
+    box-shadow:  0 2px 2px ;
+box-shadow: none
+}
+
+/*----------------------------------------------------------------------------------------------------------------------------- */
+/* Popout side menu */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #bbb;
+}
+
+    ::-webkit-scrollbar-thumb:window-inactive {
+        background: rgba(182,182,182,0.4);
+    }
+
+/*a {
+    color: #222;
+}*/
+
+.gx-menu-open.list {
+    top: 0px;
+    height: 20px;
+    line-height: 0px;
+    left: 0px;
+    right: auto;
+}
+
+.gx-menu-open.share {
+    right: 3%;
+    left: auto;
+    top: 0px;
+    height: 40px;
+    line-height: 10px;
+}
+
+.gx-menu-open.mobile {
+    line-height: 0.6em;
+}
+
+#wrapper {
+    width: 80%;
+    margin: auto;
+    position: relative;
+}
+
+body {
+    background: #eee;
+    padding-left: 20px;
+}
+/*---------- ide-kdev Styles ---------*/
+.sh_ide-kdev {
+    width: 100%;
+}
+
+    .sh_ide-kdev .sh_sourceCode {
+        background-color: #f9f9f9;
+        color: #000;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+.snippet-wrap pre.sh_sourceCode {
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+}
+
+@media all and (max-width: 480px) {
+    #wrapper {
+        width: 96%;
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------------- */
+/* Social Buttons */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+
+/*ul.social-buttons {
+    margin-bottom: 0
+}
+
+    ul.social-buttons li a {
+        display: block;
+        background-color: #222;
+        height: 40px;
+        width: 40px;
+        border: 2px solid;
+        border-radius: 100%;
+        font-size: 1.6em;
+        line-height: 1.7em;
+        color: #fff;
+        outline: 1px;
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        transition: all .3s
+    }
+
+        ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li a:active {
+            background-color: #fed136
+        }*/
+
+
+
+

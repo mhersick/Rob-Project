@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "ProjectCalendar";
+}
+
+<h2>Project Calendar for: </h2>
+
+<div id="calender" style="margin-top:40px;"></div>
+
+<div id="Modal1" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h3 class="modal-title"><span id="eventTitle"></span></h3>
+        </div>
+        <div class="modal-body">
+            <p id="pDetails"></p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+</div>
+
+@* Call in the calendar stylesheets *@
+<link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css" rel="stylesheet" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css" rel="stylesheet" media="print" />
+
+@* Call in the calendar and moment scripts *@ 
+@section Scripts {                                                                                          
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script> 
+<script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script> 
+
+    <script>
+
+        $(document).ready(function () {
+            var events = [];
+            $.ajax({
+                type: "GET",
+                url: "/Projects/GetEvents",
+                success: function (data) {
+                    $.each(data, function (i, v) {                      // set up the for loop to go through the records
+                        events.push({
+                            title: v.ProjectName,
+                            Description: v.ProjectDescription,
+                            start: moment(v.BidOpenDate),
+                            end: v.BidCloseDate != null ? moment(v.BidCloseDate) : null
+                            
+                            //color: v.ThemeColor,
+                            //allDay: v.IsFullDay
+                        });
+                    })
+                    GenerateCalender(events);
+                },
+                error: function(error) {
+                    alert('failed to Initialize');
+                }
+            })
+
+            function GenerateCalender(events) {
+                $('#calender').fullCalendar('destroy');
+                $('#calender').fullCalendar({
+                    contentHeight: 400,
+                    defaultDate: new Date(),
+                    //timeFormat: 'h(:mm)a',
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'month,basicWeek,basicDay,agenda'
+                    },
+                    eventLimit: true,
+                    eventColor: '#378006',
+                    events: events,
+                    eventClick: function (calEvent, jsEvent, view) {
+                        $('#Modal1 #eventTitle').text(calEvent.title);
+                        var $discription = $('<div/>');
+                        $description.append($('<p/>').html('<b>Start:>/b>' + calEvent.start.format("DD-MMM-YYY")));
+                        if (calEvent.end != null) {
+                            $$ProjectDescription.append($('<p/>').html('<b>End:>/b>' + calEvent.end.format("DD-MMM-YYY")));
+                        }
+                        $description.append($('<p/>').html('<b>Description:>/b>' + calEvent.$description));
+                        $('#Modal1 #pDetails').empty().html($description)
+
+                        $('#Model1').modal();                                                                                       // open the modal dialog
+                    }
+                    
+
+                });
+
+            }
+
+        })
+    </script>
+
+}

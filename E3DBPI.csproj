@@ -1,0 +1,850 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{60DF9FEC-67A4-4323-99FD-C5E909978DE6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>E3DBPI</RootNamespace>
+    <AssemblyName>E3DBPI</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.7.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.7.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.7.0\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Diagnostics, Version=2.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.ServiceRuntime, Version=2.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=8.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.8.0.1\lib\net45\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcSiteMapProvider, Version=4.6.22.0, Culture=neutral, PublicKeyToken=1923abe4657913cc, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvcSiteMapProvider.MVC5.Core.4.6.22\lib\net45\MvcSiteMapProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcSiteMapProvider.WebActivator, Version=4.6.22.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvcSiteMapProvider.MVC5.4.6.22\lib\net45\MvcSiteMapProvider.WebActivator.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SendGrid, Version=9.8.0.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sendgrid.9.9.0\lib\net452\SendGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Spatial, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.7.0\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0.1\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AltAddressesController.cs" />
+    <Compile Include="Controllers\BidsController.cs" />
+    <Compile Include="Controllers\BlogCategoriesController.cs" />
+    <Compile Include="Controllers\BlogCommentsController.cs" />
+    <Compile Include="Controllers\BlogPostsController.cs" />
+    <Compile Include="Controllers\CompaniesController.cs" />
+    <Compile Include="Controllers\ContactsController.cs" />
+    <Compile Include="Controllers\DocumentsController.cs" />
+    <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ItemBoxesController.cs" />
+    <Compile Include="Controllers\ItemCategoriesController.cs" />
+    <Compile Include="Controllers\ItemsController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MemberInfoController.cs" />
+    <Compile Include="Controllers\MessagesController.cs" />
+    <Compile Include="Controllers\OrderLinesController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\OrderStatusController.cs" />
+    <Compile Include="Controllers\PaymentsController.cs" />
+    <Compile Include="Controllers\ProjectsController.cs" />
+    <Compile Include="Controllers\ProjectStatusController.cs" />
+    <Compile Include="Controllers\RecaptchaController.cs" />
+    <Compile Include="Controllers\SubProjectsController.cs" />
+    <Compile Include="Controllers\TeamsController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AltAddress.cs">
+      <DependentUpon>E3DBPImodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Bid.cs">
+      <DependentUpon>E3DBPImodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BlogCategory.cs">
+      <DependentUpon>E3DBPImodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BlogComment.cs">
+      <DependentUpon>E3DBPImodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BlogPost.cs">
+      <DependentUpon>E3DBPImodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Company.cs">
+      <DependentUpon>E3DBPImodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CompanyModel.cs" />
+    <Compile Include="Models\Contact.cs">
+      <DependentUpon>E3DBPImodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ContactModel.cs" />
+    <Compile Include="Models\Document.cs">
+      <DependentUpon>E3DBPImodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\E3DBPImodel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>E3DBPImodel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\E3DBPImodel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>E3DBPImodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\E3DBPImodel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>E3DBPImodel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Employee.cs">
+      <DependentUpon>E3DBPImodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Item.cs">
+      <DependentUpon>E3DBPImodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ItemBox.cs">
+      <DependentUpon>E3DBPImodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ItemCategory.cs">
+      <DependentUpon>E3DBPImodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MemberInfo.cs">
+      <DependentUpon>E3DBPImodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Message.cs">
+      <DependentUpon>E3DBPImodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MessageServices.cs" />
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>E3DBPImodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrderLine.cs">
+      <DependentUpon>E3DBPImodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrderStatu.cs">
+      <DependentUpon>E3DBPImodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Payment.cs">
+      <DependentUpon>E3DBPImodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Project.cs">
+      <DependentUpon>E3DBPImodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProjectCategory.cs">
+      <DependentUpon>E3DBPImodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProjectStatu.cs">
+      <DependentUpon>E3DBPImodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Review.cs">
+      <DependentUpon>E3DBPImodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SubProject.cs">
+      <DependentUpon>E3DBPImodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Team.cs">
+      <DependentUpon>E3DBPImodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\RoleManager.cs" />
+    <Compile Include="ViewModels\Users_in_role_ViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.png" />
+    <Content Include="favicon_o.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Images\128-2.jpg" />
+    <Content Include="Images\128-3.jpg" />
+    <Content Include="Images\128.jpg" />
+    <Content Include="Images\AdobeStock_142704236.jpeg" />
+    <Content Include="Images\AdobeStock_142704236.jpg" />
+    <Content Include="Images\affiliate.png" />
+    <Content Include="Images\agent-1.jpg" />
+    <Content Include="Images\agent-2.jpg" />
+    <Content Include="Images\agent-3.jpg" />
+    <Content Include="Images\agent-4.jpg" />
+    <Content Include="Images\apartment-1.jpg" />
+    <Content Include="Images\apartment-4.jpg" />
+    <Content Include="Images\avt-1-150x110.png" />
+    <Content Include="Images\avt-1-150x150.png" />
+    <Content Include="Images\avt-1-300x300.png" />
+    <Content Include="Images\avt-1-350x350.png" />
+    <Content Include="Images\avt-1-380x280.png" />
+    <Content Include="Images\avt-1-385x258.png" />
+    <Content Include="Images\avt-1-400x340.png" />
+    <Content Include="Images\avt-1.png" />
+    <Content Include="Images\basket-1.png" />
+    <Content Include="Images\bg-6-1-1.jpg" />
+    <Content Include="Images\bg-6-1.jpg" />
+    <Content Include="Images\bg-7-1.jpg" />
+    <Content Include="Images\bg-7.jpg" />
+    <Content Include="Images\bg-video.png" />
+    <Content Include="Images\briefcase-1.png" />
+    <Content Include="Images\buildit.png" />
+    <Content Include="Images\camera-616396_1280.jpg" />
+    <Content Include="Images\chicago.jpg" />
+    <Content Include="Images\config.png" />
+    <Content Include="Images\contact-us.jpg" />
+    <Content Include="Images\credit-card.png" />
+    <Content Include="Images\cup.png" />
+    <Content Include="Images\DBPI-blk-1.png" />
+    <Content Include="Images\DBPI-blk-2.png" />
+    <Content Include="Images\DBPI-Color-1-1024x304.png" />
+    <Content Include="Images\DBPI-Color-1-1170x450.png" />
+    <Content Include="Images\DBPI-Color-1-1440x450.png" />
+    <Content Include="Images\DBPI-Color-1-150x110.png" />
+    <Content Include="Images\DBPI-Color-1-150x150.png" />
+    <Content Include="Images\DBPI-Color-1-150x44.png" />
+    <Content Include="Images\DBPI-Color-1-300x89.png" />
+    <Content Include="Images\DBPI-Color-1-350x104.png" />
+    <Content Include="Images\DBPI-Color-1-350x350.png" />
+    <Content Include="Images\DBPI-Color-1-380x280.png" />
+    <Content Include="Images\DBPI-Color-1-385x258.png" />
+    <Content Include="Images\DBPI-Color-1-570x340.png" />
+    <Content Include="Images\DBPI-Color-1-768x228.png" />
+    <Content Include="Images\DBPI-Color-1.png" />
+    <Content Include="Images\DBPI-Color-2-1024x304.png" />
+    <Content Include="Images\DBPI-Color-2-1170x450.png" />
+    <Content Include="Images\DBPI-Color-2-1440x450.png" />
+    <Content Include="Images\DBPI-Color-2-150x110.png" />
+    <Content Include="Images\DBPI-Color-2-150x150.png" />
+    <Content Include="Images\DBPI-Color-2-150x44.png" />
+    <Content Include="Images\DBPI-Color-2-300x89.png" />
+    <Content Include="Images\DBPI-Color-2-350x104.png" />
+    <Content Include="Images\DBPI-Color-2-350x350.png" />
+    <Content Include="Images\DBPI-Color-2-380x280.png" />
+    <Content Include="Images\DBPI-Color-2-385x258.png" />
+    <Content Include="Images\DBPI-Color-2-570x340.png" />
+    <Content Include="Images\DBPI-Color-2-768x228.png" />
+    <Content Include="Images\DBPI-Color-2-810x430.png" />
+    <Content Include="Images\DBPI-Color-2.png" />
+    <Content Include="Images\DBPI-Color-3.png" />
+    <Content Include="Images\DBPI-Color-4.png" />
+    <Content Include="Images\dbpi-logo-web-2018%281%29.png" />
+    <Content Include="Images\dbpi-logo-web-2018.png" />
+    <Content Include="Images\DBPI-white-1.png" />
+    <Content Include="Images\DBPI-white-2.png" />
+    <Content Include="Images\DBPI_emblem.png" />
+    <Content Include="Images\Debra-Rose_avatar_1434742307.jpg" />
+    <Content Include="Images\designit.png" />
+    <Content Include="Images\Directory-detail-featured-22-1024x640.jpg" />
+    <Content Include="Images\Directory-Post-Featured-10-1024x640.jpg" />
+    <Content Include="Images\Directory-Post-Featured-12-1024x640.jpg" />
+    <Content Include="Images\Directory-Post-Featured-8-1024x640.jpg" />
+    <Content Include="Images\Directory-Post-Featured-9-1024x640.jpg" />
+    <Content Include="Images\droplet.png" />
+    <Content Include="Images\favicon-1.png" />
+    <Content Include="Images\favicon.ico" />
+    <Content Include="Images\FBlogo.png" />
+    <Content Include="Images\follow.png" />
+    <Content Include="Images\following.png" />
+    <Content Include="Images\globe.png" />
+    <Content Include="Images\heart.png" />
+    <Content Include="Images\home.png" />
+    <Content Include="Images\house-5.jpg" />
+    <Content Include="Images\howitworks.jpg" />
+    <Content Include="Images\icon1-1-142x150.png" />
+    <Content Include="Images\icon1-1-150x110.png" />
+    <Content Include="Images\icon1-1-150x150.png" />
+    <Content Include="Images\icon1-1-284x300.png" />
+    <Content Include="Images\icon1-1-350x350.png" />
+    <Content Include="Images\icon1-1-350x369.png" />
+    <Content Include="Images\icon1-1-380x280.png" />
+    <Content Include="Images\icon1-1-385x258.png" />
+    <Content Include="Images\icon1-1-455x480.png" />
+    <Content Include="Images\icon1-1-570x340.png" />
+    <Content Include="Images\icon1-1-709x430.png" />
+    <Content Include="Images\icon1-1-709x600.png" />
+    <Content Include="Images\icon1-1-709x610.png" />
+    <Content Include="Images\icon1-1-709x738.png" />
+    <Content Include="Images\icon1-1.png" />
+    <Content Include="Images\icon2-1.png" />
+    <Content Include="Images\icon3-1.png" />
+    <Content Include="Images\icon4.png" />
+    <Content Include="Images\icon5.png" />
+    <Content Include="Images\icon6.png" />
+    <Content Include="Images\inner-bath-room-1.jpg" />
+    <Content Include="Images\inner-bed-room-1.jpg" />
+    <Content Include="Images\inner-living-room-1.jpg" />
+    <Content Include="Images\inner-living-room-2.jpg" />
+    <Content Include="Images\inner-living-room-3.jpg" />
+    <Content Include="Images\inner-pool-1.jpg" />
+    <Content Include="Images\inner-studio-room-1.jpg" />
+    <Content Include="Images\instalogo.png" />
+    <Content Include="Images\jvd-blackfast-food.jpg" />
+    <Content Include="Images\jvd-blue-women.jpg" />
+    <Content Include="Images\jvd-clock-white.jpg" />
+    <Content Include="Images\jvd-foot.jpg" />
+    <Content Include="Images\jvd-hat-shop-white.jpg" />
+    <Content Include="Images\jvd-intarial-white.jpg" />
+    <Content Include="Images\jvd-laundy-white.jpg" />
+    <Content Include="Images\jvd-mobile-map.png" />
+    <Content Include="Images\layers-1.png" />
+    <Content Include="Images\like.png" />
+    <Content Include="Images\linkedinlogo.png" />
+    <Content Include="Images\list.png" />
+    <Content Include="Images\logo-dbpi-hires.png" />
+    <Content Include="Images\logo-houzez-color%402x.png" />
+    <Content Include="Images\logo-houzez-color.png" />
+    <Content Include="Images\los-angeles-1.jpg" />
+    <Content Include="Images\los-angeles.jpg" />
+    <Content Include="Images\magnifier.png" />
+    <Content Include="Images\male-user.png" />
+    <Content Include="Images\miami-beach-1.jpg" />
+    <Content Include="Images\miami-beach.jpg" />
+    <Content Include="Images\monitor%281%29.png" />
+    <Content Include="Images\monitor.png" />
+    <Content Include="Images\new-york-1.jpg" />
+    <Content Include="Images\opened-book.png" />
+    <Content Include="Images\partner-01.jpg" />
+    <Content Include="Images\partner-02.jpg" />
+    <Content Include="Images\partner-03.jpg" />
+    <Content Include="Images\partner-04.jpg" />
+    <Content Include="Images\partner-05.jpg" />
+    <Content Include="Images\partner-06.jpg" />
+    <Content Include="Images\pencil-1.png" />
+    <Content Include="Images\photodune-689346-construction.jpg" />
+    <Content Include="Images\picture.png" />
+    <Content Include="Images\plan-1-1.jpg" />
+    <Content Include="Images\plan-1.jpg" />
+    <Content Include="Images\plan-2-1.jpg" />
+    <Content Include="Images\plan-2.jpg" />
+    <Content Include="Images\planit.png" />
+    <Content Include="Images\projectmanage.png" />
+    <Content Include="Images\rocket.png" />
+    <Content Include="Images\sectioin-img2.png" />
+    <Content Include="Images\sectioin-img3.png" />
+    <Content Include="Images\section-img1.png" />
+    <Content Include="Images\section1-1.png" />
+    <Content Include="Images\section2-1.png" />
+    <Content Include="Images\section3.png" />
+    <Content Include="Images\settings.png" />
+    <Content Include="Images\slide2.jpg" />
+    <Content Include="Images\slide3.jpg" />
+    <Content Include="Images\slide4.jpg" />
+    <Content Include="Images\slide5.jpg" />
+    <Content Include="Images\slide6.jpg" />
+    <Content Include="Images\slider-01.jpg" />
+    <Content Include="Images\slider-02.jpg" />
+    <Content Include="Images\slider-03.jpg" />
+    <Content Include="Images\slider-2-2.png" />
+    <Content Include="Images\slider1.png" />
+    <Content Include="Images\slider2.png" />
+    <Content Include="Images\speedometer.png" />
+    <Content Include="Images\twitterlogo.png" />
+    <Content Include="Images\video-placeholder-1024x578.jpg" />
+    <Content Include="Images\video-placeholder-1134x600.jpg" />
+    <Content Include="Images\video-placeholder-1134x610.jpg" />
+    <Content Include="Images\video-placeholder-150x110.jpg" />
+    <Content Include="Images\video-placeholder-150x150.jpg" />
+    <Content Include="Images\video-placeholder-150x85.jpg" />
+    <Content Include="Images\video-placeholder-300x169.jpg" />
+    <Content Include="Images\video-placeholder-350x198.jpg" />
+    <Content Include="Images\video-placeholder-350x350.jpg" />
+    <Content Include="Images\video-placeholder-380x280.jpg" />
+    <Content Include="Images\video-placeholder-385x258.jpg" />
+    <Content Include="Images\video-placeholder-570x340.jpg" />
+    <Content Include="Images\video-placeholder-768x433.jpg" />
+    <Content Include="Images\video-placeholder-810x430.jpg" />
+    <Content Include="Images\video-placeholder-851x480.jpg" />
+    <Content Include="Images\video-placeholder.jpg" />
+    <Content Include="Images\villa-2.jpg" />
+    <Content Include="Images\villa-4.jpg" />
+    <Content Include="Images\wallet.png" />
+    <Content Include="Images\wavey-bg.png" />
+    <Content Include="Images\wavey-bg2.png" />
+    <Content Include="Images\wavey-bg_2.png" />
+    <Content Include="Images\wavey-bg_3%281%29.png" />
+    <Content Include="Images\wavey-bg_3.png" />
+    <Content Include="Images\wrench.png" />
+    <Content Include="Images\youtube.png" />
+    <Content Include="Images\youtubelogo.png" />
+    <Content Include="Models\E3DBPImodel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>E3DBPImodel.edmx</DependentUpon>
+      <LastGenOutput>E3DBPImodel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\E3DBPImodel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>E3DBPImodel.edmx</DependentUpon>
+      <LastGenOutput>E3DBPImodel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Models\E3DBPImodel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>E3DBPImodel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\E3DBPImodel.edmx.diagram">
+      <DependentUpon>E3DBPImodel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Mvc.sitemap">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Content\Templates\WelcomeEmail.cshtml" />
+    <Content Include="Content\Templates\EmailConfirm.cshtml" />
+    <Content Include="Content\Templates\ContactConfirm.cshtml" />
+    <None Include="MvcSiteMapSchema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\PublishProfiles\DBPI dev01 Azure - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\DBPI Local IIS - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\DBPIdev - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\E3DBPI20180606054547 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\E3DBPI20180607025039 - Web Deploy.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Views\Admin\UsersWithRoles.cshtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Companies\Create.cshtml" />
+    <Content Include="Views\Companies\Delete.cshtml" />
+    <Content Include="Views\Companies\Details.cshtml" />
+    <Content Include="Views\Companies\Edit.cshtml" />
+    <Content Include="Views\Companies\Index.cshtml" />
+    <Content Include="Views\Employees\Create.cshtml" />
+    <Content Include="Views\Employees\Delete.cshtml" />
+    <Content Include="Views\Employees\Details.cshtml" />
+    <Content Include="Views\Employees\Edit.cshtml" />
+    <Content Include="Views\Employees\Index.cshtml" />
+    <Content Include="Views\Projects\Create.cshtml" />
+    <Content Include="Views\Projects\Delete.cshtml" />
+    <Content Include="Views\Projects\Details.cshtml" />
+    <Content Include="Views\Projects\Edit.cshtml" />
+    <Content Include="Views\Projects\Index.cshtml" />
+    <Content Include="Views\SubProjects\Create.cshtml" />
+    <Content Include="Views\SubProjects\Delete.cshtml" />
+    <Content Include="Views\SubProjects\Details.cshtml" />
+    <Content Include="Views\SubProjects\Edit.cshtml" />
+    <Content Include="Views\SubProjects\Index.cshtml" />
+    <Content Include="Views\AltAddresses\Create.cshtml" />
+    <Content Include="Views\AltAddresses\Delete.cshtml" />
+    <Content Include="Views\AltAddresses\Details.cshtml" />
+    <Content Include="Views\AltAddresses\Edit.cshtml" />
+    <Content Include="Views\AltAddresses\Index.cshtml" />
+    <Content Include="Views\Teams\Create.cshtml" />
+    <Content Include="Views\Teams\Delete.cshtml" />
+    <Content Include="Views\Teams\Details.cshtml" />
+    <Content Include="Views\Teams\Edit.cshtml" />
+    <Content Include="Views\Teams\Index.cshtml" />
+    <Content Include="Views\Bids\Create.cshtml" />
+    <Content Include="Views\Bids\Delete.cshtml" />
+    <Content Include="Views\Bids\Details.cshtml" />
+    <Content Include="Views\Bids\Edit.cshtml" />
+    <Content Include="Views\Bids\Index.cshtml" />
+    <Content Include="Views\Documents\Create.cshtml" />
+    <Content Include="Views\Documents\Delete.cshtml" />
+    <Content Include="Views\Documents\Details.cshtml" />
+    <Content Include="Views\Documents\Edit.cshtml" />
+    <Content Include="Views\Documents\Index.cshtml" />
+    <Content Include="Views\Payments\Create.cshtml" />
+    <Content Include="Views\Payments\Delete.cshtml" />
+    <Content Include="Views\Payments\Details.cshtml" />
+    <Content Include="Views\Payments\Edit.cshtml" />
+    <Content Include="Views\Payments\Index.cshtml" />
+    <Content Include="Views\OrderLines\Create.cshtml" />
+    <Content Include="Views\OrderLines\Delete.cshtml" />
+    <Content Include="Views\OrderLines\Details.cshtml" />
+    <Content Include="Views\OrderLines\Edit.cshtml" />
+    <Content Include="Views\OrderLines\Index.cshtml" />
+    <Content Include="Views\Orders\Create.cshtml" />
+    <Content Include="Views\Orders\Delete.cshtml" />
+    <Content Include="Views\Orders\Details.cshtml" />
+    <Content Include="Views\Orders\Edit.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\BlogPosts\Create.cshtml" />
+    <Content Include="Views\BlogPosts\Delete.cshtml" />
+    <Content Include="Views\BlogPosts\Details.cshtml" />
+    <Content Include="Views\BlogPosts\Edit.cshtml" />
+    <Content Include="Views\BlogPosts\Index.cshtml" />
+    <Content Include="Views\BlogComments\Create.cshtml" />
+    <Content Include="Views\BlogComments\Delete.cshtml" />
+    <Content Include="Views\BlogComments\Details.cshtml" />
+    <Content Include="Views\BlogComments\Edit.cshtml" />
+    <Content Include="Views\BlogComments\Index.cshtml" />
+    <Content Include="Views\BlogCategories\Create.cshtml" />
+    <Content Include="Views\BlogCategories\Delete.cshtml" />
+    <Content Include="Views\BlogCategories\Details.cshtml" />
+    <Content Include="Views\BlogCategories\Edit.cshtml" />
+    <Content Include="Views\BlogCategories\Index.cshtml" />
+    <Content Include="Views\OrderStatus\Create.cshtml" />
+    <Content Include="Views\OrderStatus\Delete.cshtml" />
+    <Content Include="Views\OrderStatus\Details.cshtml" />
+    <Content Include="Views\OrderStatus\Edit.cshtml" />
+    <Content Include="Views\OrderStatus\Index.cshtml" />
+    <Content Include="Views\Items\Create.cshtml" />
+    <Content Include="Views\Items\Delete.cshtml" />
+    <Content Include="Views\Items\Details.cshtml" />
+    <Content Include="Views\Items\Edit.cshtml" />
+    <Content Include="Views\Items\Index.cshtml" />
+    <Content Include="Views\ProjectStatus\Create.cshtml" />
+    <Content Include="Views\ProjectStatus\Delete.cshtml" />
+    <Content Include="Views\ProjectStatus\Details.cshtml" />
+    <Content Include="Views\ProjectStatus\Edit.cshtml" />
+    <Content Include="Views\ProjectStatus\Index.cshtml" />
+    <Content Include="Views\Account\RolesManager.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapTitleHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapPathHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModelList.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\MetaRobotsHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\BootstrapMenuHelperModel.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\CreateUser.cshtml" />
+    <Content Include="Views\Admin\AssignRole.cshtml" />
+    <Content Include="Views\Admin\CreateRole.cshtml" />
+    <Content Include="Views\ItemCategories\Create.cshtml" />
+    <Content Include="Views\ItemCategories\Delete.cshtml" />
+    <Content Include="Views\ItemCategories\Details.cshtml" />
+    <Content Include="Views\ItemCategories\Edit.cshtml" />
+    <Content Include="Views\ItemCategories\Index.cshtml" />
+    <Content Include="Views\ItemBoxes\Create.cshtml" />
+    <Content Include="Views\ItemBoxes\Delete.cshtml" />
+    <Content Include="Views\ItemBoxes\Details.cshtml" />
+    <Content Include="Views\ItemBoxes\Edit.cshtml" />
+    <Content Include="Views\ItemBoxes\Index.cshtml" />
+    <Content Include="Views\Account\SendEmail.cshtml" />
+    <Content Include="Views\Account\EmailSent.cshtml" />
+    <Content Include="Views\Shared\Info.cshtml" />
+    <Content Include="Views\Admin\RoleManager.cshtml" />
+    <Content Include="Views\Account\ConfirmEmailSent.cshtml" />
+    <Content Include="Views\Shared\ConfirmEmailSent.cshtml" />
+    <Content Include="Views\Account\RegisterStep2.cshtml" />
+    <Content Include="Views\Recaptcha\Index.cshtml" />
+    <Content Include="Views\Home\ContactFormSent.cshtml" />
+    <Content Include="Views\MemberInfo\Create.cshtml" />
+    <Content Include="Views\MemberInfo\Delete.cshtml" />
+    <Content Include="Views\MemberInfo\Details.cshtml" />
+    <Content Include="Views\MemberInfo\Edit.cshtml" />
+    <Content Include="Views\MemberInfo\Index.cshtml" />
+    <Content Include="Views\Contacts\Create.cshtml" />
+    <Content Include="Views\Contacts\Delete.cshtml" />
+    <Content Include="Views\Contacts\Details.cshtml" />
+    <Content Include="Views\Contacts\Edit.cshtml" />
+    <Content Include="Views\Contacts\Index.cshtml" />
+    <Content Include="Views\Messages\Create.cshtml" />
+    <Content Include="Views\Messages\Delete.cshtml" />
+    <Content Include="Views\Messages\Details.cshtml" />
+    <Content Include="Views\Messages\Edit.cshtml" />
+    <Content Include="Views\Messages\Index.cshtml" />
+    <Content Include="Views\Account\RegisterServiceLevel.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57943</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:57943/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

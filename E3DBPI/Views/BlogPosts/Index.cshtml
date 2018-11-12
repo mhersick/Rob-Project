@@ -1,0 +1,79 @@
+﻿@model IEnumerable<E3DBPI.Models.BlogPost>
+
+@{
+    ViewBag.Title = "News & Events";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Post_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Post_author)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Post_Tite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Post_Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Post_Featured)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Post_Views)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BlogCategory.Post_CategoryName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post_author)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post_Tite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post_Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post_Featured)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post_Views)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BlogCategory.Post_CategoryName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PostID}, htmlAttributes: new { @class = "btn btn-smform btn-info" }) |
+            @Html.ActionLink("View", "Details", new { id=item.PostID}, htmlAttributes: new { @class = "btn btn-smform btn-info" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PostID}, htmlAttributes: new { @class = "btn btn-smform btn-warning" })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div class="col-md-12" style="text-align:center;margin-top:40px;">
+    @if (User.Identity.IsAuthenticated)
+            {
+                if (User.IsInRole("SuperAdmin"))
+                {
+            <p>@Html.ActionLink("Create a New Article", "Create", "BlogPosts", new { }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })</p>
+        }
+    }
+</div>
+
+
+

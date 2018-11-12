@@ -1,0 +1,167 @@
+﻿@model E3DBPI.Models.Message
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Message</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FromID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FromID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FromEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FromEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FromFName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FromFName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FromLName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FromLName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FromCompany)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FromCompany)
+        </dd>
+        <dt>
+            &nbsp;
+        </dt>
+        <dd>
+            
+        </dd>
+       
+        <dt>
+            @Html.DisplayNameFor(model => model.ToID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ToEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ToFName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToFName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ToLName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToLName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ToCompany)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToCompany)
+        </dd>
+        <dt>
+            &nbsp;
+        </dt>
+        <dd>
+
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MessageSubject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MessageSubject)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MessageText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MessageText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MessageDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MessageDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResponseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResponseDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DBPImail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DBPImail)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Deleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Deleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeleteDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeleteDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MessageID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

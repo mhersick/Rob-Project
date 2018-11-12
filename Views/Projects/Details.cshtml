@@ -1,0 +1,250 @@
+﻿@model E3DBPI.Models.Project
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Project</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OpenDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OpenDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BidOpenDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BidOpenDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BidCloseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BidCloseDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Deleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Deleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Complete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Complete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompletionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompletionDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequiredDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequiredDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BidStatus)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AcceptedBid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BidStatus)
+        </dd>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcceptedBid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AcceptedCompany)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcceptedCompany)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActionDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SiteAddress1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SiteAddress1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SiteAddress2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SiteAddress2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SiteAddressCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SiteAddressCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SiteAddressState)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SiteAddressState)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SiteAddressZip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SiteAddressZip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SiteAddressCountry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SiteAddressCountry)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsSubProject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsSubProject)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubProjectOf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubProjectOf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Company.CompanyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Company.CompanyName)
+        </dd>
+
+    </dl>
+</div>
+
+
+
+
+
+
+
+<div class="col-md-12" style="text-align:center;margin-top:40px;">
+    @if (User.Identity.IsAuthenticated)
+    {
+        if (User.IsInRole("CompanyAdmin"))
+        {
+            <p>
+                @Html.ActionLink("Return", "Index", new { id = Model.ProjectID }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })
+                @Html.ActionLink("Edit Project", "Edit", new { id = Model.ProjectID }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })
+                @Html.ActionLink("Add New Sub-Project", "Create", "SubProjects", new { }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })
+            </p>        }
+    }
+
+</div>
+

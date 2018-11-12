@@ -1,0 +1,184 @@
+﻿@model E3DBPI.Models.PaymentMethod
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PaymentMethod</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentMethodName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentMethodName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoutingNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoutingNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BankName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BankName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpirationMonth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpirationMonth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpirationYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpirationYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PayeeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PayeeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PayeeAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PayeeAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PayeeCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PayeeCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PayeeState)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PayeeState)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PayeeZip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PayeeZip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PayeeCountry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PayeeCountry)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OtherInfo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OtherInfo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastActivityDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastActivityDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SetAsDefault)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SetAsDefault)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Deleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Deleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Company.CompanyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Company.CompanyName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

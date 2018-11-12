@@ -1,0 +1,135 @@
+﻿@model IEnumerable<E3DBPI.Models.Company>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Zip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WebSite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContractorLicense)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResaleCert)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceLevel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BillingCycle)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.State)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Zip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WebSite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContractorLicense)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResaleCert)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceLevel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BillingCycle)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CompanyID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CompanyID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CompanyID })
+        </td>
+    </tr>
+}
+
+</table>

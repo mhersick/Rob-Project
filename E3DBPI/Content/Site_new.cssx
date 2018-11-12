@@ -1,0 +1,268 @@
+﻿body {
+    /*padding-top: 10px;*/
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width:100%;
+    /*background-color: #ffffff;*/
+}
+.container {
+    max-width: 100%;
+    width:100%;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+.rounded25 {
+    border-radius: 25px;
+}
+
+.rounded15 {
+    border-radius: 15px;
+}
+
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+/* Buttons & Button colors */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+
+.btn {
+    margin-top: 5px;
+    z-index: auto;
+}
+
+.btn-primary {
+    margin: 10px;
+    color: #000;
+    background-color: #0094ff;
+    /*border-color: #00ffff;*/
+    border:none;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-transform: uppercase;
+    font-weight: 600;
+    background-image: none;
+    /*border-radius: 3px;*/
+}
+
+    .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+        color: #000;
+        background-color: #009fff;
+        /*border-color: #00ffff*/
+    }
+
+    .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+        background-image: none
+    }
+
+    .btn-primary.disabled, .btn-primary[disabled], fieldset[disabled] .btn-primary, .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover, .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus, .btn-primary.disabled:active, .btn-primary[disabled]:active, fieldset[disabled] .btn-primary:active, .btn-primary.disabled.active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary.active {
+        background-color: #0094ff;
+        border: none;
+        /*border-color: #0094ff*/
+    }
+
+    .btn-primary .badge {
+        color: #0094ff;
+        background-color: #fff
+    }
+
+.btn-sm {
+    font-size: 12px;
+    padding: 5px 5px 5px 5px;
+    /*padding-top:5px;
+    padding-bottom:5px;*/
+}
+
+.btn-lg {
+    font-size: 16px;
+    padding: 15px 30px
+}
+
+.btn-xl {
+    font-size: 18px;
+    padding: 20px 40px
+}
+
+/*----------------------------------------------------------------------------------------------------------------------------- */
+/* Social Buttons */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+
+ul.social-buttons {
+    margin-bottom: 0
+}
+
+    ul.social-buttons li a {
+        display: block;
+        background-color: #222;
+        height: 40px;
+        width: 40px;
+        border: 2px solid;
+        border-radius: 100%;
+        font-size: 1.6em;
+        line-height: 1.7em;
+        color: #fff;
+        outline: 1px;
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        transition: all .3s
+    }
+
+        ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li a:active {
+            background-color: #fed136
+        }
+
+/*----------------------------------------------------------------------------------------------------------------------------- */
+/* Menu Styling  */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+.navbar-default {
+    background-color:none;
+    border-color:none;
+}
+
+.divider-vertical {
+    border:none;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color:#cccccc;
+}
+
+.dropdown-submenu {
+    position: relative;
+}
+
+    .dropdown-submenu > .dropdown-menu {
+        top: 0;
+        left: 100%;
+        margin-top: -6px;
+        margin-left: -1px;
+        -webkit-border-radius: 0 6px 6px 6px;
+        -moz-border-radius: 0 6px 6px 6px;
+        border-radius: 0 6px 6px 6px;
+    }
+
+    .dropdown-submenu:hover > .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-submenu > a:after {
+        display: block;
+        content: " ";
+        float: right;
+        width: 0;
+        height: 0;
+        border-color: transparent;
+        border-style: solid;
+        border-width: 5px 0 5px 5px;
+        border-left-color: #cccccc;
+        margin-top: 5px;
+        margin-right: -10px;
+    }
+
+    .dropdown-submenu:hover > a:after {
+        border-left-color: #ffffff;
+    }
+
+    .dropdown-submenu.pull-left {
+        float: none;
+    }
+
+        .dropdown-submenu.pull-left > .dropdown-menu {
+            left: -100%;
+            margin-left: 10px;
+            -webkit-border-radius: 6px 0 6px 6px;
+            -moz-border-radius: 6px 0 6px 6px;
+            border-radius: 6px 0 6px 6px;
+        }
+
+.navbar-nav .divider-vertical {
+    height: 40px;
+    margin: 0 9px;
+    border-left: 1px solid #f2f2f2;
+    border-right: 1px solid #ffffff;
+}
+
+/*----------------------------------------------------------------------------------------------------------------------------- */
+/* Contact Styling  */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+
+/*section#contact body {
+    background-image: url(../images/AdobeStock_142704236.jpeg);
+}*/
+
+section#contact {
+    /*background-color: #ffffff;*/
+    /*background-image: url(../images/AdobeStock_142704236.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;*/
+    /*margin-top:145px;
+	margin-top:50px;*/
+    padding-top: 20px;
+    padding-bottom: 20px
+}
+
+    section#contact .form-group {
+        margin-bottom: 25px
+    }
+
+        section#contact .form-group input, section#contact .form-group textarea {
+            padding: 10px
+        }
+
+            section#contact .form-group input.form-control {
+                height: auto
+            }
+
+            section#contact .form-group textarea.form-control {
+                height: 236px
+            }
+
+    section#contact .form-control:focus {
+        border-color: #fed136;
+        box-shadow: none
+    }
+
+    section#contact ::-webkit-input-placeholder {
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #bbb
+    }
+
+    section#contact :-moz-placeholder {
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #bbb
+    }
+
+    section#contact :-ms-input-placeholder {
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #bbb
+    }
+
+    section#contact .text-danger {
+        color: #e74c3c
+    }
+
+input,select,textarea {
+    max-width: none;
+}
+
+
+

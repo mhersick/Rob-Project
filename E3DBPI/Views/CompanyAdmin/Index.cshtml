@@ -1,0 +1,125 @@
+﻿@model E3DBPI.Models.IndexViewModel
+
+@{
+    ViewBag.Title = "Company Administrator - " + ViewBag.Co_cName + " (Main Menu)";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+
+<p style="font-size:16px;">
+    Hi @ViewBag.fName @ViewBag.lName! You are logged in as <b>@User.Identity.Name</b> <label id="uRoles" name="uRoles" value="roles..." />
+</p>
+
+<div class="row" style="margin-top:40px">
+    <div class="col-md-2">
+        <h5 style="text-align:left;">Your Company Data @Html.ActionLink("Edit", "Edit", "Companies", new { id = @ViewBag.cIDx }, htmlAttributes: new { @class = "btn btn-smform btn-primary" })</h5>
+        Service Level:<b> @ViewBag.co_SL</b><br/>Seats: <b>xx of xx</b>
+        <h4 style="text-align:left">Billing Address</h4>
+        <div>@ViewBag.co_cName</div>
+        <div>@ViewBag.co_add1 </div>
+        <div>@ViewBag.co_add2 </div>
+        <div>@ViewBag.co_ci , @ViewBag.co_st   @ViewBag.co_zi</div>
+        <div>@ViewBag.co_co</div>
+        <h4 style="text-align:left">Contact Details</h4>
+        <div>Email: @ViewBag.co_em</div>
+        <div>Phone: @ViewBag.ph</div>
+        <div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                if (User.IsInRole("SuperAdmin") || User.IsInRole("CompanyAdmin"))
+                {
+                <input type='submit' id='BtnNext' name='BtnNext' value='UPGRADE YOUR ACCOUNT' class="btn btn-sm btn-primary" />
+                <div>@Html.ActionLink("Payment Methods", "Index", "PaymentMethods", new { id = @ViewBag.cIDx }, htmlAttributes: new { @class = "btn btn-sm btn-primary" })</div>
+                }
+            }
+        </div>
+
+        <div class="accordion">
+            <section class="accordion-item">
+                <h4>Your Company</h4>
+                <div class="accordion-item-content">
+                    Service Level:<b> @ViewBag.co_SL</b><br />Seats: <b>xx of xx</b>
+                    <h4 style="text-align:left">Billing Address</h4>
+                    <div>@ViewBag.co_cName</div>
+                    <div>@ViewBag.co_add1 </div>
+                    <div>@ViewBag.co_add2 </div>
+                    <div>@ViewBag.co_ci , @ViewBag.co_st   @ViewBag.co_zi</div>
+                    <div>@ViewBag.co_co</div>
+                    <h4 style="text-align:left">Contact Details</h4>
+                    <div>Email: @ViewBag.co_em</div>
+                    <div>Phone: @ViewBag.ph</div>
+                    <div>
+                        @if (User.Identity.IsAuthenticated)
+            {
+                if (User.IsInRole("SuperAdmin") || User.IsInRole("CompanyAdmin"))
+                {
+                                <input type='submit' id='BtnNext' name='BtnNext' value='UPGRADE YOUR ACCOUNT' class="btn btn-sm btn-primary" />
+                                <div>@Html.ActionLink("Payment Methods", "Index", "PaymentMethods", new { id = @ViewBag.cIDx }, htmlAttributes: new { @class = "btn btn-sm btn-primary" })</div>
+                            }
+                        }
+                    </div>
+                </div>
+            </section>
+            <section class="accordion-item">
+                <h1>Section 2</h1>
+                <div class="accordion-item-content">
+                    <p>Content for section 2</p>
+                </div>
+            </section>
+            <section class="accordion-item accordion-item--default">
+                <h1>Section 3</h1>
+                <div class="accordion-item-content">
+                    <p>Content for section 3</p>
+                    <p>This is my default state.</p>
+                </div>
+            </section>
+            <section class="accordion-item">
+                <h1>Section 4</h1>
+                <div class="accordion-item-content">
+                    <p>Content for section 4</p>
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+        <div class="col-md-10">
+            <div class="row" style="margin-bottom:40px; text-align:center">
+                <div class="col-md-4">
+                    <h4>DBPImail <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+                    <div style="text-align:center">@Html.ActionLink("DBPImail", "Index", "Messages", new { id = @ViewBag.eIDx }, htmlAttributes: new { @class = "btn btn-lg btn-info" })</div>
+                </div>
+                <div class="col-md-4">
+                    <h4>Your Employees / Seats <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+                    <div style="text-align:center">@Html.ActionLink("Seats/Employees", "Index", "Employees", new { id = @ViewBag.cIDx }, htmlAttributes: new { @class = "btn btn-lg btn-info" })</div>
+                </div>
+                <div class="col-md-4">
+                    <h4>Your Projects <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+                    <div style="text-align:center">@Html.ActionLink("Projects", "Index", "Projects", new { id = @ViewBag.cIDx }, htmlAttributes: new { @class = "btn btn-lg btn-info" })</div>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom:40px; text-align:center">
+                <div class="col-md-4">
+                    <h4>Your Orders <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+                    <div style="text-align:center">@Html.ActionLink("Your Orders", "Index", "Orders", new { id = @ViewBag.cIDx }, htmlAttributes: new { @class = "btn btn-lg btn-info" })</div>
+                </div>
+                <div class="col-md-4">
+                    <h4>Your Documents <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+                    <div style="text-align:center">@Html.ActionLink("Your Documents", "Index", "Documents", new { id = @ViewBag.cIDx }, htmlAttributes: new { @class = "btn btn-lg btn-info" })</div>
+                </div>
+                <div class="col-md-4">
+                    <h4>Project/Bid Activity <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+                    <div style="text-align:center">@Html.ActionLink("Your Bid Activity", "Index", "Bids", new { id = @ViewBag.cIDx }, htmlAttributes: new { @class = "btn btn-lg btn-info" })</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+

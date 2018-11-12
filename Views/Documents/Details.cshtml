@@ -1,0 +1,50 @@
+﻿@model E3DBPI.Models.Document
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Document</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocumentTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocumentText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubProject.SubProjectName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubProject.SubProjectName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DocumentID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,2066 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SiteDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AltAddress">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="AddressID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="NickName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="100" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="Zip" Type="nchar" MaxLength="10" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShipPhone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ShipEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="Bids">
+          <Key>
+            <PropertyRef Name="BidID" />
+          </Key>
+          <Property Name="BidID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubProjectID" Type="int" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="BidDate" Type="datetime" Nullable="false" />
+          <Property Name="BidText" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="BidLimitations" Type="nvarchar(max)" />
+          <Property Name="BidAmt" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="BidStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="ActionDate" Type="datetime" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="LastViewDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BlogCategories">
+          <Key>
+            <PropertyRef Name="Post_CategoryID" />
+          </Key>
+          <Property Name="Post_CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Post_CategoryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Post_CategoryText" Type="nvarchar(max)" />
+          <Property Name="Post_CategoryImage" Type="nvarchar" MaxLength="50" />
+          <Property Name="Post_Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BlogComments">
+          <Key>
+            <PropertyRef Name="PostCommentID" />
+          </Key>
+          <Property Name="PostCommentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PostID" Type="int" Nullable="false" />
+          <Property Name="PostCommentAuthor" Type="nvarchar" MaxLength="50" />
+          <Property Name="PostCommentDate" Type="datetime" />
+          <Property Name="PostCommentContent" Type="nvarchar(max)" />
+          <Property Name="Deleted" Type="bit" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="PostCommentCompanyID" Type="int" />
+        </EntityType>
+        <EntityType Name="BlogPosts">
+          <Key>
+            <PropertyRef Name="PostID" />
+          </Key>
+          <Property Name="PostID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Post_CategoryID" Type="int" Nullable="false" />
+          <Property Name="Post_author" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Post_Date" Type="datetime" Nullable="false" />
+          <Property Name="Post_Tite" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Post_Content" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Post_Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="Post_Deleted" Type="bit" Nullable="false" />
+          <Property Name="Post_Active" Type="bit" Nullable="false" />
+          <Property Name="Post_Featured" Type="bit" Nullable="false" />
+          <Property Name="Post_Views" Type="int" />
+          <Property Name="Post_CommentsAllowed" Type="bit" Nullable="false" />
+          <Property Name="Post_Image1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Post_Image2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Post_Image3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Post_Banner1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Post_Article" Type="nvarchar" MaxLength="300" />
+          <Property Name="Post_ArticleContent" Type="nvarchar(max)" />
+          <Property Name="Post_URL1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Post_URL2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Post_CommentsReview" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+          </Key>
+          <Property Name="CompanyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="100" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="100" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nchar" MaxLength="10" />
+          <Property Name="Zip" Type="nchar" MaxLength="10" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone1" Type="nchar" MaxLength="50" />
+          <Property Name="Phone2" Type="nchar" MaxLength="50" />
+          <Property Name="Email1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email2" Type="nvarchar" MaxLength="50" />
+          <Property Name="WebSite" Type="nvarchar" MaxLength="100" />
+          <Property Name="CompanyPrimaryImg" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompanySecondaryImg" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompanyDescription" Type="nvarchar" MaxLength="300" />
+          <Property Name="CompanyText" Type="nvarchar(max)" />
+          <Property Name="ArticleDescription" Type="nvarchar" MaxLength="300" />
+          <Property Name="ArticleText" Type="nvarchar(max)" />
+          <Property Name="ServiceLevel" Type="nvarchar" MaxLength="50" />
+          <Property Name="BillingCycle" Type="int" />
+          <Property Name="ResaleCertificate" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContractorLicense" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contacts">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Interest" Type="nvarchar" MaxLength="100" />
+          <Property Name="MessageText" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DateTime" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Documents">
+          <Key>
+            <PropertyRef Name="DocumentID" />
+          </Key>
+          <Property Name="DocumentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubProjectID" Type="int" Nullable="false" />
+          <Property Name="DocumentTitle" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DocumentText" Type="nvarchar" MaxLength="500" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="uniqueidentifier" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="Company_EmployeeID" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="Zip" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email1" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="CompanyCreator" Type="bit" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ItemBoxes">
+          <Key>
+            <PropertyRef Name="BoxID" />
+          </Key>
+          <Property Name="BoxID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BoxDescription" Type="nvarchar" MaxLength="50" />
+          <Property Name="BoxWidth" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="BoxLength" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="BoxHeight" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="BoxNW" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="BoxCF" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="InnerOuter" Type="bit" />
+          <Property Name="InnerBoxFor" Type="int" />
+          <Property Name="Image" Type="nvarchar" MaxLength="50" />
+          <Property Name="Zone01" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Zone02" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Zone03" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Zone04" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Zone05" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Zone06" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Zone07" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Zone08" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Zone09" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Zone10" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Zone11" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Zone12" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Zone13" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Zone14" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Zone15" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="RuralZone" Type="bit" Nullable="false" />
+          <Property Name="InternationalZone" Type="bit" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemCategories">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CategoryDescription" Type="nvarchar" MaxLength="500" />
+          <Property Name="CategoryHeader" Type="nvarchar" MaxLength="100" />
+          <Property Name="Image1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Image2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Image3" Type="nvarchar" MaxLength="50" />
+          <Property Name="WebLink1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Weblink2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Featured" Type="bit" Nullable="false" />
+          <Property Name="ShowOnRelated" Type="bit" Nullable="false" />
+          <Property Name="IsSubCat" Type="bit" Nullable="false" />
+          <Property Name="SubCatOf" Type="nvarchar" MaxLength="50" />
+          <Property Name="CategoryLongText" Type="nvarchar(max)" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="Sequence" Type="int" />
+        </EntityType>
+        <EntityType Name="Items">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VendorID" Type="int" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="SKU" Type="int" />
+          <Property Name="ItemName" Type="nvarchar" MaxLength="100" />
+          <Property Name="ItemDescription" Type="nvarchar" MaxLength="1000" />
+          <Property Name="VendorItemID" Type="int" />
+          <Property Name="Price1" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Price2" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Price3" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Price4" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Price5" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Size" Type="int" />
+          <Property Name="Color" Type="int" />
+          <Property Name="InStock" Type="int" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Featured" Type="bit" />
+          <Property Name="ItemNW" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Limage" Type="nvarchar" MaxLength="50" />
+          <Property Name="Simage" Type="nvarchar" MaxLength="50" />
+          <Property Name="Timage" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pic01" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pic02" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pic03" Type="nvarchar" MaxLength="50" />
+          <Property Name="WebLink" Type="nvarchar" MaxLength="50" />
+          <Property Name="Outlet" Type="bit" Nullable="false" />
+          <Property Name="OrderMin" Type="int" />
+          <Property Name="OrderInc" Type="int" />
+          <Property Name="BoxID" Type="int" />
+          <Property Name="Views" Type="int" />
+          <Property Name="Ranking" Type="int" />
+        </EntityType>
+        <EntityType Name="MemberInfo">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="CompanyID" Type="int" />
+          <Property Name="IsCompanyOwner" Type="bit" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="100" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="100" />
+          <Property Name="Address3" Type="nvarchar" MaxLength="100" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="Zip" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Deleted" Type="bit" />
+          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Messages">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Name="MessageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FromID" Type="int" />
+          <Property Name="FromEmail" Type="nvarchar" MaxLength="100" />
+          <Property Name="FromFName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FromLName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FromCompay" Type="nvarchar" MaxLength="100" />
+          <Property Name="ToID" Type="int" />
+          <Property Name="ToEmail" Type="nvarchar" MaxLength="100" />
+          <Property Name="ToFName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ToLName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ToCompany" Type="nvarchar" MaxLength="100" />
+          <Property Name="MessageSubject" Type="nvarchar" MaxLength="100" />
+          <Property Name="MessageText" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MessageDate" Type="datetime" />
+          <Property Name="ResponseDate" Type="datetime" />
+          <Property Name="DBPImail" Type="bit" />
+          <Property Name="Deleted" Type="bit" />
+          <Property Name="DeleteDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="OrderLine">
+          <Key>
+            <PropertyRef Name="OrderLineID" />
+          </Key>
+          <Property Name="OrderLineID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="ItemName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ItemDescription" Type="nvarchar" MaxLength="5" />
+          <Property Name="ItemPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ItemQty" Type="int" />
+          <Property Name="Discount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="LineTotal" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="OrderLineStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="ThumbImage" Type="nvarchar" MaxLength="10" />
+          <Property Name="BoxID" Type="int" />
+          <Property Name="Fullfilled" Type="bit" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Size" Type="int" />
+          <Property Name="Color" Type="int" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="CustOrderNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrderStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrderDate" Type="datetime" Nullable="false" />
+          <Property Name="ShipDate" Type="datetime" />
+          <Property Name="PaymentStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="PaymentID" Type="int" />
+          <Property Name="PaymentDate" Type="datetime" />
+          <Property Name="ShipToAddressID" Type="int" />
+          <Property Name="ShipperID" Type="int" />
+          <Property Name="ShipperTracking" Type="nvarchar" MaxLength="1000" />
+          <Property Name="ProductTotal" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="WebShipping" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ActualShipping" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SalesTax" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Discounts" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Fulfilled" Type="bit" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderStatus">
+          <Key>
+            <PropertyRef Name="OrderStatusID" />
+          </Key>
+          <Property Name="OrderStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="Sequence" Type="int" />
+        </EntityType>
+        <EntityType Name="Payments">
+          <Key>
+            <PropertyRef Name="PaymentID" />
+          </Key>
+          <Property Name="PaymentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="PaymentAmt" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="PaymentDate" Type="datetime" Nullable="false" />
+          <Property Name="PaymentType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PayerID" Type="nvarchar" MaxLength="50" />
+          <Property Name="TransID" Type="nvarchar" MaxLength="50" />
+          <Property Name="TransStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Deleted" Type="bit" />
+          <Property Name="BankAccount" Type="nvarchar" MaxLength="50" />
+          <Property Name="BankRouting" Type="nvarchar" MaxLength="50" />
+          <Property Name="CardType" Type="nvarchar" MaxLength="50" />
+          <Property Name="CardNumber" Type="nchar" MaxLength="20" />
+          <Property Name="CardExMo" Type="nchar" MaxLength="2" />
+          <Property Name="CardExYr" Type="nchar" MaxLength="2" />
+          <Property Name="CardCVCC" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="ProjectCategories">
+          <Key>
+            <PropertyRef Name="ProjectCategory" />
+          </Key>
+          <Property Name="ProjectCategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CategoryDescription" Type="nvarchar" MaxLength="500" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="Sequence" Type="int" />
+        </EntityType>
+        <EntityType Name="Projects">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ProjectDescription" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ProjectStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProjectType" Type="int" />
+          <Property Name="OpenDate" Type="datetime" />
+          <Property Name="BidOpenDate" Type="date" />
+          <Property Name="BidCloseDate" Type="date" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="Complete" Type="bit" Nullable="false" />
+          <Property Name="CompletionDate" Type="datetime" />
+          <Property Name="RequiredDate" Type="date" />
+          <Property Name="AcceptedBid" Type="int" />
+          <Property Name="AcceptedCompany" Type="int" />
+          <Property Name="ActionDate" Type="datetime" />
+          <Property Name="SiteAddress1" Type="nvarchar" MaxLength="100" />
+          <Property Name="SiteAddress2" Type="nvarchar" MaxLength="100" />
+          <Property Name="SiteAddressCity" Type="nvarchar" MaxLength="50" />
+          <Property Name="SiteAddressState" Type="nvarchar" MaxLength="50" />
+          <Property Name="SiteAddressZip" Type="nvarchar" MaxLength="50" />
+          <Property Name="SiteAddressCountry" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsSubProject" Type="bit" Nullable="false" />
+          <Property Name="SubProjectOf" Type="int" />
+        </EntityType>
+        <EntityType Name="ProjectStatus">
+          <Key>
+            <PropertyRef Name="ProjectStatusID" />
+          </Key>
+          <Property Name="ProjectStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="300" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="Sequence" Type="int" />
+        </EntityType>
+        <EntityType Name="Reviews">
+          <Key>
+            <PropertyRef Name="ReviewID" />
+          </Key>
+          <Property Name="ReviewID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyID" Type="int" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="ReviewDate" Type="datetime" Nullable="false" />
+          <Property Name="StarRate" Type="int" />
+          <Property Name="ReviewText" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Deleted" Type="bit" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Featured" Type="bit" />
+        </EntityType>
+        <EntityType Name="SubProjects">
+          <Key>
+            <PropertyRef Name="SubProjectID" />
+          </Key>
+          <Property Name="SubProjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectID" Type="int" Nullable="false" />
+          <Property Name="SubProjectName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="SubProjectDescription" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SubProjectStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProjectType" Type="nvarchar" MaxLength="50" />
+          <Property Name="OpenDate" Type="datetime" />
+          <Property Name="BiDOpenDate" Type="date" />
+          <Property Name="BidCloseDate" Type="date" />
+          <Property Name="RequiredDate" Type="date" />
+          <Property Name="AcceptedBid" Type="int" />
+          <Property Name="AcceptedCompany" Type="int" />
+          <Property Name="ActionDate" Type="datetime" />
+          <Property Name="Deleted" Type="bit" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="Complete" Type="bit" />
+          <Property Name="CompletionDate" Type="datetime" />
+          <Property Name="Dependencies" Type="int" />
+        </EntityType>
+        <EntityType Name="Teams">
+          <Key>
+            <PropertyRef Name="TeamRecordID" />
+          </Key>
+          <Property Name="TeamRecordID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectID" Type="int" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="CompanyID" Type="int" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AltAddress_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="AltAddress" Type="Self.AltAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="AltAddress">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bids_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Bids" Type="Self.Bids" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="Bids">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bids_SubProjects">
+          <End Role="SubProjects" Type="Self.SubProjects" Multiplicity="1" />
+          <End Role="Bids" Type="Self.Bids" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubProjects">
+              <PropertyRef Name="SubProjectID" />
+            </Principal>
+            <Dependent Role="Bids">
+              <PropertyRef Name="SubProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogComments_BlogPosts">
+          <End Role="BlogPosts" Type="Self.BlogPosts" Multiplicity="1" />
+          <End Role="BlogComments" Type="Self.BlogComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogPosts">
+              <PropertyRef Name="PostID" />
+            </Principal>
+            <Dependent Role="BlogComments">
+              <PropertyRef Name="PostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogPosts_BlogCategories">
+          <End Role="BlogCategories" Type="Self.BlogCategories" Multiplicity="1" />
+          <End Role="BlogPosts" Type="Self.BlogPosts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogCategories">
+              <PropertyRef Name="Post_CategoryID" />
+            </Principal>
+            <Dependent Role="BlogPosts">
+              <PropertyRef Name="Post_CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Documents_SubProjects">
+          <End Role="SubProjects" Type="Self.SubProjects" Multiplicity="1" />
+          <End Role="Documents" Type="Self.Documents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubProjects">
+              <PropertyRef Name="SubProjectID" />
+            </Principal>
+            <Dependent Role="Documents">
+              <PropertyRef Name="SubProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Items_ItemBoxes">
+          <End Role="ItemBoxes" Type="Self.ItemBoxes" Multiplicity="0..1" />
+          <End Role="Items" Type="Self.Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemBoxes">
+              <PropertyRef Name="BoxID" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="BoxID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Items_ItemCategories">
+          <End Role="ItemCategories" Type="Self.ItemCategories" Multiplicity="1" />
+          <End Role="Items" Type="Self.Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemCategories">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderLine_Orders">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="OrderLine" Type="Self.OrderLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderLine">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payments_Orders">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="Payments">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Projects" Type="Self.Projects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="Projects">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SiteDBModelStoreContainer">
+          <EntitySet Name="AltAddress" EntityType="Self.AltAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bids" EntityType="Self.Bids" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BlogCategories" EntityType="Self.BlogCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BlogComments" EntityType="Self.BlogComments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BlogPosts" EntityType="Self.BlogPosts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Documents" EntityType="Self.Documents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemBoxes" EntityType="Self.ItemBoxes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemCategories" EntityType="Self.ItemCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MemberInfo" EntityType="Self.MemberInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderLine" EntityType="Self.OrderLine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payments" EntityType="Self.Payments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectCategories" EntityType="Self.ProjectCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectStatus" EntityType="Self.ProjectStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reviews" EntityType="Self.Reviews" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubProjects" EntityType="Self.SubProjects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Teams" EntityType="Self.Teams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AltAddress_Company" Association="Self.FK_AltAddress_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="AltAddress" EntitySet="AltAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bids_Company" Association="Self.FK_Bids_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Bids" EntitySet="Bids" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bids_SubProjects" Association="Self.FK_Bids_SubProjects">
+            <End Role="SubProjects" EntitySet="SubProjects" />
+            <End Role="Bids" EntitySet="Bids" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogComments_BlogPosts" Association="Self.FK_BlogComments_BlogPosts">
+            <End Role="BlogPosts" EntitySet="BlogPosts" />
+            <End Role="BlogComments" EntitySet="BlogComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogPosts_BlogCategories" Association="Self.FK_BlogPosts_BlogCategories">
+            <End Role="BlogCategories" EntitySet="BlogCategories" />
+            <End Role="BlogPosts" EntitySet="BlogPosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Documents_SubProjects" Association="Self.FK_Documents_SubProjects">
+            <End Role="SubProjects" EntitySet="SubProjects" />
+            <End Role="Documents" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Company" Association="Self.FK_Employees_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Items_ItemBoxes" Association="Self.FK_Items_ItemBoxes">
+            <End Role="ItemBoxes" EntitySet="ItemBoxes" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Items_ItemCategories" Association="Self.FK_Items_ItemCategories">
+            <End Role="ItemCategories" EntitySet="ItemCategories" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderLine_Orders" Association="Self.FK_OrderLine_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderLine" EntitySet="OrderLine" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Company" Association="Self.FK_Orders_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payments_Orders" Association="Self.FK_Payments_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Payments" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_Company" Association="Self.FK_Projects_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Projects" EntitySet="Projects" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SiteDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AltAddress">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="AddressID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="NickName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Zip" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ShipPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShipEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_AltAddress_Company" FromRole="AltAddress" ToRole="Company" />
+        </EntityType>
+        <EntityType Name="Bid">
+          <Key>
+            <PropertyRef Name="BidID" />
+          </Key>
+          <Property Name="BidID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubProjectID" Type="Int32" Nullable="false" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="BidDate" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="BidText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BidLimitations" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BidAmt" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="BidStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="ActionDate" Type="DateTime" Precision="3" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastViewDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_Bids_Company" FromRole="Bids" ToRole="Company" />
+          <NavigationProperty Name="SubProject" Relationship="Self.FK_Bids_SubProjects" FromRole="Bids" ToRole="SubProjects" />
+        </EntityType>
+        <EntityType Name="BlogCategory">
+          <Key>
+            <PropertyRef Name="Post_CategoryID" />
+          </Key>
+          <Property Name="Post_CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Post_CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Post_CategoryText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Post_CategoryImage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Post_Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="BlogPosts" Relationship="Self.FK_BlogPosts_BlogCategories" FromRole="BlogCategories" ToRole="BlogPosts" />
+        </EntityType>
+        <EntityType Name="BlogComment">
+          <Key>
+            <PropertyRef Name="PostCommentID" />
+          </Key>
+          <Property Name="PostCommentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PostID" Type="Int32" Nullable="false" />
+          <Property Name="PostCommentAuthor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PostCommentDate" Type="DateTime" Precision="3" />
+          <Property Name="PostCommentContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Deleted" Type="Boolean" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="PostCommentCompanyID" Type="Int32" />
+          <NavigationProperty Name="BlogPost" Relationship="Self.FK_BlogComments_BlogPosts" FromRole="BlogComments" ToRole="BlogPosts" />
+        </EntityType>
+        <EntityType Name="BlogPost">
+          <Key>
+            <PropertyRef Name="PostID" />
+          </Key>
+          <Property Name="PostID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Post_CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="Post_author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Post_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Post_Tite" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Post_Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Post_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Post_Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Post_Active" Type="Boolean" Nullable="false" />
+          <Property Name="Post_Featured" Type="Boolean" Nullable="false" />
+          <Property Name="Post_Views" Type="Int32" />
+          <Property Name="Post_CommentsAllowed" Type="Boolean" Nullable="false" />
+          <Property Name="Post_Image1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Post_Image2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Post_Image3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Post_Banner1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Post_Article" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Post_ArticleContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Post_URL1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Post_URL2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Post_CommentsReview" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="BlogCategory" Relationship="Self.FK_BlogPosts_BlogCategories" FromRole="BlogPosts" ToRole="BlogCategories" />
+          <NavigationProperty Name="BlogComments" Relationship="Self.FK_BlogComments_BlogPosts" FromRole="BlogPosts" ToRole="BlogComments" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+          </Key>
+          <Property Name="CompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Zip" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone1" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Phone2" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Email1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WebSite" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ContractorLicense" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ServiceLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BillingCycle" Type="Int32" />
+          <NavigationProperty Name="AltAddresses" Relationship="Self.FK_AltAddress_Company" FromRole="Company" ToRole="AltAddress" />
+          <NavigationProperty Name="Bids" Relationship="Self.FK_Bids_Company" FromRole="Company" ToRole="Bids" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_Company" FromRole="Company" ToRole="Employees" />
+          <!--<NavigationProperty Name="Messages" Relationship="Self.FK_Messages_Company" FromRole="Company" ToRole="Messages" />-->
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Company" FromRole="Company" ToRole="Orders" />
+          <NavigationProperty Name="Projects" Relationship="Self.FK_Projects_Company" FromRole="Company" ToRole="Projects" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="CompanyPrimaryImg" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanySecondaryImg" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyDescription" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ArticleDescription" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ArticleText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ResaleCertificate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="DocumentID" />
+          </Key>
+          <Property Name="DocumentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubProjectID" Type="Int32" Nullable="false" />
+          <Property Name="DocumentTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DocumentText" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="SubProject" Relationship="Self.FK_Documents_SubProjects" FromRole="Documents" ToRole="SubProjects" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="Company_EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Zip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_Employees_Company" FromRole="Employees" ToRole="Company" />
+          <Property Name="CompanyCreator" Type="Boolean" Nullable="false" />
+          <Property Name="UserID" Type="Guid" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <!--<NavigationProperty Name="Messages" Relationship="Self.FK_Messages_Employees" FromRole="Employees" ToRole="Messages" />-->
+        </EntityType>
+        <EntityType Name="ItemBox">
+          <Key>
+            <PropertyRef Name="BoxID" />
+          </Key>
+          <Property Name="BoxID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BoxDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BoxWidth" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="BoxLength" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="BoxHeight" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="BoxNW" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="BoxCF" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="InnerOuter" Type="Boolean" />
+          <Property Name="InnerBoxFor" Type="Int32" />
+          <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Zone01" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Zone02" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Zone03" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Zone04" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Zone05" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Zone06" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Zone07" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Zone08" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Zone09" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Zone10" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Zone11" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Zone12" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Zone13" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Zone14" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Zone15" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="RuralZone" Type="Boolean" Nullable="false" />
+          <Property Name="InternationalZone" Type="Boolean" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_Items_ItemBoxes" FromRole="ItemBoxes" ToRole="Items" />
+          <NavigationProperty Name="Items" Relationship="SiteDBModel.FK_Items_ItemBoxes1" FromRole="ItemBox" ToRole="Item" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemCategory">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CategoryDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryHeader" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Image1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Image2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Image3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WebLink1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Weblink2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Featured" Type="Boolean" Nullable="false" />
+          <Property Name="ShowOnRelated" Type="Boolean" Nullable="false" />
+          <Property Name="IsSubCat" Type="Boolean" Nullable="false" />
+          <Property Name="SubCatOf" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryLongText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Sequence" Type="Int32" />
+          <NavigationProperty Name="Items" Relationship="Self.FK_Items_ItemCategories" FromRole="ItemCategories" ToRole="Items" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VendorID" Type="Int32" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="SKU" Type="Int32" />
+          <Property Name="ItemName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ItemDescription" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="VendorItemID" Type="Int32" />
+          <Property Name="Price1" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Price2" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Price3" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Price4" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Price5" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Size" Type="Int32" />
+          <Property Name="Color" Type="Int32" />
+          <Property Name="InStock" Type="Int32" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Featured" Type="Boolean" />
+          <Property Name="ItemNW" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Limage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Simage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Timage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pic01" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pic02" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pic03" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WebLink" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Outlet" Type="Boolean" Nullable="false" />
+          <Property Name="OrderMin" Type="Int32" />
+          <Property Name="OrderInc" Type="Int32" />
+          <Property Name="BoxID" Type="Int32" />
+          <Property Name="Views" Type="Int32" />
+          <Property Name="Ranking" Type="Int32" />
+          <NavigationProperty Name="ItemBox" Relationship="Self.FK_Items_ItemBoxes" FromRole="Items" ToRole="ItemBoxes" />
+          <NavigationProperty Name="ItemCategory" Relationship="Self.FK_Items_ItemCategories" FromRole="Items" ToRole="ItemCategories" />
+          <NavigationProperty Name="ItemBox1" Relationship="SiteDBModel.FK_Items_ItemBoxes1" FromRole="Item" ToRole="ItemBox" />
+        </EntityType>
+        <EntityType Name="MemberInfo">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <Property Name="CompanyID" Type="Int32" />
+          <Property Name="IsCompanyOwner" Type="Boolean" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Address3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Zip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Deleted" Type="Boolean" />
+          <Property Name="UserID" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Name="MessageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FromID" Type="Int32" />
+          <Property Name="ToID" Type="Int32" />
+          <Property Name="ToEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ToFName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ToLName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ToCompany" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MessageSubject" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MessageText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MessageDate" Type="DateTime" Precision="3" />
+          <Property Name="ResponseDate" Type="DateTime" Precision="3" />
+          <Property Name="DBPImail" Type="Boolean" />
+          <Property Name="FromEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FromFName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FromLName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FromCompay" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Deleted" Type="Boolean" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="OrderLine">
+          <Key>
+            <PropertyRef Name="OrderLineID" />
+          </Key>
+          <Property Name="OrderLineID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="ItemID" Type="Int32" Nullable="false" />
+          <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ItemDescription" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="ItemPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ItemQty" Type="Int32" />
+          <Property Name="Discount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="LineTotal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="OrderLineStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ThumbImage" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="BoxID" Type="Int32" />
+          <Property Name="Fullfilled" Type="Boolean" Nullable="false" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Size" Type="Int32" />
+          <Property Name="Color" Type="Int32" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_OrderLine_Orders" FromRole="OrderLine" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="CustOrderNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrderStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ShipDate" Type="DateTime" Precision="3" />
+          <Property Name="PaymentStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentID" Type="Int32" />
+          <Property Name="PaymentDate" Type="DateTime" Precision="3" />
+          <Property Name="ShipToAddressID" Type="Int32" />
+          <Property Name="ShipperID" Type="Int32" />
+          <Property Name="ShipperTracking" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="ProductTotal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="WebShipping" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ActualShipping" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SalesTax" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Discounts" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Fulfilled" Type="Boolean" Nullable="false" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_Orders_Company" FromRole="Orders" ToRole="Company" />
+          <NavigationProperty Name="OrderLines" Relationship="Self.FK_OrderLine_Orders" FromRole="Orders" ToRole="OrderLine" />
+          <NavigationProperty Name="Payments" Relationship="Self.FK_Payments_Orders" FromRole="Orders" ToRole="Payments" />
+        </EntityType>
+        <EntityType Name="OrderStatu">
+          <Key>
+            <PropertyRef Name="OrderStatusID" />
+          </Key>
+          <Property Name="OrderStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Sequence" Type="Int32" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="PaymentID" />
+          </Key>
+          <Property Name="PaymentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="PaymentAmt" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="PaymentDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PaymentType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PayerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TransID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TransStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Deleted" Type="Boolean" />
+          <Property Name="BankAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankRouting" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CardType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CardNumber" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="CardExMo" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="CardExYr" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_Payments_Orders" FromRole="Payments" ToRole="Orders" />
+          <Property Name="CardCVCC" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ProjectCategory">
+          <Key>
+            <PropertyRef Name="ProjectCategory1" />
+          </Key>
+          <Property Name="ProjectCategory1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CategoryDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Sequence" Type="Int32" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProjectDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProjectStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectType" Type="Int32" />
+          <Property Name="OpenDate" Type="DateTime" Precision="3" />
+          <Property Name="BidOpenDate" Type="DateTime" Precision="0" />
+          <Property Name="BidCloseDate" Type="DateTime" Precision="0" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Complete" Type="Boolean" Nullable="false" />
+          <Property Name="CompletionDate" Type="DateTime" Precision="3" />
+          <Property Name="RequiredDate" Type="DateTime" Precision="0" />
+          <Property Name="AcceptedBid" Type="Int32" />
+          <Property Name="AcceptedCompany" Type="Int32" />
+          <Property Name="ActionDate" Type="DateTime" Precision="3" />
+          <Property Name="SiteAddress1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SiteAddress2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SiteAddressCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SiteAddressState" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SiteAddressZip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SiteAddressCountry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsSubProject" Type="Boolean" Nullable="false" />
+          <Property Name="SubProjectOf" Type="Int32" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_Projects_Company" FromRole="Projects" ToRole="Company" />
+        </EntityType>
+        <EntityType Name="Review">
+          <Key>
+            <PropertyRef Name="ReviewID" />
+          </Key>
+          <Property Name="ReviewID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyID" Type="Int32" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="ReviewDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="StarRate" Type="Int32" />
+          <Property Name="ReviewText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Deleted" Type="Boolean" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Featured" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="SubProject">
+          <Key>
+            <PropertyRef Name="SubProjectID" />
+          </Key>
+          <Property Name="SubProjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectID" Type="Int32" Nullable="false" />
+          <Property Name="SubProjectName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SubProjectDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SubProjectStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OpenDate" Type="DateTime" Precision="3" />
+          <Property Name="BiDOpenDate" Type="DateTime" Precision="0" />
+          <Property Name="BidCloseDate" Type="DateTime" Precision="0" />
+          <Property Name="RequiredDate" Type="DateTime" Precision="0" />
+          <Property Name="AcceptedBid" Type="Int32" />
+          <Property Name="AcceptedCompany" Type="Int32" />
+          <Property Name="ActionDate" Type="DateTime" Precision="3" />
+          <Property Name="Deleted" Type="Boolean" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Complete" Type="Boolean" />
+          <Property Name="CompletionDate" Type="DateTime" Precision="3" />
+          <Property Name="Dependencies" Type="Int32" />
+          <NavigationProperty Name="Bids" Relationship="Self.FK_Bids_SubProjects" FromRole="SubProjects" ToRole="Bids" />
+          <NavigationProperty Name="Documents" Relationship="Self.FK_Documents_SubProjects" FromRole="SubProjects" ToRole="Documents" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="TeamRecordID" />
+          </Key>
+          <Property Name="TeamRecordID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectID" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="CompanyID" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProjectStatu">
+          <Key>
+            <PropertyRef Name="ProjectStatusID" />
+          </Key>
+          <Property Name="ProjectStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Sequence" Type="Int32" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AltAddress_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="AltAddress" Type="Self.AltAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="AltAddress">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bids_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Bids" Type="Self.Bid" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="Bids">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bids_SubProjects">
+          <End Role="SubProjects" Type="Self.SubProject" Multiplicity="1" />
+          <End Role="Bids" Type="Self.Bid" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubProjects">
+              <PropertyRef Name="SubProjectID" />
+            </Principal>
+            <Dependent Role="Bids">
+              <PropertyRef Name="SubProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogPosts_BlogCategories">
+          <End Role="BlogCategories" Type="Self.BlogCategory" Multiplicity="1" />
+          <End Role="BlogPosts" Type="Self.BlogPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogCategories">
+              <PropertyRef Name="Post_CategoryID" />
+            </Principal>
+            <Dependent Role="BlogPosts">
+              <PropertyRef Name="Post_CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogComments_BlogPosts">
+          <End Role="BlogPosts" Type="Self.BlogPost" Multiplicity="1" />
+          <End Role="BlogComments" Type="Self.BlogComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogPosts">
+              <PropertyRef Name="PostID" />
+            </Principal>
+            <Dependent Role="BlogComments">
+              <PropertyRef Name="PostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Employees" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Projects" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="Projects">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Documents_SubProjects">
+          <End Role="SubProjects" Type="Self.SubProject" Multiplicity="1" />
+          <End Role="Documents" Type="Self.Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubProjects">
+              <PropertyRef Name="SubProjectID" />
+            </Principal>
+            <Dependent Role="Documents">
+              <PropertyRef Name="SubProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Items_ItemBoxes">
+          <End Role="ItemBoxes" Type="Self.ItemBox" Multiplicity="1" />
+          <End Role="Items" Type="Self.Item" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="ItemBoxes">
+              <PropertyRef Name="BoxID" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Items_ItemCategories">
+          <End Role="ItemCategories" Type="Self.ItemCategory" Multiplicity="1" />
+          <End Role="Items" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemCategories">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderLine_Orders">
+          <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+          <End Role="OrderLine" Type="Self.OrderLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderLine">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payments_Orders">
+          <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+          <End Role="Payments" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="Payments">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SiteDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AltAddresses" EntityType="Self.AltAddress" />
+          <EntitySet Name="Bids" EntityType="Self.Bid" />
+          <EntitySet Name="BlogCategories" EntityType="Self.BlogCategory" />
+          <EntitySet Name="BlogComments" EntityType="Self.BlogComment" />
+          <EntitySet Name="BlogPosts" EntityType="Self.BlogPost" />
+          <EntitySet Name="Companies" EntityType="Self.Company" />
+          <EntitySet Name="Documents" EntityType="Self.Document" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="ItemBoxes" EntityType="Self.ItemBox" />
+          <EntitySet Name="ItemCategories" EntityType="Self.ItemCategory" />
+          <EntitySet Name="Items" EntityType="Self.Item" />
+          <EntitySet Name="MemberInfoes" EntityType="Self.MemberInfo" />
+          <EntitySet Name="Messages" EntityType="Self.Message" />
+          <EntitySet Name="OrderLines" EntityType="Self.OrderLine" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="OrderStatus" EntityType="Self.OrderStatu" />
+          <EntitySet Name="Payments" EntityType="Self.Payment" />
+          <EntitySet Name="ProjectCategories" EntityType="Self.ProjectCategory" />
+          <EntitySet Name="Projects" EntityType="Self.Project" />
+          <EntitySet Name="Reviews" EntityType="Self.Review" />
+          <EntitySet Name="SubProjects" EntityType="Self.SubProject" />
+          <EntitySet Name="Teams" EntityType="Self.Team" />
+          <EntitySet Name="ProjectStatus" EntityType="Self.ProjectStatu" />
+          <AssociationSet Name="FK_AltAddress_Company" Association="Self.FK_AltAddress_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="AltAddress" EntitySet="AltAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bids_Company" Association="Self.FK_Bids_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Bids" EntitySet="Bids" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bids_SubProjects" Association="Self.FK_Bids_SubProjects">
+            <End Role="SubProjects" EntitySet="SubProjects" />
+            <End Role="Bids" EntitySet="Bids" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogPosts_BlogCategories" Association="Self.FK_BlogPosts_BlogCategories">
+            <End Role="BlogCategories" EntitySet="BlogCategories" />
+            <End Role="BlogPosts" EntitySet="BlogPosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogComments_BlogPosts" Association="Self.FK_BlogComments_BlogPosts">
+            <End Role="BlogPosts" EntitySet="BlogPosts" />
+            <End Role="BlogComments" EntitySet="BlogComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Company" Association="Self.FK_Employees_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <!--<AssociationSet Name="FK_Messages_Company" Association="Self.FK_Messages_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Messages" EntitySet="Messages" />
+          </AssociationSet>-->
+          <AssociationSet Name="FK_Orders_Company" Association="Self.FK_Orders_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_Company" Association="Self.FK_Projects_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Projects" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Documents_SubProjects" Association="Self.FK_Documents_SubProjects">
+            <End Role="SubProjects" EntitySet="SubProjects" />
+            <End Role="Documents" EntitySet="Documents" />
+          </AssociationSet>
+          <!--<AssociationSet Name="FK_Messages_Employees" Association="Self.FK_Messages_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Messages" EntitySet="Messages" />
+          </AssociationSet>-->
+          <AssociationSet Name="FK_Items_ItemBoxes" Association="Self.FK_Items_ItemBoxes">
+            <End Role="ItemBoxes" EntitySet="ItemBoxes" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Items_ItemCategories" Association="Self.FK_Items_ItemCategories">
+            <End Role="ItemCategories" EntitySet="ItemCategories" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderLine_Orders" Association="Self.FK_OrderLine_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderLine" EntitySet="OrderLines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payments_Orders" Association="Self.FK_Payments_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Payments" EntitySet="Payments" />
+          </AssociationSet>
+          <EntitySet Name="Contacts" EntityType="SiteDBModel.Contact" />
+          <AssociationSet Name="FK_Items_ItemBoxes1" Association="SiteDBModel.FK_Items_ItemBoxes1">
+            <End Role="ItemBox" EntitySet="ItemBoxes" />
+            <End Role="Item" EntitySet="Items" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Interest" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MessageText" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Items_ItemBoxes1">
+          <End Type="SiteDBModel.ItemBox" Role="ItemBox" Multiplicity="0..1" />
+          <End Type="SiteDBModel.Item" Role="Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemBox">
+              <PropertyRef Name="BoxID" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="BoxID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SiteDBModelStoreContainer" CdmEntityContainer="SiteDBEntities">
+          <EntitySetMapping Name="AltAddresses">
+            <EntityTypeMapping TypeName="SiteDBModel.AltAddress">
+              <MappingFragment StoreEntitySet="AltAddress">
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="ShipPhone" ColumnName="ShipPhone" />
+                <ScalarProperty Name="ShipEmail" ColumnName="ShipEmail" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bids">
+            <EntityTypeMapping TypeName="SiteDBModel.Bid">
+              <MappingFragment StoreEntitySet="Bids">
+                <ScalarProperty Name="BidID" ColumnName="BidID" />
+                <ScalarProperty Name="SubProjectID" ColumnName="SubProjectID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="BidDate" ColumnName="BidDate" />
+                <ScalarProperty Name="BidText" ColumnName="BidText" />
+                <ScalarProperty Name="BidLimitations" ColumnName="BidLimitations" />
+                <ScalarProperty Name="BidAmt" ColumnName="BidAmt" />
+                <ScalarProperty Name="BidStatus" ColumnName="BidStatus" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ActionDate" ColumnName="ActionDate" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="LastViewDate" ColumnName="LastViewDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlogCategories">
+            <EntityTypeMapping TypeName="SiteDBModel.BlogCategory">
+              <MappingFragment StoreEntitySet="BlogCategories">
+                <ScalarProperty Name="Post_CategoryID" ColumnName="Post_CategoryID" />
+                <ScalarProperty Name="Post_CategoryName" ColumnName="Post_CategoryName" />
+                <ScalarProperty Name="Post_CategoryText" ColumnName="Post_CategoryText" />
+                <ScalarProperty Name="Post_CategoryImage" ColumnName="Post_CategoryImage" />
+                <ScalarProperty Name="Post_Active" ColumnName="Post_Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlogComments">
+            <EntityTypeMapping TypeName="SiteDBModel.BlogComment">
+              <MappingFragment StoreEntitySet="BlogComments">
+                <ScalarProperty Name="PostCommentID" ColumnName="PostCommentID" />
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
+                <ScalarProperty Name="PostCommentAuthor" ColumnName="PostCommentAuthor" />
+                <ScalarProperty Name="PostCommentDate" ColumnName="PostCommentDate" />
+                <ScalarProperty Name="PostCommentContent" ColumnName="PostCommentContent" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="PostCommentCompanyID" ColumnName="PostCommentCompanyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlogPosts">
+            <EntityTypeMapping TypeName="SiteDBModel.BlogPost">
+              <MappingFragment StoreEntitySet="BlogPosts">
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
+                <ScalarProperty Name="Post_CategoryID" ColumnName="Post_CategoryID" />
+                <ScalarProperty Name="Post_author" ColumnName="Post_author" />
+                <ScalarProperty Name="Post_Date" ColumnName="Post_Date" />
+                <ScalarProperty Name="Post_Tite" ColumnName="Post_Tite" />
+                <ScalarProperty Name="Post_Content" ColumnName="Post_Content" />
+                <ScalarProperty Name="Post_Status" ColumnName="Post_Status" />
+                <ScalarProperty Name="Post_Deleted" ColumnName="Post_Deleted" />
+                <ScalarProperty Name="Post_Active" ColumnName="Post_Active" />
+                <ScalarProperty Name="Post_Featured" ColumnName="Post_Featured" />
+                <ScalarProperty Name="Post_Views" ColumnName="Post_Views" />
+                <ScalarProperty Name="Post_CommentsAllowed" ColumnName="Post_CommentsAllowed" />
+                <ScalarProperty Name="Post_Image1" ColumnName="Post_Image1" />
+                <ScalarProperty Name="Post_Image2" ColumnName="Post_Image2" />
+                <ScalarProperty Name="Post_Image3" ColumnName="Post_Image3" />
+                <ScalarProperty Name="Post_Banner1" ColumnName="Post_Banner1" />
+                <ScalarProperty Name="Post_Article" ColumnName="Post_Article" />
+                <ScalarProperty Name="Post_ArticleContent" ColumnName="Post_ArticleContent" />
+                <ScalarProperty Name="Post_URL1" ColumnName="Post_URL1" />
+                <ScalarProperty Name="Post_URL2" ColumnName="Post_URL2" />
+                <ScalarProperty Name="Post_CommentsReview" ColumnName="Post_CommentsReview" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="SiteDBModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="ResaleCertificate" ColumnName="ResaleCertificate" />
+                <ScalarProperty Name="ArticleText" ColumnName="ArticleText" />
+                <ScalarProperty Name="ArticleDescription" ColumnName="ArticleDescription" />
+                <ScalarProperty Name="CompanyText" ColumnName="CompanyText" />
+                <ScalarProperty Name="CompanyDescription" ColumnName="CompanyDescription" />
+                <ScalarProperty Name="CompanySecondaryImg" ColumnName="CompanySecondaryImg" />
+                <ScalarProperty Name="CompanyPrimaryImg" ColumnName="CompanyPrimaryImg" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="Email1" ColumnName="Email1" />
+                <ScalarProperty Name="Email2" ColumnName="Email2" />
+                <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+                <ScalarProperty Name="ContractorLicense" ColumnName="ContractorLicense" />
+                <ScalarProperty Name="ServiceLevel" ColumnName="ServiceLevel" />
+                <ScalarProperty Name="BillingCycle" ColumnName="BillingCycle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Documents">
+            <EntityTypeMapping TypeName="SiteDBModel.Document">
+              <MappingFragment StoreEntitySet="Documents">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
+                <ScalarProperty Name="SubProjectID" ColumnName="SubProjectID" />
+                <ScalarProperty Name="DocumentTitle" ColumnName="DocumentTitle" />
+                <ScalarProperty Name="DocumentText" ColumnName="DocumentText" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="SiteDBModel.Employee">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="CompanyCreator" ColumnName="CompanyCreator" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="Company_EmployeeID" ColumnName="Company_EmployeeID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="Email1" ColumnName="Email1" />
+                <ScalarProperty Name="Email2" ColumnName="Email2" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemBoxes">
+            <EntityTypeMapping TypeName="SiteDBModel.ItemBox">
+              <MappingFragment StoreEntitySet="ItemBoxes">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="BoxID" ColumnName="BoxID" />
+                <ScalarProperty Name="BoxDescription" ColumnName="BoxDescription" />
+                <ScalarProperty Name="BoxWidth" ColumnName="BoxWidth" />
+                <ScalarProperty Name="BoxLength" ColumnName="BoxLength" />
+                <ScalarProperty Name="BoxHeight" ColumnName="BoxHeight" />
+                <ScalarProperty Name="BoxNW" ColumnName="BoxNW" />
+                <ScalarProperty Name="BoxCF" ColumnName="BoxCF" />
+                <ScalarProperty Name="InnerOuter" ColumnName="InnerOuter" />
+                <ScalarProperty Name="InnerBoxFor" ColumnName="InnerBoxFor" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Zone01" ColumnName="Zone01" />
+                <ScalarProperty Name="Zone02" ColumnName="Zone02" />
+                <ScalarProperty Name="Zone03" ColumnName="Zone03" />
+                <ScalarProperty Name="Zone04" ColumnName="Zone04" />
+                <ScalarProperty Name="Zone05" ColumnName="Zone05" />
+                <ScalarProperty Name="Zone06" ColumnName="Zone06" />
+                <ScalarProperty Name="Zone07" ColumnName="Zone07" />
+                <ScalarProperty Name="Zone08" ColumnName="Zone08" />
+                <ScalarProperty Name="Zone09" ColumnName="Zone09" />
+                <ScalarProperty Name="Zone10" ColumnName="Zone10" />
+                <ScalarProperty Name="Zone11" ColumnName="Zone11" />
+                <ScalarProperty Name="Zone12" ColumnName="Zone12" />
+                <ScalarProperty Name="Zone13" ColumnName="Zone13" />
+                <ScalarProperty Name="Zone14" ColumnName="Zone14" />
+                <ScalarProperty Name="Zone15" ColumnName="Zone15" />
+                <ScalarProperty Name="RuralZone" ColumnName="RuralZone" />
+                <ScalarProperty Name="InternationalZone" ColumnName="InternationalZone" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemCategories">
+            <EntityTypeMapping TypeName="SiteDBModel.ItemCategory">
+              <MappingFragment StoreEntitySet="ItemCategories">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryDescription" ColumnName="CategoryDescription" />
+                <ScalarProperty Name="CategoryHeader" ColumnName="CategoryHeader" />
+                <ScalarProperty Name="Image1" ColumnName="Image1" />
+                <ScalarProperty Name="Image2" ColumnName="Image2" />
+                <ScalarProperty Name="Image3" ColumnName="Image3" />
+                <ScalarProperty Name="WebLink1" ColumnName="WebLink1" />
+                <ScalarProperty Name="Weblink2" ColumnName="Weblink2" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Featured" ColumnName="Featured" />
+                <ScalarProperty Name="ShowOnRelated" ColumnName="ShowOnRelated" />
+                <ScalarProperty Name="IsSubCat" ColumnName="IsSubCat" />
+                <ScalarProperty Name="SubCatOf" ColumnName="SubCatOf" />
+                <ScalarProperty Name="CategoryLongText" ColumnName="CategoryLongText" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="SiteDBModel.Item">
+              <MappingFragment StoreEntitySet="Items">
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="SKU" ColumnName="SKU" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ItemDescription" ColumnName="ItemDescription" />
+                <ScalarProperty Name="VendorItemID" ColumnName="VendorItemID" />
+                <ScalarProperty Name="Price1" ColumnName="Price1" />
+                <ScalarProperty Name="Price2" ColumnName="Price2" />
+                <ScalarProperty Name="Price3" ColumnName="Price3" />
+                <ScalarProperty Name="Price4" ColumnName="Price4" />
+                <ScalarProperty Name="Price5" ColumnName="Price5" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="InStock" ColumnName="InStock" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Featured" ColumnName="Featured" />
+                <ScalarProperty Name="ItemNW" ColumnName="ItemNW" />
+                <ScalarProperty Name="Limage" ColumnName="Limage" />
+                <ScalarProperty Name="Simage" ColumnName="Simage" />
+                <ScalarProperty Name="Timage" ColumnName="Timage" />
+                <ScalarProperty Name="Pic01" ColumnName="Pic01" />
+                <ScalarProperty Name="Pic02" ColumnName="Pic02" />
+                <ScalarProperty Name="Pic03" ColumnName="Pic03" />
+                <ScalarProperty Name="WebLink" ColumnName="WebLink" />
+                <ScalarProperty Name="Outlet" ColumnName="Outlet" />
+                <ScalarProperty Name="OrderMin" ColumnName="OrderMin" />
+                <ScalarProperty Name="OrderInc" ColumnName="OrderInc" />
+                <ScalarProperty Name="BoxID" ColumnName="BoxID" />
+                <ScalarProperty Name="Views" ColumnName="Views" />
+                <ScalarProperty Name="Ranking" ColumnName="Ranking" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MemberInfoes">
+            <EntityTypeMapping TypeName="SiteDBModel.MemberInfo">
+              <MappingFragment StoreEntitySet="MemberInfo">
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="IsCompanyOwner" ColumnName="IsCompanyOwner" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address3" ColumnName="Address3" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="SiteDBModel.Message">
+              <MappingFragment StoreEntitySet="Messages">
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="FromCompay" ColumnName="FromCompay" />
+                <ScalarProperty Name="FromLName" ColumnName="FromLName" />
+                <ScalarProperty Name="FromFName" ColumnName="FromFName" />
+                <ScalarProperty Name="FromEmail" ColumnName="FromEmail" />
+                <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+                <ScalarProperty Name="FromID" ColumnName="FromID" />
+                <ScalarProperty Name="ToID" ColumnName="ToID" />
+                <ScalarProperty Name="ToEmail" ColumnName="ToEmail" />
+                <ScalarProperty Name="ToFName" ColumnName="ToFName" />
+                <ScalarProperty Name="ToLName" ColumnName="ToLName" />
+                <ScalarProperty Name="ToCompany" ColumnName="ToCompany" />
+                <ScalarProperty Name="MessageSubject" ColumnName="MessageSubject" />
+                <ScalarProperty Name="MessageText" ColumnName="MessageText" />
+                <ScalarProperty Name="MessageDate" ColumnName="MessageDate" />
+                <ScalarProperty Name="ResponseDate" ColumnName="ResponseDate" />
+                <ScalarProperty Name="DBPImail" ColumnName="DBPImail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderLines">
+            <EntityTypeMapping TypeName="SiteDBModel.OrderLine">
+              <MappingFragment StoreEntitySet="OrderLine">
+                <ScalarProperty Name="OrderLineID" ColumnName="OrderLineID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ItemDescription" ColumnName="ItemDescription" />
+                <ScalarProperty Name="ItemPrice" ColumnName="ItemPrice" />
+                <ScalarProperty Name="ItemQty" ColumnName="ItemQty" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="LineTotal" ColumnName="LineTotal" />
+                <ScalarProperty Name="OrderLineStatus" ColumnName="OrderLineStatus" />
+                <ScalarProperty Name="ThumbImage" ColumnName="ThumbImage" />
+                <ScalarProperty Name="BoxID" ColumnName="BoxID" />
+                <ScalarProperty Name="Fullfilled" ColumnName="Fullfilled" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="SiteDBModel.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="CustOrderNumber" ColumnName="CustOrderNumber" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="ShipDate" ColumnName="ShipDate" />
+                <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+                <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+                <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+                <ScalarProperty Name="ShipToAddressID" ColumnName="ShipToAddressID" />
+                <ScalarProperty Name="ShipperID" ColumnName="ShipperID" />
+                <ScalarProperty Name="ShipperTracking" ColumnName="ShipperTracking" />
+                <ScalarProperty Name="ProductTotal" ColumnName="ProductTotal" />
+                <ScalarProperty Name="WebShipping" ColumnName="WebShipping" />
+                <ScalarProperty Name="ActualShipping" ColumnName="ActualShipping" />
+                <ScalarProperty Name="SalesTax" ColumnName="SalesTax" />
+                <ScalarProperty Name="Discounts" ColumnName="Discounts" />
+                <ScalarProperty Name="Fulfilled" ColumnName="Fulfilled" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderStatus">
+            <EntityTypeMapping TypeName="SiteDBModel.OrderStatu">
+              <MappingFragment StoreEntitySet="OrderStatus">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payments">
+            <EntityTypeMapping TypeName="SiteDBModel.Payment">
+              <MappingFragment StoreEntitySet="Payments">
+                <ScalarProperty Name="CardCVCC" ColumnName="CardCVCC" />
+                <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="PaymentAmt" ColumnName="PaymentAmt" />
+                <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+                <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+                <ScalarProperty Name="PayerID" ColumnName="PayerID" />
+                <ScalarProperty Name="TransID" ColumnName="TransID" />
+                <ScalarProperty Name="TransStatus" ColumnName="TransStatus" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="BankAccount" ColumnName="BankAccount" />
+                <ScalarProperty Name="BankRouting" ColumnName="BankRouting" />
+                <ScalarProperty Name="CardType" ColumnName="CardType" />
+                <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+                <ScalarProperty Name="CardExMo" ColumnName="CardExMo" />
+                <ScalarProperty Name="CardExYr" ColumnName="CardExYr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectCategories">
+            <EntityTypeMapping TypeName="SiteDBModel.ProjectCategory">
+              <MappingFragment StoreEntitySet="ProjectCategories">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="ProjectCategory1" ColumnName="ProjectCategory" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryDescription" ColumnName="CategoryDescription" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="SiteDBModel.Project">
+              <MappingFragment StoreEntitySet="Projects">
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="ProjectDescription" ColumnName="ProjectDescription" />
+                <ScalarProperty Name="ProjectStatus" ColumnName="ProjectStatus" />
+                <ScalarProperty Name="ProjectType" ColumnName="ProjectType" />
+                <ScalarProperty Name="OpenDate" ColumnName="OpenDate" />
+                <ScalarProperty Name="BidOpenDate" ColumnName="BidOpenDate" />
+                <ScalarProperty Name="BidCloseDate" ColumnName="BidCloseDate" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Complete" ColumnName="Complete" />
+                <ScalarProperty Name="CompletionDate" ColumnName="CompletionDate" />
+                <ScalarProperty Name="RequiredDate" ColumnName="RequiredDate" />
+                <ScalarProperty Name="AcceptedBid" ColumnName="AcceptedBid" />
+                <ScalarProperty Name="AcceptedCompany" ColumnName="AcceptedCompany" />
+                <ScalarProperty Name="ActionDate" ColumnName="ActionDate" />
+                <ScalarProperty Name="SiteAddress1" ColumnName="SiteAddress1" />
+                <ScalarProperty Name="SiteAddress2" ColumnName="SiteAddress2" />
+                <ScalarProperty Name="SiteAddressCity" ColumnName="SiteAddressCity" />
+                <ScalarProperty Name="SiteAddressState" ColumnName="SiteAddressState" />
+                <ScalarProperty Name="SiteAddressZip" ColumnName="SiteAddressZip" />
+                <ScalarProperty Name="SiteAddressCountry" ColumnName="SiteAddressCountry" />
+                <ScalarProperty Name="IsSubProject" ColumnName="IsSubProject" />
+                <ScalarProperty Name="SubProjectOf" ColumnName="SubProjectOf" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reviews">
+            <EntityTypeMapping TypeName="SiteDBModel.Review">
+              <MappingFragment StoreEntitySet="Reviews">
+                <ScalarProperty Name="ReviewID" ColumnName="ReviewID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="ReviewDate" ColumnName="ReviewDate" />
+                <ScalarProperty Name="StarRate" ColumnName="StarRate" />
+                <ScalarProperty Name="ReviewText" ColumnName="ReviewText" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Featured" ColumnName="Featured" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubProjects">
+            <EntityTypeMapping TypeName="SiteDBModel.SubProject">
+              <MappingFragment StoreEntitySet="SubProjects">
+                <ScalarProperty Name="SubProjectID" ColumnName="SubProjectID" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="SubProjectName" ColumnName="SubProjectName" />
+                <ScalarProperty Name="SubProjectDescription" ColumnName="SubProjectDescription" />
+                <ScalarProperty Name="SubProjectStatus" ColumnName="SubProjectStatus" />
+                <ScalarProperty Name="ProjectType" ColumnName="ProjectType" />
+                <ScalarProperty Name="OpenDate" ColumnName="OpenDate" />
+                <ScalarProperty Name="BiDOpenDate" ColumnName="BiDOpenDate" />
+                <ScalarProperty Name="BidCloseDate" ColumnName="BidCloseDate" />
+                <ScalarProperty Name="RequiredDate" ColumnName="RequiredDate" />
+                <ScalarProperty Name="AcceptedBid" ColumnName="AcceptedBid" />
+                <ScalarProperty Name="AcceptedCompany" ColumnName="AcceptedCompany" />
+                <ScalarProperty Name="ActionDate" ColumnName="ActionDate" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Complete" ColumnName="Complete" />
+                <ScalarProperty Name="CompletionDate" ColumnName="CompletionDate" />
+                <ScalarProperty Name="Dependencies" ColumnName="Dependencies" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teams">
+            <EntityTypeMapping TypeName="SiteDBModel.Team">
+              <MappingFragment StoreEntitySet="Teams">
+                <ScalarProperty Name="TeamRecordID" ColumnName="TeamRecordID" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectStatus">
+            <EntityTypeMapping TypeName="SiteDBModel.ProjectStatu">
+              <MappingFragment StoreEntitySet="ProjectStatus">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="ProjectStatusID" ColumnName="ProjectStatusID" />
+                <ScalarProperty Name="ProjectStatus" ColumnName="ProjectStatus" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="SiteDBModel.Contact">
+              <MappingFragment StoreEntitySet="Contacts">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="MessageText" ColumnName="MessageText" />
+                <ScalarProperty Name="Interest" ColumnName="Interest" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

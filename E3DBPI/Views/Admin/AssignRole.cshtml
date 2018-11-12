@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "AssignRole";
+}
+
+<h2>Add and Remove Users from Roles</h2>
+
+@Html.ActionLink("Manage Users", "ManageUsers") | @Html.ActionLink("Manage Roles", "ManageRoles")
+<hr />
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="box-title">
+            <b>Assign a User to a Role</b>
+        </h3>
+    </div>
+
+    @using (Html.BeginForm("AssignRole", "Admin", FormMethod.Post))
+    {
+        <div class="row">
+            <div class="col-md-6">
+                <label class="control-label">User Name</label>
+                <input type="text" name="txtUserName" class="form-control" />
+            </div>
+            <div class="col-md-6">
+                <label class="control-label">Select Role</label>
+                @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.roles, "RoleName")
+
+            </div>
+        </div>
+        <div class="row" style="margin-top:40px">
+            <div class="col-md-12">
+                <button type="submit" value="submit" class="btn btn-primary" style="text-align:center">Add User to Role</button>
+            </div>
+        </div>
+
+    }
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="box-title">
+            <b>Remove a User from a Role</b>
+        </h3>
+    </div>
+    @using (Html.BeginForm("UnAssignRole", "Admin"))
+    {
+        <div class="row">
+            <div class="col-md-6">
+                <label class="control-label">User Name</label>
+                <input type="text" name="txtUserName" class="form-control" />
+            </div>
+            <div class="col-md-6">
+                <label class="control-label">Select Role</label>
+                @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.roles, "RoleName")
+
+            </div>
+        </div>
+
+        <div class="row" style="margin-top:40px">
+            <div class="col-md-12">
+                <button type="submit" value="submit" class="btn btn-primary" style="text-align:center">Remove User from Role</button>
+            </div>
+        </div>
+    }
+</div>

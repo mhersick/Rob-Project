@@ -1,0 +1,162 @@
+﻿@model E3DBPI.Models.SubProject
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SubProject</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubProjectName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubProjectName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubProjectDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubProjectDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubProjectStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubProjectStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OpenDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OpenDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BiDOpenDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BiDOpenDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BidCloseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BidCloseDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequiredDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequiredDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AcceptedBid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcceptedBid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AcceptedCompany)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcceptedCompany)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActionDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Deleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Deleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Complete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Complete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompletionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompletionDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dependencies)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dependencies)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SubProjectID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

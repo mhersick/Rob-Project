@@ -1,0 +1,175 @@
+﻿@model E3DBPI.Models.RegisterServiceLevelViewModel
+@{
+    ViewBag.Title = "RegisterServiceLevel";
+}
+
+<h2>Select your Service Level</h2>
+<form name="RegisterStep2" id="RegisterServiceLevel" action="/Account/RegisterServiceLevel" method="post">
+<div class="row">
+    <div class="col-md-12" style="text-align:center">
+        <input type="button" name="ServiceLevel" onmouseover="mopmt('mo')" id="Button1" value="Monthly" class="btn btn-sm btn-primary text-center" />
+        <input type="button" name="ServiceLevel"onmouseover="mopmt('an')" id="Button2" value="Annual" class="btn btn-sm btn-primary text-center" />
+    </div>
+</div>
+
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2" style="background-color:cadetblue">
+            <h3>Standard</h3>
+            <h4>Free</h4>
+            <h4>Bid Projects</h4>
+            <h4>&nbsp;</h4>
+            <p class="servlvl1a" style="display:none; font-weight:700; font-size:12px; margin-top:5px">&nbsp;<br/>&nbsp;</p>
+            <p style="margin-top:15px;">
+                Search & view unlimited public projects<br />
+                View, print and order project documents<br />
+                Daily new project email alerts<br />
+                Automatic addenda notifications<br />
+            </p>
+            <h4>Post Projects</h4>
+            <p>
+                Post unlimited public projects<br />
+                Post unlimited private projects<br />
+                10 Client users have full access to documents for free<br />
+                Submit your project to other bid services with one click<br />
+            </p>
+            <p style="text-align:center"><input type="submit" name="ServiceLevel" id="Standard" value="Standard" class="btn btn-lg btn-primary" /></p>
+
+        </div>
+        <div class="col-md-2">
+            <h3>Premium</h3>
+            <h4 class="servlvl1m">$399 / Month</h4>
+            <h4 class="servlvl1a" style="display:none;">$4,548 / Year</h4>
+            <h4>4 Seats + 1 Admin</h4>
+            <h4>2GB Storage</h4>
+            <p class="servlvl1a" style="display:none; font-weight:700; font-size:12px; margin-top:5px">5% discount - Includes one free month!</p>
+            <p style="margin-top:15px;">
+                Search & view unlimited public projects<br />
+                View, print and order project documents<br />
+                Daily new project email alerts<br />
+                Automatic addenda notifications<br />
+            </p>
+            <h4>Post Projects</h4>
+            <p>
+                Post unlimited public projects<br />
+                Post unlimited private projects<br />
+                10 Client users have full access to documents for free<br />
+                Submit your project to other bid services with one click<br />
+            </p>
+            <p style="text-align:center"><input type="submit" name="ServiceLevel" id="Pemium" value="Premium" class="btn btn-lg btn-primary" /></p>
+        </div>
+        <div class="col-md-2">
+            <h3>Professional</h3>
+            <h4 class="servlvl2m">$799 / Month</h4>
+            <h4 class="servlvl2a" style="display:none;">$8,916 / Year</h4>
+            <h4>9 Seats + 1 Admin</h4>
+            <h4>5GB Storage</h4>
+            <p class="servlvl2a" style="display:none; font-weight:700; font-size:12px; margin-top:5px">7% discount - Includes one free month!</p>
+            <p style="margin-top:15px;">
+                Search & view unlimited public projects<br />
+                View, print and order project documents<br />
+                Daily new project email alerts<br />
+                Automatic addenda notifications<br />
+            </p>
+            <h4>Post Projects</h4>
+            <p>
+                Post unlimited public projects<br />
+                Post unlimited private projects<br />
+                10 Client users have full access to documents for free<br />
+                Submit your project to other bid services with one click<br />
+            </p>
+            <p style="text-align:center"><input type="submit" name="ServiceLevel" id="Professional" value="Professional" class="btn btn-lg btn-primary" /></p>
+        </div>
+        <div class="col-md-2">
+            <h3>Ultimate<br /></h3>
+            <h4 class="servlvl3m">$1,299 / Month</h4>
+            <h4 class="servlvl3a" style="display:none;">$12,029 / Year</h4>
+            <h4>25 Seats + 1 Admin</h4>
+            <h4>10GB Storage</h4>
+            <p class="servlvl3a" style="display:none; font-weight:700; font-size:12px; margin-top:5px">10% discount - Includes one free month!</p>
+            <p style="margin-top:15px;">
+                Search & view unlimited public projects<br />
+                View, print and order project documents<br />
+                Daily new project email alerts<br />
+                Automatic addenda notifications<br />
+            </p>
+            <h4>Post Projects</h4>
+            <p>
+                Post unlimited public projects<br />
+                Post unlimited private projects<br />
+                10 Client users have full access to documents for free<br />
+                Submit your project to other bid services with one click<br />
+            </p>
+            <p style="text-align:center"><input type="submit" name="ServiceLevel" id="Ultimate" value="Ultimate" class="btn btn-lg btn-primary text-center" /></p>
+        </div>
+        <div class="col-md-2">
+            <h3>Ultimate Pro</h3>
+            <h4 class="servlvl4m">$1,999 / Month</h4>
+            <h4 class="servlvl4a" style="display:none;">$20,390 / Year</h4>
+            <h4>Unlimited Seats</h4>
+            <h4>50GB Storage</h4>
+            <p class="servlvl4a" style="display:none; font-weight:700; font-size:12px; margin-top:5px">15% discount - Includes one free month!</p>
+            <p style="margin-top:15px;">
+                Search & view unlimited public projects<br />
+                View, print and order project documents<br />
+                Daily new project email alerts<br />
+                Automatic addenda notifications<br />
+            </p>
+            <h4>Post Projects</h4>
+            <p>
+                Post unlimited public projects<br />
+                Post unlimited private projects<br />
+                10 Client users have full access to documents for free<br />
+                Submit your project to other bid services with one click<br />
+            </p>
+            <p style="text-align:center"><input type="submit" name="ServiceLevel" id="UltimatePro" value="UltimatePro" class="btn btn-lg btn-primary text-center" /></p>
+            <div class="col-md-1"></div>
+
+        </div>
+    </div>
+
+
+</form>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+
+
+<script type="text/javascript">
+
+
+function myServiceLevel(servicex) {
+
+        alert(servicex)
+
+    }
+        function mopmt(servicex) {
+
+            if (servicex == "mo") {
+                $('.servlvl1m').show()                    // hide
+                $('.servlvl1a').hide()                    // hide
+                $('.servlvl2m').show()                    // hide
+                $('.servlvl2a').hide()                    // hide
+                $('.servlvl3m').show()                    // hide
+                $('.servlvl3a').hide()                    // hide
+                $('.servlvl4m').show()                    // hide
+                $('.servlvl4a').hide()                    // hide
+            }
+            else {
+                $('.servlvl1a').show()                    // hide
+                $('.servlvl1m').hide()                    // hide
+                $('.servlvl2a').show()                    // hide
+                $('.servlvl2m').hide()                    // hide
+                $('.servlvl3a').show()                    // hide
+                $('.servlvl3m').hide()                    // hide
+                $('.servlvl4a').show()                    // hide
+                $('.servlvl4m').hide()                    // hide
+
+            }
+        }
+
+
+</script>
+
+}

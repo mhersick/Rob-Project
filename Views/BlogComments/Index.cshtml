@@ -1,0 +1,69 @@
+﻿@model IEnumerable<E3DBPI.Models.BlogComment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PostCommentAuthor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostCommentDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostCommentContent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Deleted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostCommentCompanyID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BlogPost.Post_author)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostCommentAuthor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostCommentDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostCommentContent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Deleted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostCommentCompanyID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BlogPost.Post_author)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PostCommentID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PostCommentID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PostCommentID })
+        </td>
+    </tr>
+}
+
+</table>

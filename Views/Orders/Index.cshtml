@@ -1,0 +1,147 @@
+﻿@model IEnumerable<E3DBPI.Models.Order>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CustOrderNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShipDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShipToAddressID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShipperID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShipperTracking)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WebShipping)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActualShipping)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SalesTax)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Discounts)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fulfilled)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Deleted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Notes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Company.UserName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustOrderNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShipDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShipToAddressID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShipperID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShipperTracking)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WebShipping)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActualShipping)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SalesTax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Discounts)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fulfilled)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Deleted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Notes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Company.UserName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OrderID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OrderID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OrderID })
+        </td>
+    </tr>
+}
+
+</table>

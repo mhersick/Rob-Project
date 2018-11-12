@@ -1,0 +1,105 @@
+﻿@model E3DBPI.Models.IndexViewModel
+
+@{
+    ViewBag.Title = "Company Administrator Main Menu";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+
+<p style="font-size:16px;">
+    Hi @ViewBag.fName @ViewBag.lName! Welcome to your Company Functions on DBPI.<br />
+    Your UserID is <b>@User.Identity.Name</b> and your System roles are: ROLE, ROLE <label id="uRoles" name="uRoles" value="roles..." />
+</p>
+
+
+<p style="font-size:18px; margin-top:40px">Company ID:  @ViewBag.cIDx. Service Level:<b> @ViewBag.co_SL</b>. Seats: <b>xx of xx</b></p>
+
+    <div class="row" style="margin-top:5px; border:1px solid aqua;padding-top:10px;padding-bottom:10px;">
+        <div class="col-md-12>">
+            <h4 style="text-align:center;">Your Company Data @Html.ActionLink("Edit", "Edit", "Companies", new { id = @ViewBag.cIDx }, htmlAttributes: new { @class = "btn btn-smform btn-primary" })</h4>
+        </div>
+        <div class="col-md-3">
+            <h4 style="text-align:center">Billing Address</h4>
+            <div>@ViewBag.co_cName</div>
+            <div>@ViewBag.co_add1 </div>
+            <div>@ViewBag.co_add2 </div>
+            <div>@ViewBag.co_ci , @ViewBag.co_st   @ViewBag.co_zi</div>
+            <div>@ViewBag.co_co</div>
+
+        </div>
+        <div class="col-md-3">
+            <h4 style="text-align:center">Contact Details</h4>
+            <div>Email: @ViewBag.co_em</div>
+            <div>Phone: @ViewBag.ph</div>
+        </div>
+        <div class="col-md-3">
+            <h4 style="text-align:center">Billing Details</h4>
+        </div>
+        <div class="col-md-3">
+            <h4 style="text-align:center">Shipping Addresses</h4>
+
+        </div>
+
+    </div>
+
+    <div class="row" style="margin-top:40px">
+        <div class="col-md-4">
+            <h4>DBPImail <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+            <div style="text-align:center">@Html.ActionLink("View Company mail", "Index", "Messages")</div>
+            <div style="text-align:center">@Html.ActionLink("Create New", "Create", "Messages")</div>
+        </div>
+        <div class="col-md-4">
+            <h4>Your Employees / Seats <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+            <div style="text-align:center">@Html.ActionLink("View Employee Listing", "Index", "Employees")</div>
+            <div style="text-align:center">@Html.ActionLink("Create New", "CreateEmployee", "Employees")</div>
+        </div>
+        <div class="col-md-4">
+            <h4>Your Projects <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+            <div style="text-align:center">@Html.ActionLink("View Project Listing", "Index", "Projects")</div>
+            <div style="text-align:center">@Html.ActionLink("Create New", "Create", "Projects")</div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top:40px;">
+        <div class="col-md-4">
+            <h4>Your Orders <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+            <div style="text-align:center">@Html.ActionLink("View Orders", "Index", "Orders")</div>
+        </div>
+        <div class="col-md-4">
+            <h4>Your Documents <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+            <div style="text-align:center">@Html.ActionLink("View Document Listing", "Index", "Documents")</div>
+            <div style="text-align:center">@Html.ActionLink("Upload a New Document", "Create", "Documents")</div>
+        </div>
+        <div class="col-md-4">
+            <h4>Projects &amp; Bid Activity <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+            <div style="text-align:center">@Html.ActionLink("View Company Bid Activity", "Index", "Bids")</div>
+            <div style="text-align:center">@Html.ActionLink("Projects Open for Bid (list)", "Index", "SubProjects")</div>
+            <div style="text-align:center">@Html.ActionLink("Projects Open for Bid (Calendar)", "SubProjectCalendar", "SubProjects")</div>
+        </div>
+    </div>
+
+
+
+<div class="col-md-12" style="text-align:center;margin-top:40px;">
+@if (User.Identity.IsAuthenticated)
+            {
+                if (User.IsInRole("SuperAdmin") || User.IsInRole("CompanyAdmin"))
+                {
+
+    <input type='submit' id='BtnNext' name='BtnNext' value='UPGRADE YOUR ACCOUNT' class="btn btn-xl btn-primary" />
+    }
+}
+
+</div>
+
+
+<style>
+    h2 {text-align: center;}
+    h4 {text-align:center;}
+    p {text-align:center;}
+
+</style>
+

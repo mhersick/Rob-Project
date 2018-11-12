@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0814dd4efbd144c098afc646a2478a89" Name="Diagram1">
+        <EntityTypeShape EntityType="SiteDBModel.AltAddress" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiteDBModel.Bid" Width="1.5" PointX="6" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiteDBModel.BlogCategory" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiteDBModel.BlogComment" Width="1.5" PointX="15.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiteDBModel.BlogPost" Width="1.5" PointX="13" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiteDBModel.Company" Width="1.5" PointX="0.75" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiteDBModel.Document" Width="1.5" PointX="6" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiteDBModel.Employee" Width="1.5" PointX="3" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiteDBModel.ItemBox" Width="1.5" PointX="5.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiteDBModel.ItemCategory" Width="1.5" PointX="5.75" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiteDBModel.Item" Width="1.5" PointX="8" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiteDBModel.MemberInfo" Width="1.5" PointX="8.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiteDBModel.Message" Width="1.5" PointX="8.25" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiteDBModel.OrderLine" Width="1.5" PointX="5.25" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiteDBModel.Order" Width="1.5" PointX="3" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiteDBModel.OrderStatu" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiteDBModel.Payment" Width="1.5" PointX="5.25" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiteDBModel.ProjectCategory" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiteDBModel.Project" Width="1.5" PointX="3" PointY="32.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiteDBModel.Review" Width="1.5" PointX="2.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiteDBModel.SubProject" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiteDBModel.Team" Width="1.5" PointX="10.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiteDBModel.ProjectStatu" Width="1.5" PointX="10.75" PointY="12.875" IsExpanded="true" />
+        <AssociationConnector Association="SiteDBModel.FK_AltAddress_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="SiteDBModel.FK_Bids_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="SiteDBModel.FK_Bids_SubProjects" ManuallyRouted="false" />
+        <AssociationConnector Association="SiteDBModel.FK_BlogPosts_BlogCategories" ManuallyRouted="false" />
+        <AssociationConnector Association="SiteDBModel.FK_BlogComments_BlogPosts" ManuallyRouted="false" />
+        <AssociationConnector Association="SiteDBModel.FK_Employees_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="SiteDBModel.FK_Messages_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="SiteDBModel.FK_Orders_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="SiteDBModel.FK_Projects_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="SiteDBModel.FK_Documents_SubProjects" ManuallyRouted="false" />
+        <AssociationConnector Association="SiteDBModel.FK_Messages_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="SiteDBModel.FK_Items_ItemBoxes" ManuallyRouted="false" />
+        <AssociationConnector Association="SiteDBModel.FK_Items_ItemCategories" ManuallyRouted="false" />
+        <AssociationConnector Association="SiteDBModel.FK_OrderLine_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="SiteDBModel.FK_Payments_Orders" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

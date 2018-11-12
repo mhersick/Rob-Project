@@ -1,0 +1,75 @@
+﻿@model IEnumerable<E3DBPI.Models.ItemCategory>
+
+@{
+    ViewBag.Title = "Item Categories";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryHeader)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Featured)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsSubCat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubCatOf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sequence)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryHeader)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Featured)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsSubCat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubCatOf)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryLongText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Notes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sequence)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CategoryID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CategoryID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CategoryID })
+        </td>
+    </tr>
+}
+
+</table>

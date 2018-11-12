@@ -1,0 +1,147 @@
+﻿@model IEnumerable<E3DBPI.Models.BlogPost>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Post_author)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Post_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Post_Tite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Post_Content)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Post_Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Post_Deleted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Post_Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Post_Featured)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Post_Views)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Post_CommentsAllowed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Post_Image1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Post_Image2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Post_Image3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Post_Banner1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Post_Article)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Post_ArticleContent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Post_URL1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Post_URL2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Post_CommentsReview)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BlogCategory.Post_CategoryName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post_author)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post_Tite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post_Content)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post_Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post_Deleted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post_Active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post_Featured)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post_Views)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post_CommentsAllowed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post_Image1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post_Image2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post_Image3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post_Banner1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post_Article)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post_ArticleContent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post_URL1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post_URL2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post_CommentsReview)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BlogCategory.Post_CategoryName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PostID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PostID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PostID })
+        </td>
+    </tr>
+}
+
+</table>

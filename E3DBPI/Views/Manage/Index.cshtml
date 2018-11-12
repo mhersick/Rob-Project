@@ -1,0 +1,258 @@
+﻿@model E3DBPI.Models.IndexViewModel
+
+@{
+    ViewBag.Title = "Manage your DBPI Account";
+}
+
+
+<h2>@ViewBag.Title</h2>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+
+
+        <p style="font-size:16px;">
+            Hi <b>@User.Identity.Name</b>! Welcome to your User Profile on DBPI.<br />
+            Your System roles are: ROLE, ROLE <label id="uRoles" name="uRoles" value="roles..." />
+        </p>
+<p>Employee ID:  @ViewBag.eIDx Company ID: @ViewBag.cIDx </p>
+        [
+        @if (Model.HasPassword)
+            {
+            @Html.ActionLink("Change your password", "ChangePassword")
+        }
+        else
+        {
+            @Html.ActionLink("Create", "SetPassword")
+        }
+        ]
+
+
+
+        <div class="row" style="margin-top:40px;">
+            <div class="col-md-12">
+                <h4>Your Agenda <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+                <p>Dated list of current To-Do items assigned to this Employee/Seat.</p>
+            </div>
+        </div>
+
+
+        <div class="row" style="margin-top:40px;">
+            <div class="col-md-4">
+                <h4>Your Personal Data @Html.ActionLink("Edit", "Edit", "Employees", new { id = @ViewBag.eIDx }, htmlAttributes: new { @class = "btn btn-smform btn-primary" })</h4>
+                
+                <div>@ViewBag.fName @ViewBag.lName</div>
+                <div>@ViewBag.add1 </div>
+                <div>@ViewBag.add2 </div>
+                <div>@ViewBag.ci , @ViewBag.st   @ViewBag.zi</div>
+                <div>@ViewBag.co</div>
+                <p><b>Email:</b> @ViewBag.em <b>Phone:</b> @ViewBag.ph</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Your Company Data 
+                
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("SuperAdmin") || User.IsInRole("CompanyAdmin"))
+                        {
+
+                            @Html.ActionLink("Edit", "Edit", "Companies", new { id = @ViewBag.cIDx }, htmlAttributes: new { @class = "btn btn-smform btn-primary" })
+                        }
+                    }
+                
+                
+                
+                
+                </h4>
+
+                <div>@ViewBag.co_cName</div>
+                <div>@ViewBag.co_add1 </div>
+                <div>@ViewBag.co_add2 </div>
+                <div>@ViewBag.co_ci , @ViewBag.co_st   @ViewBag.co_zi</div>
+                <div>@ViewBag.co_co</div>
+                <p><b>Email:</b> @ViewBag.co_em <b>Phone:</b> @ViewBag.co_ph</p>
+                <p>
+                    Your Company roles are: ROLE, ROLE
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h4>Company Project Data <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+                <p>Display condensed view</p>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top:40px;">
+            <div class="col-md-4">
+                <h4>Company DBPImail <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+                <p>Display condensed view</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Company Bid Activity <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+                <p>Display condensed view</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Company Team Data <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+                <p>Display condensed view</p>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top:40px;">
+            <div class="col-md-4">
+                <h4>Company Order Data <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+                <p>Display condensed view</p>
+            </div>
+            <div class="col-md-4">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    if (User.IsInRole("SuperAdmin") || User.IsInRole("CompanyAdmin"))
+                    {
+
+                        <h4>Upgrade your Account <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+                        <p>Upgrade path summary/Marketing</p>
+                    }
+                }
+            </div>
+            <div class="col-md-4">
+                <h4>Company Billing History <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+                <p>Display condensed view</p>
+            </div>
+        </div>
+        <div class="row" style="margin-top:40px;">
+            <div class="col-md-4">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    if (User.IsInRole("SuperAdmin") || User.IsInRole("CompanyAdmin"))
+                    {
+                        <h4>Employee Data <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+                        <p>Display condensed view</p>
+                    }
+                }
+            </div>
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+            </div>
+        </div>
+        <div style="margin-top:40px;">
+            @*<h4>Change your account settings</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>Password:</dt>
+                    <dd>
+                        [
+                        @if (Model.HasPassword)
+                        {
+                            @Html.ActionLink("Change your password", "ChangePassword")
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Create", "SetPassword")
+                        }
+                        ]
+                    </dd>
+                    <dt>External Logins:</dt>
+                    <dd>
+                        @Model.Logins.Count [
+                        @Html.ActionLink("Manage", "ManageLogins") ]
+                    </dd>*@
+            @*
+                Phone Numbers can used as a second factor of verification in a two-factor authentication system.
+
+                 See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
+                    for details on setting up this ASP.NET application to support two-factor authentication using SMS.
+
+                 Uncomment the following block after you have set up two-factor authentication
+            *@
+            @*
+                <dt>Phone Number:</dt>
+                <dd>
+                    @(Model.PhoneNumber ?? "None")
+                    @if (Model.PhoneNumber != null)
+                    {
+                        <br />
+                        <text>[&nbsp;&nbsp;@Html.ActionLink("Change", "AddPhoneNumber")&nbsp;&nbsp;]</text>
+                        using (Html.BeginForm("RemovePhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <text>[<input type="submit" value="Remove" class="btn-link" />]</text>
+                        }
+                    }
+                    else
+                    {
+                        <text>[&nbsp;&nbsp;@Html.ActionLink("Add", "AddPhoneNumber")
+                    }
+                </dd>
+            *@
+            @*<dt>Two-Factor Authentication:</dt>
+                <dd>
+                    <p>
+                        There are no two-factor authentication providers configured. See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
+                        for details on setting up this ASP.NET application to support two-factor authentication.
+                    </p>*@
+            @*@if (Model.TwoFactor)
+                        {
+                            using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <text>Enabled
+                                <input type="submit" value="Disable" class="btn btn-link" />
+                                </text>
+                            }
+                        }
+                        else
+                        {
+                            using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <text>Disabled
+                                <input type="submit" value="Enable" class="btn btn-link" />
+                                </text>
+                            }
+                        }
+                </dd>
+                </dl>*@
+        </div>
+
+
+
+
+@*@Styles.Render("~/Content/css/entypoectypo.css")*@
+@*@Styles.Render("~/Content/css/gx-sidemenu.css")*@
+@*@Styles.Render("~/Content/css/gx-sidemenu-light.css")*@
+
+@*@Styles.Render("~/Content/css/gx-sidemenu-blue.css")
+@Styles.Render("~/Content/assets/jquery.snippet.css")*@
+
+@*<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>*@
+@*@Scripts.Render("http://code.jquery.com/jquery-1.11.1.min.js")*@
+
+@*@Scripts.Render("~/Scripts/gx.sidemenu.js")
+@Scripts.Render("~/Scripts/iscroll.js")
+@Scripts.Render("~/Content/assets/jquery.snippet.js")*@
+
+
+
+
+@*<script type="text/javascript">
+    $(function () {
+        6
+        $('#gx-sidemenu').gxSideMenu({
+            mode: isMobile.any() ? 'tiny' : 'normal', // normal | tiny
+            //mode: 'tiny', // normal | tiny
+            interval: 300, // animations' interval
+            direction: 'left', // left | right
+            openOnHover: true, // true | false
+            clickTrigger: true, // true | false
+            followURLs: true, // true | false
+            trigger: ".gx-menu-open.list", // class or id of trigger element
+            startFrom: 60, // start pixel from corner on hover trigger
+            startClosed: true, // menu opens on document load
+            scrolling: true, // menu scrollable (iScroll plugin needed!)
+            urlBase: '/sidemenu/', // document base URL
+            backText: 'Prev | Back', // Back button text
+            onOpen: function () { }, // Open callback
+            onClose: function () { } // Close callback
+        });
+    });
+</script>*@
+
+

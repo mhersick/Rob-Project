@@ -1,0 +1,259 @@
+﻿
+@{
+    ViewBag.Title = "Contraxtor System Administration";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+
+<p style="font-size:16px;">
+    Hi @ViewBag.fName @ViewBag.lName! You are logged in as <b>@User.Identity.Name</b> <label id="uRoles" name="uRoles" value="roles..." />
+</p>
+
+<h2>@ViewBag.co_cName</h2>
+
+<div class="row" style="margin-top:40px; text-align:left; margin-left:20px;">
+    <div class="col-md-2">
+        <div class="row" style="padding:3px;background-color:#e1e1e1;  border:solid .5px">
+            <h4 style="text-align:center">Membership Controls</h4>
+            <div class="col-md-12">@Html.ActionLink("User Manager", "ManageUsers", "Admin", htmlAttributes: new { @class = "btn btn-md btn-primary" })</div>
+            <div class="col-md-12">@Html.ActionLink("Role Manager", "ManageRoles", "Admin", htmlAttributes: new { @class = "btn btn-md btn-primary" })</div>
+        </div>
+        <div class="row" style="padding:3px;background-color:#e1e1e1; border:solid .5px">
+            <h4>Application Controls</h4>
+            <div class="col-md-12">@Html.ActionLink("Service Plans", "Index", "ServicePlans", new { id = @ViewBag.eIDx }, htmlAttributes: new { @class = "btn btn-md btn-primary" })</div>
+        </div>
+        <div class="row" style="padding:3px;background-color:#e1e1e1; border:solid 1px">
+            <div class="col-md-12">@Html.ActionLink("Project Status", "Index", "ProjectStatus", new { id = @ViewBag.eIDx }, htmlAttributes: new { @class = "btn btn-md btn-primary" })</div>
+            <div class="col-md-12">@Html.ActionLink("Project Categories", "Index", "ProjectCategories", new { id = @ViewBag.eIDx }, htmlAttributes: new { @class = "btn btn-md btn-primary" })</div>
+            <div class="col-md-12">@Html.ActionLink("Bid Status", "Index", "BidStatus", new { id = @ViewBag.eIDx }, htmlAttributes: new { @class = "btn btn-md btn-primary" })</div>
+        </div>
+        <div class="row" style="padding:3px;background-color:#e1e1e1; border:solid .5px">
+            <div class="col-md-12">@Html.ActionLink("Items/Services", "Index", "Items", new { id = @ViewBag.eIDx }, htmlAttributes: new { @class = "btn btn-md btn-primary" })</div>
+            <div class="col-md-12">@Html.ActionLink("Order Status", "Index", "OrderStatus", new { id = @ViewBag.eIDx }, htmlAttributes: new { @class = "btn btn-md btn-primary" })</div>
+            <div class="col-md-12">@Html.ActionLink("Item Categories", "Index", "ItemCategories", new { id = @ViewBag.eIDx }, htmlAttributes: new { @class = "btn btn-md btn-primary" })</div>
+            <div class="col-md-12">@Html.ActionLink("Item Shipping", "Index", "ItemBoxes", new { id = @ViewBag.eIDx }, htmlAttributes: new { @class = "btn btn-md btn-primary" })</div>
+        </div>
+        <div class="row" style="padding:3px;background-color:#e1e1e1; border:solid .5px">
+            <div class="col-md-12">@Html.ActionLink("News Categories", "Index", "BlogCategories", new { id = @ViewBag.eIDx }, htmlAttributes: new { @class = "btn btn-md btn-primary" })</div>
+        </div>
+    </div>
+    <div class="col-md-10">
+        <div class="row" style="margin-top:20px; margin-bottom:40px;">
+            <div class="col-md-4">
+                <div style="text-align:center; padding:3px;">
+                    <div>@Html.ActionLink("Companies", "Index", "Companies", new { id = "" }, htmlAttributes: new { @class = "btn btn-lg btn-info" })</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div style="text-align:center; padding:3px;">
+                    <div>@Html.ActionLink("Seats/Employees", "Index", "Employees", new { id = "" }, htmlAttributes: new { @class = "btn btn-lg btn-info" })</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div style="text-align:center; padding:3px;">
+                    <div>@Html.ActionLink("Messaging", "Index", "Messages", new { id = "" }, htmlAttributes: new { @class = "btn btn-lg btn-info" })</div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top:20px; margin-bottom:40px;">
+            <div class="col-md-4">
+                <div style="text-align:center; padding:3px;">
+                    <div>@Html.ActionLink("Projects", "Index", "Projects", new { id = "" }, htmlAttributes: new { @class = "btn btn-lg btn-info" })</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div style="text-align:center; padding:3px;">
+                    <div>@Html.ActionLink("Documents", "Index", "Documents", new { id = "" }, htmlAttributes: new { @class = "btn btn-lg btn-info" })</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div style="text-align:center; padding:3px;">
+                    <div>@Html.ActionLink("@ Contact Form", "Index", "Contacts", new { id = "" }, htmlAttributes: new { @class = "btn btn-lg btn-info" })</div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top:20px; margin-bottom:40px;">
+            <div class="col-md-4">
+                <div style="text-align:center; padding:3px;">
+                    <div>@Html.ActionLink("Teams", "Index", "Teams", new { id = "" }, htmlAttributes: new { @class = "btn btn-lg btn-info" })</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div style="text-align:center; padding:3px;">
+                    <div>@Html.ActionLink("Orders", "Index", "Orders", new { id = "" }, htmlAttributes: new { @class = "btn btn-lg btn-info" })</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div style="text-align:center; padding:3px;">
+                    <div>@Html.ActionLink("News & Events", "Index", "BlogPosts", new { id = "" }, htmlAttributes: new { @class = "btn btn-lg btn-info" })</div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top:20px; margin-bottom:40px;">
+            <div class="col-md-4">
+                <div style="text-align:center; padding:3px;">
+                    <div>@Html.ActionLink("Bids", "Index", "Bids", new { id = "" }, htmlAttributes: new { @class = "btn btn-lg btn-info" })</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+        <div class="row" style="margin-top:40px;">
+            <div class="col-md-4">
+                <h4>Membership/Identity Management</h4>
+                @Html.ActionLink("User Manager", "ManageUsers", "Admin") *<br />
+                @Html.ActionLink("Role Manager", "ManageRoles", "Admin") *<br />
+            </div>
+            <div class="col-md-4">
+                <h4>Order Management <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+                @Html.ActionLink("DB - Orders", "index", "Orders")<br />
+                @Html.ActionLink("DB - OrderLines", "index", "OrderLines")<br />
+                @Html.ActionLink("DB - OrderStatus", "index", "OrderStatus") *<br />
+                @Html.ActionLink("DB - Payments", "index", "Payments")<br />
+                @Html.ActionLink("DB - Payment Methods", "index", "PaymentMethods")
+            </div>
+            <div class="col-md-4">
+                <h4>DBPImail <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+                @Html.ActionLink("DB - DBPI Mail", "index", "Messages")<br />
+                @Html.ActionLink("DB - Contact Form Listing", "index", "Contacts") *<br />
+                @Html.ActionLink("Contact Form", "Contact", "Home")
+            </div>
+        </div>
+
+        <div class="row" style="margin-top:40px;">
+            <div class="col-md-4">
+                <h4>Service Plans <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+                @Html.ActionLink("Service Plans", "index", "ServicePlans") *
+            </div>
+            <div class="col-md-4">
+                <h4>Items &amp; Services <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+                @Html.ActionLink("DB - Items", "index", "Items")<br />
+                @Html.ActionLink("DB - Item Categories", "index", "ItemCategories") *<br />
+                @Html.ActionLink("DB - Item Boxes", "index", "ItemBoxes")
+            </div>
+            <div class="col-md-4">
+                <h4>News &amp; Events <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+                @Html.ActionLink("DB - BlogPosts", "index", "BlogPosts")<br />
+                @Html.ActionLink("DB - BlogComments", "index", "BlogComments")<br />
+                @Html.ActionLink("DB - BlogCategories", "index", "BlogCategories") *
+            </div>
+
+        </div>
+
+        <div class="row" style="margin-top:40px;">
+            <div class="col-md-4">
+                <h4>Your Company Data <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+                <p>
+                    @Html.ActionLink("DB - Companies", "index", "Companies") *<br />
+                    @Html.ActionLink("DB - AltAddresses", "index", "AltAddresses")<br />
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h4>Project Data <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+                @Html.ActionLink("DB - Projects", "index", "Projects")<br />
+                @Html.ActionLink("DB - SubProjects", "index", "SubProjects")<br />
+                @Html.ActionLink("DB - ProjectStatus", "index", "ProjectStatus") *<br />
+                @Html.ActionLink("DB - ProjectCategories", "index", "ProjectCategories") *<br />
+                @Html.ActionLink("Project Calendar", "ProjectCalendar", "Projects")<br />
+            </div>
+            <div class="col-md-4">
+                <h4>Bid Activity <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+                @Html.ActionLink("DB - View Bid Listing", "index", "Bids")<br />
+                @Html.ActionLink("Projects Open for Bid (Calendar)", "SubProjectCalendar", "SubProjects")<br />
+                @Html.ActionLink("DB - Bid Status", "index", "BidStatus") *
+            </div>
+        </div>
+
+        <div class="row" style="margin-top:40px;">
+            <div class="col-md-4">
+                <h4>Employees <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+                @Html.ActionLink("Employees / Seats", "index", "Employees") *
+            </div>
+            <div class="col-md-4">
+                <h4>Teams <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+                @Html.ActionLink("Teams", "index", "Teams")
+            </div>
+            <div class="col-md-4">
+                <h4>Documents <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+                @Html.ActionLink("Documents", "index", "Documents")
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="accordion">
+                    <section class="accordion-item">
+                        <h5>Manage Users/Roles</h5>
+                        <div class="accordion-item-content">
+                            @Html.ActionLink("User Manager", "ManageUsers", "Admin") *<br />
+                            @Html.ActionLink("Role Manager", "ManageRoles", "Admin") *<br />
+                        </div>
+                    </section>
+                    <section class="accordion-item">
+                        <h5>Support Tables</h5>
+                        <div class="accordion-item-content">
+                            @Html.ActionLink("Service Plans", "Index", "ServicePlans") *<br />
+                            @Html.ActionLink("Project Status", "Index", "ProjectStatus") *<br />
+                            @Html.ActionLink("Project Categories", "Index", "ProjectCategories") *<br />
+                            @Html.ActionLink("Bid Status", "Index", "Bids") *<br />
+                        </div>
+                    </section>
+                    <section class="accordion-item">
+                        <h4>Section 3</h4>
+                        <div class="accordion-item-content">
+                            <p>Content for section 3</p>
+                            <p>This is my default state.</p>
+                        </div>
+                    </section>
+                    <section class="accordion-item">
+                        <h4>Section 4</h4>
+                        <div class="accordion-item-content">
+                            <p>Content for section 4</p>
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-3">
+
+            </div>
+
+        </div>
+
+
+        <div class="row" style="margin-top:60px">
+            <div class="col-md-12">
+
+                <h4>Sites with Similar functionality</h4>
+                <ul>
+                    <li><a href="http://bluebeam.com" target="_blank">BlueBeam</a></li>
+                    <li><a href="http://reproconnect.com" target="_blank">Reproconnect</a></li>
+                    <li><a href="http://buildertrend.com" target="_blank">BuilderTrend</a></li>
+                    <li><a href="http://plangrid.com" target="_blank">PlanGrid</a></li>
+                    <li><a href="http://co-construct.com" target="_blank">Co-Construct</a></li>
+                    <li><a href="http://procore.com" target="_blank">ProCore</a></li>
+                    <li><a href="http://redteam.com" target="_blank">RedTeam</a></li>
+                    <li><a href="https://www.sage.com/en-us/sage-construction/" target="_blank">Sage 100</a></li>
+                    <li><a href="https://www.panteratools.com/" target="_blank">Pantera Tools</a></li>
+                </ul>
+
+            </div>
+
+        </div>
+

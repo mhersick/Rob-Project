@@ -1,0 +1,113 @@
+﻿@model IEnumerable<E3DBPI.Models.PaymentMethod>
+
+@{
+    ViewBag.Title = "Company Payment Methods";
+}
+
+<div class="listing">
+    <h2>@ViewBag.co_cName @ViewBag.Title</h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                Company
+            </th>
+            <th>
+                Pmt Type
+            </th>
+            <th>
+                Account #
+            </th>
+            <th>
+                Routing #
+            </th>
+            <th>
+                Bank
+            </th>
+            <th>
+                Ex. Month
+            </th>
+            <th>
+                Ex. Year
+            </th>
+            <th>
+                Created
+            </th>
+            <th>
+                Last Activity
+            </th>
+            <th>
+                Default
+            </th>
+            <th>
+                Active
+            </th>
+            <th>
+                Deleted
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaymentType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccountNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoutingNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BankName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExpirationMonth)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExpirationYear)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastActivityDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SetAsDefault)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Active)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Deleted)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.PaymentMethodID }, htmlAttributes: new { @class = "btn btn-smform btn-info" }) |
+                    @Html.ActionLink("View", "Details", new { id = item.PaymentMethodID }, htmlAttributes: new { @class = "btn btn-smform btn-info" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.PaymentMethodID }, htmlAttributes: new { @class = "btn btn-smform btn-warning" })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+    <div class="col-md-12" style="text-align:center;margin-top:40px;">
+        @if (User.Identity.IsAuthenticated)
+            {
+                if (User.IsInRole("CompanyAdmin"))
+                {
+
+                <p>
+                    @Html.ActionLink("Create a New Payment Method", "Create", new { }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })
+                </p>
+            }
+        }
+
+    </div>
+
+
+</div>

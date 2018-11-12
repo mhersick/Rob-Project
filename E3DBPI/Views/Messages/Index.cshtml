@@ -1,0 +1,78 @@
+﻿@model IEnumerable<E3DBPI.Models.Message>
+
+@{
+    ViewBag.Title = "DBPImail - Inter-Project Messaging made easy!";
+}
+
+<div class="listing">
+    <h2>@ViewBag.co_cName @ViewBag.Title</h2>
+    <table class="table">
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                From
+            </th>
+            <th>
+                To
+            </th>
+            <th>
+                Subject
+            </th>
+            <th>
+                Message
+            </th>
+            <th>
+                Select
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr data-id="@item.MessageID">
+                <td>
+                    @Html.DisplayFor(modelItem => item.MessageDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FromFName) @Html.DisplayFor(modelItem => item.FromLName) (@Html.DisplayFor(modelItem => item.FromEmail))<br/>
+                    @Html.DisplayFor(modelItem => item.FromCompany)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToFName) @Html.DisplayFor(modelItem => item.ToLName) (@Html.DisplayFor(modelItem => item.ToEmail))<br />
+                    @Html.DisplayFor(modelItem => item.ToCompany)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MessageSubject)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MessageText)
+                </td>
+                <td>
+                    <div class="checkbox">
+                        X
+                    </div>
+                </td>
+                <td>
+                    @Html.ActionLink("View", "Details", new { id = item.MessageID }, htmlAttributes: new { @class = "btn btn-smform btn-info" }) |
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MessageID }, htmlAttributes: new { @class = "btn btn-smform btn-info" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MessageID }, htmlAttributes: new { @class = "btn btn-smform btn-warning" })
+                </td>
+            </tr>
+        }
+    </table>
+    </div>
+
+    <div class="row" style="text-align:center;margin-top:40px;">
+        <div class="col-md-6">
+            <p>
+                @Html.ActionLink("Create a New Message", "Create", "Messages", new { }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })
+            </p>
+        </div>
+        <div class="col-md-6">
+            <p>
+                @Html.ActionLink("Delete Selected", "Index", "Messages", new { }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })
+            </p>
+        </div>
+    </div>
+

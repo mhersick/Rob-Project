@@ -1,0 +1,136 @@
+﻿@model E3DBPI.Models.RegisterSummaryViewModel
+@{
+    ViewBag.Title = "Registation Summary";
+}
+
+<h2>DBPI Registration Summary</h2>
+<form name="RegisterSummary" id="RegisterSummary" action="/Account/RegisterSummary" method="post">
+
+            <div class="row" style="margin-top:40px;">
+                <div class="col-md-6" style="text-align:left;">
+                    <h4 style="text-align:center;">Personal Information</h4>
+
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.FirstName)
+                        </dt>
+                        <dd>
+                            @ViewBag.Fname
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.LastName)
+                        </dt>
+                        <dd>
+                            @ViewBag.Lname
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Email1)
+                        </dt>
+                        <dd>
+                            @ViewBag.Email1
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Phone1)
+                        </dt>
+                        <dd>
+                            @ViewBag.Phone1
+                        </dd>
+                    </dl>
+
+                    <h4>Company Information</h4>
+
+                    <dl class="dl-horizontal">
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.CompanyName)
+                        </dt>
+                        <dd>
+                            @ViewBag.Company
+                        </dd>
+                    </dl>
+
+                    <h4>User Information</h4>
+                    <dl class="dl-horizontal">
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.UserName)
+                        </dt>
+                        <dd>
+                            @ViewBag.Uname
+                        </dd>
+                    </dl>
+                </div>
+
+                <div class="col-md-6" style="text-align:left;">
+                    <h3 style="text-align:center;">Selected Service Level: <font style="color:#ff0000"> @ViewBag.ServiceLevel</font></h3>
+                    <h4>Features:</h4>
+                    <p>The @ViewBag.ServiceLevel Service level includes the following:</p>
+                    <ul>
+                    <li>xx Seats/Employees</li>
+                    <li>xx GB Storage</li>
+                    <li>$xx per Additional Seat</li>
+                    </ul>
+
+                    <h4>Cost:</h4>
+
+                    <p>Select your Billing Frequency:  
+                        Monthly  @Html.RadioButtonFor(m => m.BillingFreq, "Monthly")
+                        Annually  @Html.RadioButtonFor(m => m.BillingFreq, "Annually")
+                    </p>
+                    <h4>
+                        $ @ViewBag.BillingAmt 
+                    </h4>
+
+
+
+
+
+
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:40px;">
+                <div class="col-md-6" style="text-align:center;">
+
+                    <div class="form-group">
+                        <a href="javascript:void(0);" onclick="history.go(-1);" class="btn btn-xl btn-primary" role="button" aria-disabled="true">Return to Plans</a>
+                    </div>
+                </div>
+                <div class="col-md-6" style="text-align:center;">
+
+                    <div class="form-group">
+                        <input type="submit" name="regaction" id="doregister" class="btn btn-xl btn-primary" value="Complete Registration" />
+                    </div>
+                    <div class="form-group">
+                        @Html.CheckBoxFor(m => m.Agreed)
+                        @Html.LabelFor(m => m.Agreed)<br/>
+                        @Html.ValidationMessageFor(m => m.Agreed)
+                        
+                        @Html.ActionLink("View Terms & Conditions", "TermsOfUse", "Home")
+                    </div>
+                </div>
+            </div>
+
+</form>
+
+<script>
+    // extend range validator method to treat checkboxes differently
+    var defaultRangeValidator = $.validator.methods.range;
+    $.validator.methods.range = function(value, element, param) {
+        if(element.type === 'checkbox') {
+            // if it's a checkbox return true if it is checked
+            return element.checked;
+        } else {
+            // otherwise run the default validation function
+            return defaultRangeValidator.call(this, value, element, param);
+        }
+    }
+</script>
+
+<style type="text/css">
+    .field-validation-error {
+        color: #ff0000;
+        display: block;
+        font-weight:700
+    }
+</style>

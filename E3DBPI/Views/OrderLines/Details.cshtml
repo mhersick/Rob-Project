@@ -1,0 +1,154 @@
+﻿@model E3DBPI.Models.OrderLine
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>OrderLine</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemQty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemQty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Discount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Discount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LineTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LineTotal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderLineStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderLineStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThumbImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThumbImage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BoxID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BoxID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fullfilled)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fullfilled)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Deleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Deleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Size)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Size)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Color)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Order.CustOrderNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order.CustOrderNumber)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OrderLineID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

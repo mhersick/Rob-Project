@@ -1,0 +1,99 @@
+﻿@model IEnumerable<E3DBPI.Models.Message>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ToID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToFName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToLName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToCompany)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MessageSubject)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MessageText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MessageDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResponseDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DBPImail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Company.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee.Company_EmployeeID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToFName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToLName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToCompany)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MessageSubject)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MessageText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MessageDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResponseDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DBPImail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Company.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.Company_EmployeeID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MessageID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MessageID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MessageID })
+        </td>
+    </tr>
+}
+
+</table>

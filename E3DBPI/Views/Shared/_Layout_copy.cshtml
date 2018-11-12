@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - DesignBuildPlanIT</title>
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/bootstrap.css")
+    @*@Styles.Render("~/Content/Bootstrap.min.css")*@
+    @Scripts.Render("~/bundles/modernizr-2.6.js")
+    @*@Styles.Render("~/Content/font-awesome.min.css")*@
+    @Styles.Render("https://fonts.googleapis.com/css?family=Montserrat:400,700")
+    @Styles.Render("~/Content/Site.css")
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css?parameter=1" />          <!-- Font Awesome Style library -->
+    <link href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" rel="stylesheet" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <script defer src="https://use.fontawesome.com/releases/v5.1.1/js/all.js" integrity="sha384-BtvRZcyfv4r0x/phJt9Y9HhnN5ur1Z+kZbKVgzVBAlQZX4jvAuImlIz+bG7TS00a" crossorigin="anonymous"></script>
+    <!-- Custom Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+
+    <style>
+        .navbar-nav .divider-vertical {
+            border: none;
+        }
+
+    </style>
+
+
+
+
+</head>
+<body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="~/"><img src="~/images/dbpi-logo-web-2018.png" alt="..." style="width:100%; height:auto;" /></a><br />
+                </div>
+                <div class="container col-md-8">
+
+                    <div class="container-fluid">
+
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navHeaderCollapse" aria-expanded="false">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="collapse navbar-collapse navHeaderCollapse" style="margin-top:20px">
+                            @*<ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        </ul>*@
+                            <ul class="nav navbar-nav navbar-left" style="border-left:0;border-right:0;">
+                                @Html.MvcSiteMap().Menu("BootstrapMenuHelperModel")
+                            </ul>
+                            @Html.Partial("_LoginPartial")
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+                <div class="row aquaheaderrow" style="background-color:aqua;height:20px;">
+                    <div class="col-md-12" style="left:0">
+                        <p style="color:#000;left:40px;position:fixed"> @Html.MvcSiteMap().SiteMapPath()</p>
+                    </div>
+                </div>
+        </nav>
+
+
+
+
+    <div class="container body-content" style="margin-top:130px;">
+
+        @RenderBody()
+
+        <hr />
+        <footer style="background-color:#000; color:#fff; font-size:12px; text-align:left;margin-top:100px;">
+            <div class="row">
+                <div class="col-md-1" style="padding:0px;">
+                </div>
+                <div class="col-md-2">
+                    <h5 style="font-weight:700;">MEMBERSHIP</h5>
+                    <p><a href="account/login">Sign IN</a></p>
+                    <p><a href="account/register">Register</a></p>
+                </div>
+                <div class="col-md-2">
+                    <h5 style="font-weight:700;">SUPPORT</h5>
+                    <p><a href="home/HowItWorks">How It Works</a></p>
+                    <p>Getting Started</p>
+                    <p>Technical Support</p>
+                </div>
+                <div class="col-md-2" style="text-align:left">
+                    <h5 style="font-weight:700;">COMPANY</h5>
+                    <p><a href="home/about">About DBPI</a></p>
+                    <p><a href="home/contact">Contact Us</a></p>
+                    <p><a href="home/PressRoom">Press Room</a></p>
+                    <p><a href="home/WhitePapers">Customer CAse Studies</a></p>
+                    <p><a href="home/AECnews">AEC News</a></p>
+                </div>
+                <div class="col-md-2">
+                    <h5 style="font-weight:700;">WHY DBPI</h5>
+                    <p><a href="home/AppFeatures">Application Features</a></p>
+                    <p><a href="home/HowItWorks">How It Works</a></p>
+                    <p>Watch Video</p>
+                    <p>View Demo App</p>
+                </div>
+                <div class="col-md-3">
+                    <h5 style="font-weight:700;">AFFILIATE PROGRAM</h5>
+                    <p><a href="home/AffiliateStart">Get Started</a></p>
+                    <p><a href="home/AffiliateInfo">Learn More</a></p>
+                    <h5 style="font-weight:700; color:aqua">BENEFITS</h5>
+                    <p>Customized Branded Sites / Landing Pages</p>
+                    <p>No Geographic Boundaries</p>
+                    <p>Cost-Effective Membershi Options</p>
+                    <p>Quickly and effectively transfer existing clientele</p>
+                    <p>Unique Company and Team Member logins</p>
+                    <p>Draw more excited Customers</p>
+                    <p>Public and Private Jobs</p>
+                    <p>Direct Print Options</p>
+                    <p>Professional Support</p>                    
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12" style="text-align:center">
+                    <p><a href="home/Accessibility">Assessibility</a> | <a href="home/TermsOfUse">Terms of Use</a> | <a href="home/PrivacyPolicy">Privacy Policy</a> | <a href="home/DCMApolicy">DMCA Policy</a></p>
+                </div>
+                <div class="col-md-12" style="text-align:center">
+                    <p>
+                        Copyright  &copy; @DateTime.Now.Year - <a href="home/contact">DBPI, Inc.</a> All rights reserved | DBPI is part of the Accelerated Closing Corporation
+                    </p>
+                </div>
+            </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <h6><a href="#" style="color:#ffffff"><img src="~/Images/DBPI_emblem.png" alt="..." height="22" style="margin-left:40px; margin-right:20px" />Sign up for News</a></h6>
+                    </div>
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-inline pull-right" style="margin-right:40px;">
+                            <li>
+                                <a href="http://www.facebook.com/"><img src="~/Images/fblogo.png" alt="..." height="22" /></a>
+                            </li>
+                            <li>
+                                <a href="https://http://www.twitter.com/"><img src="~/Images/twitterlogo.png" alt="..." height="22"/></a>
+                            </li>
+                            <li>
+                                <a href="https://plus.google.com/"><img src="~/Images/linkedinlogo.png" alt="..." height="22" /></a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/"><img src="~/Images/youtubelogo.png" alt="..." height="22" /></a>
+                            </li>
+                            <li>
+                                <a href="https://www.pinterest.com/"><img src="~/Images/instalogo.png" alt="..." height="22" /></a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+
+
+
+</footer>
+    </div>
+
+    @*@Scripts.Render("~/bundles/jquery")*@
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

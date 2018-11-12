@@ -1,0 +1,174 @@
+﻿@model E3DBPI.Models.Employee
+@*@model E3DBPI.Models.CreateEmployeeViewModel*@
+
+@{
+    ViewBag.Title = "Create a New Employee / Seat";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <h4>Required Information</h4>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.Email1, new { htmlAttributes = new { @class = "form-control", placeholder = "Employee Email Address" } })
+                @Html.ValidationMessageFor(model => model.Email1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", placeholder = "First Name" } })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", placeholder = "Last Name" } })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.Company_EmployeeID, new { htmlAttributes = new { @class = "form-control", placeholder = "If you have an external identifier for this employee, you can enter it here" } })
+                @Html.ValidationMessageFor(model => model.Company_EmployeeID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.Notes, new { htmlAttributes = new { @class = "form-control", placeholder = "You can maintain notes for this employee right here." } })
+                @Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <h4 style="margin-top:40px;">Employee Special Permissions.</h4>
+        <p> If this Employee has any special administrative privileges they should be specified here. </p>
+
+        <div class="row">
+            <div class="col-md-2">@Html.CheckBoxFor(model => model.Active) Full Everything Access: </div>
+            <div class="col-md-10">This access level gives an Employee complete Company Administrator privileges. Use with Care.</div>
+        </div>
+
+            <div class="row">
+                <div class="col-md-2">@Html.CheckBoxFor(model => model.Active) Full Project Access: </div>
+                <div class="col-md-10">This access level gives an Employee permission to work with Project data in an administrative manner. </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">@Html.CheckBoxFor(model => model.Active) Full Bid Access: </div>
+                <div class="col-md-10">This access level gives an Employee permission to place Bids on Projects in the system and to order Project documents.</div>
+            </div>
+
+                    <div class="row">
+                        <div class="col-md-2">@Html.CheckBoxFor(model => model.Active) Full Document Access: </div>
+                        <div class="col-md-10">This level of access gives an Employee administrative access to all company documents</div>
+                        </div>
+
+
+
+        <h4 style="margin-top:40px;">Employee or Company maintained Information.</h4>
+        <p> You can proceed with creating this Employee without entering this data now. You or the Employee can maintain this data as needed. </p>
+
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.Address1, new { htmlAttributes = new { @class = "form-control", placeholder = "Address Line 1" } })
+                @Html.ValidationMessageFor(model => model.Address1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.Address2, new { htmlAttributes = new { @class = "form-control", placeholder = "Address Line 2" } })
+                @Html.ValidationMessageFor(model => model.Address2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control", placeholder = "City" } })
+                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.State, new { htmlAttributes = new { @class = "form-control", placeholder = "State" } })
+                @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.Zip, new { htmlAttributes = new { @class = "form-control", placeholder = "Zip" } })
+                @Html.ValidationMessageFor(model => model.Zip, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control", placeholder = "Country" } })
+                @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.Phone1, new { htmlAttributes = new { @class = "form-control", placeholder = "Primary Phone" } })
+                @Html.ValidationMessageFor(model => model.Phone1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.Phone2, new { htmlAttributes = new { @class = "form-control", placeholder = "Secondary Phone" } })
+                @Html.ValidationMessageFor(model => model.Phone2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.Email2, new { htmlAttributes = new { @class = "form-control", placeholder = "Secondary Email" } })
+                @Html.ValidationMessageFor(model => model.Email2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6" style="text-align:center;">
+                <a href="javascript:void(0);" onclick="history.go(-1);" class="btn btn-xl btn-primary" role="button" aria-disabled="true">Return</a>
+                
+            </div>
+            <div class="col-md-6" style="text-align:center;">
+                <input type="submit" value="Create Employee Record" class="btn btn-xl btn-primary" />
+            </div>
+        </div>
+
+            <div class="col-md-12" style="text-align:center; margin-top:40px;">
+                <p>A message will be sent to the Email Address you entered requesting this new employee to activate their DBPI account to gain access to the system. <br />
+                Once they have signed in, you will receive an Email notification that they are on board. You can start communicating with, and utilizing your Employee resources 
+                at that point.
+                </p>
+            </div>
+    </div>
+}
+
+<div>
+    
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<E3DBPI.ViewModels.Users_in_role_ViewModel>
+
+@{
+    ViewBag.Title = "ManageUsers";
+}
+<h2>User Manager</h2>
+
+
+@Html.ActionLink("Manage Users", "ManageUsers") | @Html.ActionLink("Manage Roles", "ManageRoles") | @Html.ActionLink("Add or Remove a User to/from a role", "AssignRole")
+<hr />
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="box-title">
+            <b>Users and their Roles</b>
+        </h3>
+    </div>
+    <!-- /.box-header -->
+    <div class="panel-body">
+        <table class="table table-hover table-bordered table-condensed" id="example1">
+            <thead>
+                <tr>
+                    <td><b>Username</b></td>
+                    <td><b>Email</b></td>
+                    <td><b>Confirmed</b></td>
+                    <td><b>Roles</b></td>
+                </tr>
+            </thead>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.Username</td>
+                    <td>@user.Email</td>
+                    <td>@Html.CheckBox("EmailConfirmed", @user.EmailConfirmed)</td>
+                    <td>@user.Role</td>
+                    
+
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div class="panel-footer">
+        <p class="box-title"><b>Total Users as of @String.Format("{0 : dddd, MMMM d, yyyy}", DateTime.Now)  : </b><span class="label label-primary">@Model.Count()</span></p>
+    </div>
+</div>
+
+
+
+        @section scripts{
+        }

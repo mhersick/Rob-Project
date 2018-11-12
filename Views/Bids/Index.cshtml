@@ -1,0 +1,99 @@
+﻿@model IEnumerable<E3DBPI.Models.Bid>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BidDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BidText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BidLimitations)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BidAmt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BidStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Deleted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActionDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Notes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastViewDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Company.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubProject.SubProjectName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BidDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BidText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BidLimitations)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BidAmt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BidStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Deleted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActionDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Notes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastViewDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Company.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubProject.SubProjectName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BidID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BidID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BidID })
+        </td>
+    </tr>
+}
+
+</table>

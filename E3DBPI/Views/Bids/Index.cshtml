@@ -1,0 +1,90 @@
+﻿@model IEnumerable<E3DBPI.Models.Bid>
+
+@{
+    ViewBag.Title = "Project/Task Bids";
+}
+
+<style>
+    .listing h2 {
+        margin-bottom: 40px;
+    }
+</style>
+
+<div class="listing">
+    <h2>@ViewBag.co_cName @ViewBag.Title</h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BidDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubProjectID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubProject.SubProjectName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BidAmt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BidStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ActionDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BidDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Company)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubProjectID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubProject.SubProjectName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BidAmt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BidStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActionDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Active)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.BidID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.BidID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.BidID })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div class="row">
+        <div class="col-md-6" style="text-align:center;margin-top:40px;">
+            @Html.ActionLink("Open Projects - List", "Index", "SubProjects", new { }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })
+        </div>
+        <div class="col-md-6" style="text-align:center;margin-top:40px;">
+            @Html.ActionLink("Open Projects - Calendar", "SubProjectCalendar", "SubProjects", new { }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })
+        </div>
+    </div>
+
+    </div>

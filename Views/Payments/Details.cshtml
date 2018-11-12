@@ -1,0 +1,154 @@
+﻿@model E3DBPI.Models.Payment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Payment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentAmt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentAmt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PayerID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PayerID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TransID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TransStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Deleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Deleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BankAccount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BankAccount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BankRouting)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BankRouting)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CardType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CardType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CardNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CardNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CardExMo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CardExMo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CardExYr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CardExYr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Order.CustOrderNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order.CustOrderNumber)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PaymentID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

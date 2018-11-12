@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
+  <mvcSiteMapNode title="Home" controller="Home" action="Index">
+    <mvcSiteMapNode title="About" controller="Home" action="About"/>
+    <mvcSiteMapNode title="Contact" controller="Home" action="Contact"/>
+    <mvcSiteMapNode title="Site Admin" controller="Admin" action="Index"/>
+        <!--<mvcSiteMapNode title="SuperAdmin" controller="Admin" action="Index" />
+      <mvcSiteMapNode title="User Manager" controller="Admin" action="UsersWithRoles" />
+      <mvcSiteMapNode title="Role Manager" controller="Admin" action="RoleManager" />
+      <mvcSiteMapNode title="Create User" controller="Admin" action="CreateUser" />
+      <mvcSiteMapNode title="Create Roles" controller="Admin" action="CreateRole" />
+      <mvcSiteMapNode title="Assign Roles" controller="Admin" action="AssignRole" />-->
+  
+      <!--<mvcSiteMapNode title="Company Admin" controller="CompanyAdmin" action="Index" clickable="true"/>-->
+        
+    <!--<mvcSiteMapNode title="Profile" clickable="false">
+      <mvcSiteMapNode title="Change Password" controller="Home" action="ChangePassword" />
+      <mvcSiteMapNode title="Separator" clickable="false" />
+      <mvcSiteMapNode title="Sign Off" controller="Home" action="SignOff" />-->
+    </mvcSiteMapNode>  
+</mvcSiteMap>

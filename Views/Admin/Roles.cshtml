@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
+@{
+    ViewBag.Title = "Roles";
+}
+<h2>Roles Listing </h2>
+
+@Html.ActionLink("Create New Role", "CreateRole") | @Html.ActionLink("Manage Users", "UsersWithRoles")
+<hr />
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="box-title">
+            <b>Defined Roles</b>
+        </h3>
+    </div>
+    <!-- /.box-header -->
+    <div class="panel-body">
+        <table class="table table-hover table-bordered table-condensed" id="example1">
+            <thead>
+                <tr>
+                    <td><b>Role Name</b></td>
+                    <td><b></b></td>
+                    <td><b></b></td>
+                </tr>
+            </thead>
+            @foreach (var role in Model)
+            {
+                <tr>
+                    <td>@role.Name</td>
+                    <td><b>@Html.ActionLink("Edit", "RoleEdit", new { roleName = @role.Name })</b></td>
+                    <td><b><span onclick="return confirm('Are you sure to delete Role?')"><a href="/Roles/RoleDelete?RoleName=@role.Name" class="delLink" style="color:red;">Delete</a></span></b></td>
+
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div class="panel-footer">
+        <p class="box-title"><b>Total Roles as of @String.Format("{0 : dddd, MMMM d, yyyy}", DateTime.Now)  : </b><span class="label label-primary">@Model.Count() </span></p>
+    </div>
+
+</div>
+
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="box-title"><b>Create Roles</b></h3>
+    </div>
+
+    @using (Html.BeginForm("CreateRole", "Admin", FormMethod.Post))
+            {
+        <div class="row">
+            <div class="col-md-6">
+                <label class="control-label">Role Name</label>
+                <input type="text" class="form-control" name="RoleName" />
+            </div>
+        </div>
+                <div class="row">
+                    <div class="col-md-6" style="text-align:center">
+                        <button type="submit" value="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+
+    }
+</div>
+
+
+
+
+
+

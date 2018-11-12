@@ -1,0 +1,152 @@
+﻿@model E3DBPI.Models.ItemCategory
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ItemCategory</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryHeader)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryHeader)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WebLink1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WebLink1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weblink2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weblink2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Featured)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Featured)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShowOnRelated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShowOnRelated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsSubCat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsSubCat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubCatOf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubCatOf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryLongText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryLongText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sequence)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sequence)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

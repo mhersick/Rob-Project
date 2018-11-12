@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - DesignBuildPlanIT</title>
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/bootstrap.css")
+    @*@Styles.Render("~/Content/Bootstrap.min.css")*@
+    @Scripts.Render("~/bundles/modernizr-2.6.js")
+    @Styles.Render("~/Content/font-awesome.min.css")
+    @Styles.Render("https://fonts.googleapis.com/css?family=Montserrat:400,700")
+    @Styles.Render("~/Content/Site.css")
+
+    <!-- Custom Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<style>
+    .navbar-nav .divider-vertical {
+        border: none;
+    }
+
+    body {
+        background-image: url(../images/AdobeStock_142704236.jpeg);
+        background-position:top;
+        background-repeat: no-repeat;
+        background-size:cover;
+        
+    }
+
+</style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="col-md-4">
+            <a href="~/"><img src="../images/dbpi-logo-web-2018.png" alt="..." style="width:100%;" /></a><br />
+        </div>
+        <div class="container col-md-8">
+            <div class="row">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse" style="background-color:none;border-color:none;">
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+            <div class="row">
+                <p style="color:#fff;margin-left:45px">@Html.MvcSiteMap().SiteMapPath()</p>
+
+            </div>
+        </div>
+    </div>
+        <div class="Row" style="background-color:aqua">
+            <div class="col-md-12"></div>
+
+
+        </div>
+
+
+
+
+
+    <div class="container body-content" style="margin-top:140px;">
+@Html.MvcSiteMap().SiteMapPath()
+        @RenderBody()
+
+        <hr />
+        <footer>
+            <div class="col-md-12" style="margin-top:80px; text-align:center; margin-bottom:40px;">
+                <ul class="list-inline social-buttons">
+                    <li>
+                        <a href="http://www.facebook.com/" style="color:red; background-color:#fff;"><i class="fab fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://http://www.twitter.com/" style="color:#0000ff; background-color:#fff;"><i class="fab fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://plus.google.com/" style="color:Green; background-color:#fff;"><i class="fab fa-google-plus"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/" style="color:Fuchsia; background-color:#fff;"><i class="fab fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.pinterest.com/" style="color:Maroon; background-color:#fff;"><i class="fab fa-pinterest"></i></a>
+                    </li>
+                    <li><asp:ImageButton ID="Eng" runat="server" ImageUrl="Images/flags/us.png"></asp:ImageButton></li>
+                    <li><asp:ImageButton ID="Chi" runat="server" ImageUrl="Images/tw.png"></asp:ImageButton></li>
+                </ul>
+            </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="nav navbar-nav">
+                            @Html.MvcSiteMap().Menu("BootstrapMenuHelperModel")
+                        </ul>
+                    </div>
+                    <div class="col-md-12" style="text-align:center">
+
+                        <p style="color:#999; background-color:#f1f1f1;opacity:.5"> &copy; @DateTime.Now.Year - <a href="http://e3imagegroup.com">DesignBuildPlanIT</a></p>
+                    </div>
+                </div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

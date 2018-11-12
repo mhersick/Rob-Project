@@ -1,0 +1,138 @@
+﻿@model E3DBPI.Models.ServicePlan
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ServicePlan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ServicePlanName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServicePlanName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShortDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShortDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LongDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LongDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Seats)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Seats)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Storage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Storage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FeatureA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FeatureA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FeatureB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FeatureB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FeatureC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FeatureC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FeatureD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FeatureD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FeatureE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FeatureE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddSeatCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddSeatCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MontlhyCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MontlhyCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnnualCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnnualCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiscountPercent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiscountPercent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sequence)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sequence)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ServicePlanID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
