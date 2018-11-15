@@ -4,51 +4,53 @@
     ViewBag.Title = "Companies";
 }
 
-<div class="listing">
     <h2>@ViewBag.co_cName @ViewBag.Title</h2>
 
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CompanyID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CompanyName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ServiceLevel)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BillingCycle)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.City)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.State)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Zip)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Phone1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.WebSite)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Active)
-            </th>
-            <th>
-            </th>
-            <th></th>
-        </tr>
+<div class="listing container" >
+    <table class="table" id="companylist">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CompanyID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CompanyName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ServiceLevel)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BillingCycle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.City)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.State)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Zip)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Phone1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WebSite)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Active)
+                </th>
+                <th>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
 
         @foreach (var item in Model)
-        {
+            {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.CompanyID)
@@ -86,24 +88,24 @@
                 </td>
                 <td></td>
                 <td>
-                    @Html.ActionLink("View", "Details", new { id = item.CompanyID }, htmlAttributes: new { @class = "btn btn-smform btn-info" })
-                    @Html.ActionLink("Edit", "Edit", new { id = item.CompanyID }, htmlAttributes: new { @class = "btn btn-smform btn-info" })
-                    @Html.ActionLink("Delete", "Delete", new { id = item.CompanyID }, htmlAttributes: new { @class = "btn btn-smform btn-warning" })
+                    @Html.ActionLink("View", "Details", new { id = item.CompanyID }, htmlAttributes: new { @class = "btn btn-xs btn-info" })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CompanyID }, htmlAttributes: new { @class = "btn btn-xs btn-info" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CompanyID }, htmlAttributes: new { @class = "btn btn-xs btn-warning" })
                 </td>
             </tr>
         }
 
     </table>
-
 </div>
+
+
 
 
     <div class="col-md-12" style="text-align:center;margin-top:40px;">
         @if (User.Identity.IsAuthenticated)
             {
-                if (User.IsInRole("CompanyAdmin"))
+                if (User.IsInRole("SuperAdmin"))
                 {
-
                 <p>
                     @Html.ActionLink("Create a New Company", "Create", "Companies", new { }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })
                 </p>
@@ -112,4 +114,10 @@
 
     </div>
 
-
+@section scripts{
+    <script>
+    $(document).ready(function () {
+        $('#companylist').DataTable();
+    });
+    </script>
+}
