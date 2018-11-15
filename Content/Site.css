@@ -1,12 +1,267 @@
-﻿body {
+﻿/*----------------------------------------------------------------------------------------------------------------------------- */
+/* 1.section Styling starts here */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+/*If you want to set a different body background for a given section, do it here*/
+section#home body {
+    /*background-image: url(../images/AdobeStock_142704236.jpeg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;*/
+    letter-spacing:1px;
+}
+
+section#home {
+    padding-bottom: 5%;
+    margin: 0 10%;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+    section#home .topfold {
+        background-position: left center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    section#home .botfold {
+        background-color: #fff;
+        padding: 0 50px
+    }
+
+        section#home .botfold h3 {
+            font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+            color: #000;
+            text-align: center;
+            font-weight: 100;
+            letter-spacing:1px;
+        }
+
+        section#home .botfold p {
+            font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-weight: 100;
+            color: #000;
+            margin-top: 20px;
+            letter-spacing:1px;
+        }
+
+        section#home .botfold img {
+            margin-top: 20px;
+            width: 75%;
+            height: auto;
+        }
+
+    section#home .seewhat h2 {
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        text-align: center;
+        color:#000;
+        font-weight:100;
+        letter-spacing:1px;
+      
+    }
+    section#home .seewhat h3 {
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        text-align: left;
+        color: #000;
+        letter-spacing: 1px;
+    }
+
+    section#home .obackground {
+        background-color: white;
+        opacity: .7;
+        margin-left: 40px;
+        margin-bottom: 100px;
+        margin-top: 40px;
+    }
+
+    section#home p {
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 1em;
+        color: #fff;
+    }
+
+    section#home h2 {
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 1.5em;
+        font-weight: 700;
+        color: #EA9735;
+    }
+
+    section#home h3 {
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 1.5em;
+        color: #ffffff;
+        letter-spacing: 3px;
+    }
+
+    section#about{
+        padding:5%;
+    }
+
+   
+/*----------------------------------------------------------------------------------------------------------------------------- */
+/*             1.1 Carousel Styling  */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+    div#carouselExampleIndicators .carousel-indicators li {
+        width: 10px;
+        height: 10px;
+        border-radius: 100%;
+    }
+    div#carouselExampleIndicators .carousel-inner {
+        max-height: 680px;
+    }
+
+/*----------------------------------------------------------------------------------------------------------------------------- */
+/*             1.2 Card Styling  */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+
+.icons{
+    margin-top:5%;
+    width:100%;
+    height:auto;
+}
+.card-img-top {
+    
+    padding:5%;
+}
+
+div .card-columns {
+    margin: 10% 15%;
+}
+
+div .quote {
+    background-color: slategray;
+    padding: 5% 25%;
+    border-radius: 5px;
+}
+div .card-deck {
+    text-align: left;
+    margin: 0 50px 50px 50px
+}
+
+div .news {
+    text-align: center;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+
+
+    /*----------------------------------------------------------------------------------------------------------------------------- */
+    /*             1.3 Contact Styling  */
+    /* ----------------------------------------------------------------------------------------------------------------------------- */
+    section #contact body {
+        background-image: url(/images/wmr660ymcag3.JPG);
+    }
+
+section#contact {
+    background-color: #fff;
+    /*background-image:url(../images/wmr660ymcag3.JPG);*/
+    background-position: center;
+    background-repeat: no-repeat;
+    /*margin-top:145px;
+	margin-top:50px;*/
+    padding-top: 20px;
+    padding-bottom: 20px
+}
+
+    section#contact .form-group {
+        margin-bottom: 25px
+    }
+
+        section#contact .form-group input, section#contact .form-group textarea {
+            padding: 10px
+        }
+
+            section#contact .form-group input.form-control {
+                height: auto
+            }
+
+            section#contact .form-group textarea.form-control {
+                height: 236px
+            }
+
+
+    section#contact ::-webkit-input-placeholder {
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #bbb
+    }
+
+    section#contact :-moz-placeholder {
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #bbb
+    }
+
+    section#contact :-ms-input-placeholder {
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #bbb
+    }
+
+    section#contact .text-danger {
+        color: #e74c3c
+    }
+
+
+/*----------------------------------------------------------------------------------------------------------------------------- */
+/* section Styling ends here */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+
+
+/*----------------------------------------------------------------------------------------------------------------------------- */
+/* 2.body Styling starts here */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+
+body {
     /*padding-top: 10px;*/
-    padding-bottom: 20px;
+    /*padding-bottom: 20px;*/
+    /*background-color:#ffffff;*/
+    /*background-image: url(../../images/AdobeStock_142704236.jpeg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;*/
 }
 
 /* Set padding to keep content from hitting the edges */
-.body-content {
+body-content {
     padding-left: 15px;
     padding-right: 15px;
+    background-color: #fff;
+    
+    margin-top: 2%;
+}
+
+/* Set the font and padding in the LIST items. Get's buttons to display properly at full width */
+.table tbody > tr > th {
+    padding: 4px
+}
+.table tbody > tr > td {
+    padding: 4px;
+    font-size:1em;
+}
+
+
+/* Set size of textarea fields on forms */
+textarea {
+    width:100%;
+    height:150px
+}
+
+/* Set size of date fields on forms */
+.datefield {
+    width: 260px;
+}
+
+/* Set size of textarea fields on forms */
+.check-box {
+    width: 20px;
+    height: 20px
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -14,11 +269,439 @@
 */
 .dl-horizontal dt {
     white-space: normal;
+    width:auto;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.textoverimg {
+    position:relative;
+    text-align:center;
+    color:#000
 }
+.textovercenter {
+    position: absolute;
+    top:45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size:1em;
+    font-weight:700;
+}
+
+
+/* This is setting the height for any textarea */
+textarea.form-control {
+    height:150px;
+}
+
+/*----------------------------------------------------------------------------------------------------------------------------- */
+/* body Styling ends here */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+/*----------------------------------------------------------------------------------------------------------------------------- */
+/* 3.Menu Styling  */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+
+
+/*.divider-vertical {
+    border: none;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+   
+    font-size:18px;
+}
+
+.dropdown-submenu {
+    position: relative;
+}
+
+    .dropdown-submenu > .dropdown-menu {
+        top: 0;
+        left: 100%;
+        margin-top: -6px;
+        margin-left: -1px;
+        -webkit-border-radius: 0 6px 6px 6px;
+        -moz-border-radius: 0 6px 6px 6px;
+        border-radius: 0 6px 6px 6px;
+    }
+
+    .dropdown-submenu:hover > .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-submenu > a:after {
+        display: block;
+        content: " ";
+        float: right;
+        width: 0;
+        height: 0;
+        border-color: transparent;
+        border-style: solid;
+        border-width: 5px 0 5px 5px;
+        border-left-color: #cccccc;
+        margin-top: 5px;
+        margin-right: -10px;
+    }
+
+    .dropdown-submenu:hover > a:after {
+        border-left-color: #ffffff;
+    }
+
+    .dropdown-submenu.pull-left {
+        float: none;
+    }
+
+        .dropdown-submenu.pull-left > .dropdown-menu {
+            left: -100%;
+            margin-left: 10px;
+            -webkit-border-radius: 6px 0 6px 6px;
+            -moz-border-radius: 6px 0 6px 6px;
+            border-radius: 6px 0 6px 6px;
+        }
+
+.navbar-nav .divider-vertical {
+    /*height: 40px;
+    margin: 0 9px;
+    border-left: 1px solid #f2f2f2;
+    border-right: 1px solid #ffffff;*/
+}*/
+
+
+
+.vmenutext {font-size:1em;font-weight:700;text-shadow:20px 12px 2px #333; text-align:left;}
+
+/*----------------------------------------------------------------------------------------------------------------------------- */
+/* 4.List page Styling - */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+
+.listing h2 {
+    margin-bottom: 40px;
+}
+
+input, select, textarea {
+    max-width: none;
+}
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+/* 5.Buttons & Button colors */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+
+/*/*.btn, .btn-md {
+    margin-top: 5px;
+    z-index: auto;
+   
+}
+
+.btn-primary {
+    color: #000;
+    background-color: #000;
+    border-color: #00ffff;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+   
+    font-weight: 700;
+    background-image: none;
+    border-radius: 3px;
+}
+
+    .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+        color: #000;
+        background-color: #00dddd;
+        border-color: #00ffff;
+        z-index:1040;
+    }
+
+    .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+        background-image: none
+    }
+
+    .btn-primary.disabled, .btn-primary[disabled], fieldset[disabled] .btn-primary, .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover, .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus, .btn-primary.disabled:active, .btn-primary[disabled]:active, fieldset[disabled] .btn-primary:active, .btn-primary.disabled.active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary.active {
+        /*background-color: #0094ff;*/
+        /*background-color: #00dddd;
+        border-color: #00dddd;
+    }*/
+
+    /*.btn-primary .badge {
+        color: #00dddd;
+        background-color: #fff;
+    }*/
+
+.btn-sm {
+    font-size: 1em;
+    padding: 4px 6px ;
+    margin-top: 10px;
+}
+
+.btn-smform {
+    font-size: 1em;
+    padding: 2px 2px 2px 2px;
+    margin: 2px;
+    font-size:1em;
+    font-weight:300;
+}
+
+  .nav .btn-sm {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        color:#000;
+    }
+
+.btn-lg {
+    font-size: 1em;
+    padding: 15px 30px;
+}
+
+.btn-xl {
+    font-size: 1em;
+    padding: 20px 40px;
+}
+
+.form-control:focus {
+    border-color: #00dddd;
+    box-shadow:  0 2px 2px ;
+box-shadow: none
+}
+
+.nav .btn-md{
+    background-color: #EA973F;
+}
+
+
+.nav-link:hover,#regster-link{
+    background-color:orange;
+    border-radius:5px;
+    
+}
+
+.sticky-top.scrolled {
+    background-color: slategrey !important;
+    transition: background-color 200ms linear;
+}
+
+nav.navbar {
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+}
+
+    nav.navbar.shrink {
+        padding: 0;  
+    }
+
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------------- */
+/* 6.Popout side menu */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #bbb;
+}
+
+    ::-webkit-scrollbar-thumb:window-inactive {
+        background: rgba(182,182,182,0.4);
+    }
+
+/*a {
+    color: #222;
+}*/
+
+.gx-menu-open.list {
+    top: 0px;
+    height: 20px;
+    line-height: 0px;
+    left: 0px;
+    right: auto;
+}
+
+.gx-menu-open.share {
+    right: 3%;
+    left: auto;
+    top: 0px;
+    height: 40px;
+    line-height: 10px;
+}
+
+.gx-menu-open.mobile {
+    line-height: 0.6em;
+}
+
+#wrapper {
+    width: 80%;
+    margin: auto;
+    position: relative;
+}
+/*---------- ide-kdev Styles ---------*/
+.sh_ide-kdev {
+    width: 100%;
+}
+
+    .sh_ide-kdev .sh_sourceCode {
+        background-color: #f9f9f9;
+        color: #000;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+.snippet-wrap pre.sh_sourceCode {
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+}
+
+@media all and (max-width: 480px) {
+    #wrapper {
+        width: 96%;
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------------- */
+/* 7.Social Buttons */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+
+ul.social-buttons, li.social {
+    margin-top: -23px;
+    padding-left: 5px;
+    padding-right: 5px;
+    max-width: 25%;
+    list-style: none;
+    float: right;
+    text-decoration: none;
+    display: inline-block !important;
+    position: relative;
+
+}
+
+.container-thumb{
+    width:300px;
+    height:300px;
+}
+
+.img-thumbnail {
+   transition: transform 0.2s;
+   width:200px;
+   height:200px;
+
+}
+
+.img-thumbnail:hover{
+    transform:scale(1.1);
+}
+.w-50 {
+    margin-left:0 auto;
+    margin-right:0 auto;
+}
+
+.seewhat b{
+    color:darkorange;
+}
+.card-body b{
+    font-size:1.5em;
+    color:darkorange;
+}
+
+.carousel-inner button{
+    transition:transform 0.2s;
+}
+
+.carousel-inner button:hover{
+    transform:scale(1.1);
+}
+
+.botfold button{
+    transition:transform 0.2s;
+    box-shadow: 0 8px 8px -6px;
+}
+
+.botfold button:hover{
+    transform:scale(1.1);
+}
+ 
+/*.navbar-nav .nav li .nav-link .nav-item{
+    color:#fff;
+    text-decoration:none;
+}*/
+ .card-columns,.icons{
+     transition:transform 0.2s;
+ }
+ .card-columns,.icons:hover{
+     transform:scale(1.1);
+ }
+
+/*----------------------------------------------------------------------------------------------------------------------------- */
+/* 8.accordion Styling starts here */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+
+ /*  This is the css for the accordion menu on the admin pages.  Not sure we will use it, so delete if not  */
+
+/* The Magic */
+.accordion:hover .accordion-item:hover .accordion-item-content,
+.accordion .accordion-item--default .accordion-item-content {
+    height: 6em;
+}
+
+.accordion-item-content,
+.accordion:hover .accordion-item-content {
+    height: 0;
+    overflow: hidden;
+    transition: height .25s;
+}
+
+/* Aesthetic */
+body {
+    background: #222;
+}
+
+.accordion {
+    margin-top: 20px;
+    padding: 0;
+    width: 200px;
+    /*margin: 0 auto;
+        text-align:left;*/
+    /*font-family: "PT Sans" sans-serif*/
+}
+
+    .accordion .accordion-item {
+        background-image: linear-gradient(90deg, #eee, #f5f5f5, #eee);
+        border-bottom: 1px solid #666;
+        padding: 1em;
+        color: #eee;
+    }
+
+    .accordion h1 {
+        margin: 0;
+    }
+
+    .accordion .accordion-item:nth-child(1) {
+        background-color: hsl(200, 80%, 60%);
+        background-image: linear-gradient(-90deg, hsl(200, 80%, 60%), hsl(200, 80%, 45%) 2em, hsl(200, 80%, 60%));
+    }
+
+    .accordion .accordion-item:nth-child(2) {
+        background-color: hsl(280, 60%, 45%);
+        background-image: linear-gradient(-90deg, hsl(280, 80%, 60%), hsl(280, 60%, 45%) 2em, hsl(280, 80%, 60%));
+    }
+
+    .accordion .accordion-item:nth-child(3) {
+        background-color: hsl(40, 80%, 40%);
+        background-image: linear-gradient(-90deg, hsl(40, 80%, 60%), hsl(40, 80%, 45%) 2em, hsl(40, 80%, 60%));
+    }
+
+    .accordion .accordion-item:nth-child(4) {
+        background-color: hsl(80, 40%, 40%);
+        background-image: linear-gradient(-90deg, hsl(80, 80%, 40%), hsl(80, 80%, 35%) 2em, hsl(80, 80%, 40%));
+    }

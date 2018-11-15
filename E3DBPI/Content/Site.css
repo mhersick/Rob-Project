@@ -1,4 +1,224 @@
-﻿body {
+﻿/*----------------------------------------------------------------------------------------------------------------------------- */
+/* 1.section Styling starts here */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+/*If you want to set a different body background for a given section, do it here*/
+section#home body {
+    /*background-image: url(../images/AdobeStock_142704236.jpeg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;*/
+    letter-spacing:1px;
+}
+
+section#home {
+    padding-bottom: 5%;
+    margin: 0 10%;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+    section#home .topfold {
+        background-position: left center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    section#home .botfold {
+        background-color: #fff;
+        padding: 0 50px
+    }
+
+        section#home .botfold h3 {
+            font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+            color: #000;
+            text-align: center;
+            font-weight: 100;
+            letter-spacing:1px;
+        }
+
+        section#home .botfold p {
+            font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-weight: 100;
+            color: #000;
+            margin-top: 20px;
+            letter-spacing:1px;
+        }
+
+        section#home .botfold img {
+            margin-top: 20px;
+            width: 75%;
+            height: auto;
+        }
+
+    section#home .seewhat h2 {
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        text-align: center;
+        color:#000;
+        font-weight:100;
+        letter-spacing:1px;
+      
+    }
+    section#home .seewhat h3 {
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        text-align: left;
+        color: #000;
+        letter-spacing: 1px;
+    }
+
+    section#home .obackground {
+        background-color: white;
+        opacity: .7;
+        margin-left: 40px;
+        margin-bottom: 100px;
+        margin-top: 40px;
+    }
+
+    section#home p {
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 1em;
+        color: #fff;
+    }
+
+    section#home h2 {
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 1.5em;
+        font-weight: 700;
+        color: #EA9735;
+    }
+
+    section#home h3 {
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 1.5em;
+        color: #ffffff;
+        letter-spacing: 3px;
+    }
+
+    section#about{
+        padding:5%;
+    }
+
+   
+/*----------------------------------------------------------------------------------------------------------------------------- */
+/*             1.1 Carousel Styling  */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+    div#carouselExampleIndicators .carousel-indicators li {
+        width: 10px;
+        height: 10px;
+        border-radius: 100%;
+    }
+    div#carouselExampleIndicators .carousel-inner {
+        max-height: 680px;
+    }
+
+/*----------------------------------------------------------------------------------------------------------------------------- */
+/*             1.2 Card Styling  */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+
+.icons{
+    margin-top:5%;
+    width:100%;
+    height:auto;
+}
+.card-img-top {
+    
+    padding:5%;
+}
+
+div .card-columns {
+    margin: 10% 15%;
+}
+
+div .quote {
+    background-color: slategray;
+    padding: 5% 25%;
+    border-radius: 5px;
+}
+div .card-deck {
+    text-align: left;
+    margin: 0 50px 50px 50px
+}
+
+div .news {
+    text-align: center;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+
+
+    /*----------------------------------------------------------------------------------------------------------------------------- */
+    /*             1.3 Contact Styling  */
+    /* ----------------------------------------------------------------------------------------------------------------------------- */
+    section #contact body {
+        background-image: url(/images/wmr660ymcag3.JPG);
+    }
+
+section#contact {
+    background-color: #fff;
+    /*background-image:url(../images/wmr660ymcag3.JPG);*/
+    background-position: center;
+    background-repeat: no-repeat;
+    /*margin-top:145px;
+	margin-top:50px;*/
+    padding-top: 20px;
+    padding-bottom: 20px
+}
+
+    section#contact .form-group {
+        margin-bottom: 25px
+    }
+
+        section#contact .form-group input, section#contact .form-group textarea {
+            padding: 10px
+        }
+
+            section#contact .form-group input.form-control {
+                height: auto
+            }
+
+            section#contact .form-group textarea.form-control {
+                height: 236px
+            }
+
+
+    section#contact ::-webkit-input-placeholder {
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #bbb
+    }
+
+    section#contact :-moz-placeholder {
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #bbb
+    }
+
+    section#contact :-ms-input-placeholder {
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #bbb
+    }
+
+    section#contact .text-danger {
+        color: #e74c3c
+    }
+
+
+/*----------------------------------------------------------------------------------------------------------------------------- */
+/* section Styling ends here */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+
+
+/*----------------------------------------------------------------------------------------------------------------------------- */
+/* 2.body Styling starts here */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+
+body {
     /*padding-top: 10px;*/
     /*padding-bottom: 20px;*/
     /*background-color:#ffffff;*/
@@ -9,11 +229,13 @@
 }
 
 /* Set padding to keep content from hitting the edges */
-/*.body-content {
+body-content {
     padding-left: 15px;
     padding-right: 15px;
-    background-color:#ffffff;
-}*/
+    background-color: #fff;
+    
+    margin-top: 2%;
+}
 
 /* Set the font and padding in the LIST items. Get's buttons to display properly at full width */
 .table tbody > tr > th {
@@ -21,7 +243,7 @@
 }
 .table tbody > tr > td {
     padding: 4px;
-    font-size:12px;
+    font-size:1em;
 }
 
 
@@ -60,7 +282,7 @@ textarea {
     top:45%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size:16px;
+    font-size:1em;
     font-weight:700;
 }
 
@@ -69,8 +291,12 @@ textarea {
 textarea.form-control {
     height:150px;
 }
+
 /*----------------------------------------------------------------------------------------------------------------------------- */
-/* Menu Styling  */
+/* body Styling ends here */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+/*----------------------------------------------------------------------------------------------------------------------------- */
+/* 3.Menu Styling  */
 /* ----------------------------------------------------------------------------------------------------------------------------- */
 
 
@@ -140,141 +366,21 @@ textarea.form-control {
 
 
 
-.vmenutext {font-size:14px;font-weight:700;text-shadow:20px 12px 2px #333; text-align:left;}
+.vmenutext {font-size:1em;font-weight:700;text-shadow:20px 12px 2px #333; text-align:left;}
 
 /*----------------------------------------------------------------------------------------------------------------------------- */
-/* List page Styling - */
+/* 4.List page Styling - */
 /* ----------------------------------------------------------------------------------------------------------------------------- */
 
 .listing h2 {
     margin-bottom: 40px;
 }
 
-
-/*----------------------------------------------------------------------------------------------------------------------------- */
-/* Home page Styling - */
-/* ----------------------------------------------------------------------------------------------------------------------------- */
-/*If you want to set a different body background for a given section, do it here*/
-section#home body {
-    /*background-image: url(../images/AdobeStock_142704236.jpeg);
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: cover;*/
-}
-
-section#home {
-    /*background-color: #dddddd;*/
-    /*padding-top: 20px;
-    padding-bottom: 20px*/
-}
-
-    section#home .topfold {
-        background-position: left center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-
-    section#home .botfold {
-        background-color:#ffffff;
-    }
-
-   section#home .obackground {
-        background-color: white;
-        opacity: .7;
-        margin-left: 40px;
-        margin-bottom: 100px;
-        margin-top:40px;
-    }
-
-    section#home p {
-        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-        font-size: 18px;
-        font-weight: 700;
-        color: #ffffff;
-    }
-
-    section#home h2 {
-        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-        font-size: 26px;
-        font-weight: 700;
-        color: #EA9735;
-    }
-
-    section#home h3 {
-        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-        font-size: 26px;
-        font-weight: 700;
-        color: #ffffff;
-        letter-spacing: 3px;
-    }
-
-
-
-/*----------------------------------------------------------------------------------------------------------------------------- */
-/* Contact Styling  */
-/* ----------------------------------------------------------------------------------------------------------------------------- */
-section #contact body {
-    background-image: url(/images/wmr660ymcag3.JPG);
-}
-
-section#contact {
-    background-color: #fff;
-    /*background-image:url(../images/wmr660ymcag3.JPG);*/
-    background-position: center;
-    background-repeat: no-repeat;
-    /*margin-top:145px;
-	margin-top:50px;*/
-    padding-top: 20px;
-    padding-bottom: 20px
-}
-
-    section#contact .form-group {
-        margin-bottom: 25px
-    }
-
-        section#contact .form-group input, section#contact .form-group textarea {
-            padding: 10px
-        }
-
-            section#contact .form-group input.form-control {
-                height: auto
-            }
-
-            section#contact .form-group textarea.form-control {
-                height: 236px
-            }
-
-
-    section#contact ::-webkit-input-placeholder {
-        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-        text-transform: uppercase;
-        font-weight: 700;
-        color: #bbb
-    }
-
-    section#contact :-moz-placeholder {
-        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-        text-transform: uppercase;
-        font-weight: 700;
-        color: #bbb
-    }
-
-    section#contact :-ms-input-placeholder {
-        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-        text-transform: uppercase;
-        font-weight: 700;
-        color: #bbb
-    }
-
-    section#contact .text-danger {
-        color: #e74c3c
-    }
-
 input, select, textarea {
     max-width: none;
 }
 /* ----------------------------------------------------------------------------------------------------------------------------- */
-/* Buttons & Button colors */
+/* 5.Buttons & Button colors */
 /* ----------------------------------------------------------------------------------------------------------------------------- */
 
 /*/*.btn, .btn-md {
@@ -317,16 +423,16 @@ input, select, textarea {
     }*/
 
 .btn-sm {
-    font-size: 12px;
+    font-size: 1em;
     padding: 4px 6px ;
     margin-top: 10px;
 }
 
 .btn-smform {
-    font-size: 12px;
+    font-size: 1em;
     padding: 2px 2px 2px 2px;
     margin: 2px;
-    font-size:10px;
+    font-size:1em;
     font-weight:300;
 }
 
@@ -337,12 +443,12 @@ input, select, textarea {
     }
 
 .btn-lg {
-    font-size: 16px;
+    font-size: 1em;
     padding: 15px 30px;
 }
 
 .btn-xl {
-    font-size: 18px;
+    font-size: 1em;
     padding: 20px 40px;
 }
 
@@ -356,8 +462,34 @@ box-shadow: none
     background-color: #EA973F;
 }
 
+
+.nav-link:hover,#regster-link{
+    background-color:orange;
+    border-radius:5px;
+    
+}
+
+.sticky-top.scrolled {
+    background-color: slategrey !important;
+    transition: background-color 200ms linear;
+}
+
+nav.navbar {
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+}
+
+    nav.navbar.shrink {
+        padding: 0;  
+    }
+
+
+
+
+
 /*----------------------------------------------------------------------------------------------------------------------------- */
-/* Popout side menu */
+/* 6.Popout side menu */
 /* ----------------------------------------------------------------------------------------------------------------------------- */
 ::-webkit-scrollbar {
     width: 12px;
@@ -438,7 +570,7 @@ box-shadow: none
 }
 
 /*----------------------------------------------------------------------------------------------------------------------------- */
-/* Social Buttons */
+/* 7.Social Buttons */
 /* ----------------------------------------------------------------------------------------------------------------------------- */
 
 ul.social-buttons, li.social {
@@ -467,7 +599,7 @@ ul.social-buttons, li.social {
 }
 
 .img-thumbnail:hover{
-    transform:scale(1.5);
+    transform:scale(1.1);
 }
 .w-50 {
     margin-left:0 auto;
@@ -478,7 +610,7 @@ ul.social-buttons, li.social {
     color:darkorange;
 }
 .card-body b{
-    font-size:25px;
+    font-size:1.5em;
     color:darkorange;
 }
 
@@ -499,18 +631,20 @@ ul.social-buttons, li.social {
     transform:scale(1.1);
 }
  
-.navbar-nav .nav li .nav-link .nav-item{
+/*.navbar-nav .nav li .nav-link .nav-item{
     color:#fff;
     text-decoration:none;
-}
- .card-columns,.card{
+}*/
+ .card-columns,.icons{
      transition:transform 0.2s;
  }
- .card-columns,.card:hover{
+ .card-columns,.icons:hover{
      transform:scale(1.1);
  }
 
-
+/*----------------------------------------------------------------------------------------------------------------------------- */
+/* 8.accordion Styling starts here */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
 
  /*  This is the css for the accordion menu on the admin pages.  Not sure we will use it, so delete if not  */
 
