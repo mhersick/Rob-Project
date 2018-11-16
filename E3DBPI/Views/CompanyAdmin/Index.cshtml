@@ -89,30 +89,40 @@
         <div class="col-md-10">
             <div class="row" style="margin-bottom:40px; text-align:center">
                 <div class="col-md-4">
-                    <h4>DBPImail <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
-                    <div style="text-align:center">@Html.ActionLink("DBPImail", "Index", "Messages", new { id = @ViewBag.eIDx }, htmlAttributes: new { @class = "btn btn-lg btn-info" })</div>
+                    <h4>Your Projects <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+                    <div style="text-align:center">@Html.ActionLink("Projects", "Index", "Projects", new { id = @ViewBag.cIDx }, htmlAttributes: new { @class = "btn btn-lg btn-info" })</div>
                 </div>
                 <div class="col-md-4">
                     <h4>Your Employees / Seats <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
                     <div style="text-align:center">@Html.ActionLink("Seats/Employees", "Index", "Employees", new { id = @ViewBag.cIDx }, htmlAttributes: new { @class = "btn btn-lg btn-info" })</div>
                 </div>
                 <div class="col-md-4">
-                    <h4>Your Projects <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
-                    <div style="text-align:center">@Html.ActionLink("Projects", "Index", "Projects", new { id = @ViewBag.cIDx }, htmlAttributes: new { @class = "btn btn-lg btn-info" })</div>
+                    <h4>DBPImail <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+                    <div style="text-align:center">@Html.ActionLink("DBPImail", "Index", "Messages", new { id = @ViewBag.eIDx }, htmlAttributes: new { @class = "btn btn-lg btn-info" })</div>
                 </div>
             </div>
             <div class="row" style="margin-bottom:40px; text-align:center">
                 <div class="col-md-4">
-                    <h4>Your Orders <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
-                    <div style="text-align:center">@Html.ActionLink("Your Orders", "Index", "Orders", new { id = @ViewBag.cIDx }, htmlAttributes: new { @class = "btn btn-lg btn-info" })</div>
+                    <h4>Your Teams <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+                    <div style="text-align:center">@Html.ActionLink("Your Teams", "Index", "Teams", new { id = @ViewBag.cIDx }, htmlAttributes: new { @class = "btn btn-lg btn-info" })</div>
                 </div>
                 <div class="col-md-4">
                     <h4>Your Documents <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
                     <div style="text-align:center">@Html.ActionLink("Your Documents", "Index", "Documents", new { id = @ViewBag.cIDx }, htmlAttributes: new { @class = "btn btn-lg btn-info" })</div>
                 </div>
                 <div class="col-md-4">
+                    <h4>Your Orders <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
+                    <div style="text-align:center">@Html.ActionLink("Your Orders", "Index", "Orders", new { id = @ViewBag.cIDx }, htmlAttributes: new { @class = "btn btn-lg btn-info" })</div>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom:40px; text-align:center">
+                <div class="col-md-4">
                     <h4>Project/Bid Activity <editbtn style="color:cyan;font-size:12px;font-weight:700">GO!</editbtn></h4>
                     <div style="text-align:center">@Html.ActionLink("Your Bid Activity", "Index", "Bids", new { id = @ViewBag.cIDx }, htmlAttributes: new { @class = "btn btn-lg btn-info" })</div>
+                </div>
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
                 </div>
             </div>
 

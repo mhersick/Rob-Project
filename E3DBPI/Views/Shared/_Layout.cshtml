@@ -5,16 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
 
-    @Styles.Render("~/Content/bootstrap")
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/bootstrap.css")
+    @*@Styles.Render("~/Content/bootstrap1.css")*@
+    @Styles.Render("~/Content/site.css")
+
+    @Styles.Render("~/Content/DataTables/css/dataTables.jqueryui.css")
+    @*@Styles.Render("~/Content/DataTables/css/dataTables.bootstrap4.css")*@
+    @*@Styles.Render("~/Content/DataTables/css/jquery.dataTables.css")*@
 
 
-    <link href="~/Content/Site.css" rel="stylesheet" />
-    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
-    <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    <script src="~/Scripts/bootstrap.js"></script>
-    <script src="~/Scripts/popper.js"></script>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+    @Scripts.Render("~/Scripts/DataTables/dataTables.bootstrap4.js")
+    @Scripts.Render("~/Scripts/DataTables/jquery.dataTables.js")
+
+
+
+
+
+
+    @*@Scripts.Render("~/Scripts/jquery-ui=1.12.1.js")*@
+    @Scripts.Render("~/Scripts/bootstrap.js")
+    @*@Scripts.Render("~/Scripts/bootstrap1.js")*@
+    @Scripts.Render("~/Scripts/jquery-3.3.1.js")
+    @Scripts.Render("~/Scripts/popper.js")
+
+
+
+
+
+    @*<script src="~/Scripts/DataTables/jquery.dataTables.js"></script>
+
+    <link href="~/Content/DataTables/css/dataTables.bootstrap.css" rel="stylesheet" />*@
+
+
+
+
+    @*<script src="~/Scripts/jquery-ui=1.12.1.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">*@
 
     <!-- Custom Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
@@ -155,7 +184,16 @@
           </div>
              
     
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryUI")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/fontawesome")
+    @Scripts.Render("~/bundles/datatables")
+    @Scripts.Render("~/bundles/modernizr")
 
+    @Styles.Render("~/Content/bootstrap")
+    @Styles.Render("~/Content/fontawesome")
+    @Styles.Render("~/Content/datatables")
 
 
     

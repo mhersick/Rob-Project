@@ -219,6 +219,7 @@ section#contact {
 /* ----------------------------------------------------------------------------------------------------------------------------- */
 
 body {
+    font-size:14px;
     /*padding-top: 10px;*/
     /*padding-bottom: 20px;*/
     /*background-color:#ffffff;*/
@@ -243,7 +244,7 @@ body-content {
 }
 .table tbody > tr > td {
     padding: 4px;
-    font-size:1em;
+    /*font-size:1em;*/
 }
 
 

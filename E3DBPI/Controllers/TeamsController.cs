@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using E3DBPI.Models;
+using Microsoft.AspNet.Identity;
 
 namespace E3DBPI.Controllers
 {
@@ -15,9 +16,40 @@ namespace E3DBPI.Controllers
         private SiteDBEntities db = new SiteDBEntities();
 
         // GET: Teams
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
-            return View(db.Teams.ToList());
+            var userId = User.Identity.GetUserId();
+            var userName = User.Identity.GetUserName();
+
+            //-----------------------------------------------------------------------------------------------------------
+            // Open the Manage home page.
+            //-----------------------------------------------------------------------------------------------------------
+            SiteDBEntities db = new SiteDBEntities();
+
+            var empq = db.Employees.FirstOrDefault(e => e.UserName == userName);
+            var eIDz = empq.EmployeeID;
+
+            var eIDx = db.Employees.FirstOrDefault(e => e.EmployeeID == eIDz);
+            ViewBag.eIDx = eIDx.EmployeeID;
+            ViewBag.cIDx = eIDx.CompanyID;
+            ViewBag.fName = eIDx.FirstName;
+            ViewBag.lName = eIDx.LastName;
+
+            var cIDx = db.Companies.FirstOrDefault(e => e.CompanyID == eIDx.CompanyID);
+            ViewBag.co_cName = cIDx.CompanyName + " - ";
+
+
+            if (id == null)                                                     // nothing passed. Show full list
+            {
+                ViewBag.co_cName = "Administrators Only! - All ";
+                var teams = db.Teams.Include(e => e.CompanyID);
+                return View(db.Teams.ToList());
+            }
+            else
+            {                                                              //  CompanyID passed. Show just this company
+                var teams = db.Teams.Where(e => e.CompanyID == id);
+                return View(db.Teams.ToList());
+            }
         }
 
         // GET: Teams/Details/5

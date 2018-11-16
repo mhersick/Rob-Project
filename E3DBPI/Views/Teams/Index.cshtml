@@ -1,51 +1,64 @@
 ﻿@model IEnumerable<E3DBPI.Models.Team>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Teams";
 }
 
-<h2>Teams</h2>
+<h2>@ViewBag.co_cName @ViewBag.Title</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ProjectID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EmployeeID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompanyID)
-        </th>
-        <th></th>
-    </tr>
+<div class="listing container" style="width:30%">
+    <table class="table" id="teamslist">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProjectID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmployeeID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CompanyID)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProjectID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeeID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyID)
+                </td>
+                <td>
+                    @Html.ActionLink("View", "Details", new { id = item.TeamRecordID }, htmlAttributes: new { @class = "btn btn-xs btn-info" }) |
+                    @Html.ActionLink("Edit", "Edit", new { id = item.TeamRecordID }, htmlAttributes: new { @class = "btn btn-xs btn-info" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.TeamRecordID }, htmlAttributes: new { @class = "btn btn-xs btn-warning" })
+                </td>
+            </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProjectID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmployeeID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompanyID)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TeamRecordID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TeamRecordID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TeamRecordID })
-        </td>
-    </tr>
-}
+    </table>
+    </div>
+    @section scripts{
 
-</table>
+
+        @Styles.Render("~/Content/bootstrap1.css")
+
+        <script>
+            $(document).ready(function () {
+                $("#teamslist").DataTable();
+            });
+        </script>
+    }
+

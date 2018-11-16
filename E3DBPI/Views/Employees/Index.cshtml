@@ -5,42 +5,43 @@
 }
 
 
-<div class="listing">
+<div class="listing container">
     <h2>@ViewBag.co_cName @ViewBag.Title</h2>
 
 
-    <table class="table">
-        <tr>
-            <th>
-                UserName
-            </th>
-            <th>
-                First Name
-            </th>
-            <th>
-                Last Name
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.City)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.State)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Zip)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Phone1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Active)
-            </th>
-            <th></th>
-        </tr>
-
+    <table class="table" id="employeelist">
+        <thead>
+            <tr>
+                <th>
+                    UserName
+                </th>
+                <th>
+                    First Name
+                </th>
+                <th>
+                    Last Name
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.City)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.State)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Zip)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Phone1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Active)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
         @foreach (var item in Model)
         {
             <tr>
@@ -71,10 +72,10 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Active)
                 </td>
-                <td>
-                    @Html.ActionLink("View", "Details", new { id = item.EmployeeID }, htmlAttributes: new { @class = "btn btn-smform btn-info" })
-                    @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID }, htmlAttributes: new { @class = "btn btn-smform btn-info" })
-                    @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeID }, htmlAttributes: new { @class = "btn btn-smform btn-warning" })
+                <td width="20%">
+                    @Html.ActionLink("View", "Details", new { id = item.EmployeeID }, htmlAttributes: new { @class = "btn btn-xs btn-info" })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID }, htmlAttributes: new { @class = "btn btn-xs btn-info" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeID }, htmlAttributes: new { @class = "btn btn-xs btn-warning" })
                 </td>
             </tr>
         }
@@ -100,3 +101,12 @@
 
 
 </div>
+@section scripts{
+    @Styles.Render("~/Content/bootstrap1.css")
+
+    <script>
+    $(document).ready(function () {
+        $("#employeelist").DataTable();
+    });
+    </script>
+}

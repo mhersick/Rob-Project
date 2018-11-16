@@ -4,41 +4,42 @@
     ViewBag.Title = "Orders";
 }
 
-<div class="listing">
+<div class="listing container">
     <h2>@ViewBag.co_cName @ViewBag.Title</h2>
 
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.OrderDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OrderID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Company)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OrderStatus)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProductTotal)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.WebShipping)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ActualShipping)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SalesTax)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Discounts)
-            </th>
-            <th></th>
-        </tr>
-
+    <table class="table" id="orderslist">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Company)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderStatus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductTotal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WebShipping)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ActualShipping)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SalesTax)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Discounts)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
         @foreach (var item in Model)
         {
             <tr>
@@ -69,10 +70,10 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Discounts)
                 </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.OrderID }, htmlAttributes: new { @class = "btn btn-smform btn-info" }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.OrderID }, htmlAttributes: new { @class = "btn btn-smform btn-info" }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.OrderID }, htmlAttributes: new { @class = "btn btn-smform btn-warning" })
+                <td width="15%">
+                    @Html.ActionLink("View", "Details", new { id = item.OrderID }, htmlAttributes: new { @class = "btn btn-xs btn-info" }) |
+                    @Html.ActionLink("Edit", "Edit", new { id = item.OrderID }, htmlAttributes: new { @class = "btn btn-xs btn-info" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.OrderID }, htmlAttributes: new { @class = "btn btn-xs btn-warning" })
                 </td>
             </tr>
         }
@@ -82,3 +83,12 @@
 
 </div>
 
+@section scripts{
+    @Styles.Render("~/Content/bootstrap1.css")
+
+    <script>
+            $(document).ready(function () {
+                $("#orderslist").DataTable();
+            });
+    </script>
+}

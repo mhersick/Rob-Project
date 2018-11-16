@@ -1,33 +1,36 @@
 ﻿@model IEnumerable<E3DBPI.Models.Message>
 
 @{
-    ViewBag.Title = "DBPImail - Inter-Project Messaging made easy!";
+    ViewBag.Title = "Contraxtor Inter-Project Messaging!";
 }
 
-<div class="listing">
+<div class="listing container">
     <h2>@ViewBag.co_cName @ViewBag.Title</h2>
-    <table class="table">
-        <tr>
-            <th>
-                Date
-            </th>
-            <th>
-                From
-            </th>
-            <th>
-                To
-            </th>
-            <th>
-                Subject
-            </th>
-            <th>
-                Message
-            </th>
-            <th>
-                Select
-            </th>
-        </tr>
-
+    <table class="table" id="messagelist">
+        <thead>
+            <tr>
+                <th>
+                    Date
+                </th>
+                <th>
+                    From
+                </th>
+                <th>
+                    To
+                </th>
+                <th>
+                    Subject
+                </th>
+                <th>
+                    Message
+                </th>
+                <th>
+                    Select
+                </th>
+                <th>
+                </th>
+            </tr>
+        </thead>
         @foreach (var item in Model)
         {
             <tr data-id="@item.MessageID">
@@ -53,10 +56,10 @@
                         X
                     </div>
                 </td>
-                <td>
-                    @Html.ActionLink("View", "Details", new { id = item.MessageID }, htmlAttributes: new { @class = "btn btn-smform btn-info" }) |
-                    @Html.ActionLink("Edit", "Edit", new { id = item.MessageID }, htmlAttributes: new { @class = "btn btn-smform btn-info" }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.MessageID }, htmlAttributes: new { @class = "btn btn-smform btn-warning" })
+                <td width="15%">
+                    @Html.ActionLink("View", "Details", new { id = item.MessageID }, htmlAttributes: new { @class = "btn btn-xs btn-info" })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MessageID }, htmlAttributes: new { @class = "btn btn-xs btn-info" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MessageID }, htmlAttributes: new { @class = "btn btn-xs btn-warning" })
                 </td>
             </tr>
         }
@@ -76,3 +79,12 @@
         </div>
     </div>
 
+@section scripts{
+    @Styles.Render("~/Content/bootstrap1.css")
+
+    <script>
+    $(document).ready(function () {
+        $("#messagelist").DataTable();
+    });
+    </script>
+}

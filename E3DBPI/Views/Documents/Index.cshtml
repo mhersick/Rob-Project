@@ -3,75 +3,79 @@
 @{
     ViewBag.Title = "Documents";
 }
-<div class="listing">
     <h2>@ViewBag.co_cName @ViewBag.Title</h2>
-    
-    <table class="table" style="margin-bottom:50px">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.DocumentTitle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DocumentText)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Active)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SubProject.SubProjectName)
-        </th>
-        <th></th>
-    </tr>
+<div class="listing container" style="width:40%">
+    <table class="table" id="documentlist">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DocumentTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DocumentText)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Active)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SubProject.SubProjectName)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DocumentTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DocumentText)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Active)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubProject.SubProjectName)
+                </td>
+                <td width="15%">
+                    @Html.ActionLink("View", "Details", new { id = item.DocumentID }, htmlAttributes: new { @class = "btn btn-xs btn-info" }) |
+                    @Html.ActionLink("Edit", "Edit", new { id = item.DocumentID }, htmlAttributes: new { @class = "btn btn-xs btn-info" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.DocumentID }, htmlAttributes: new { @class = "btn btn-xs btn-warning" })
+                </td>
+            </tr>
+        }
 
-    @foreach (var item in Model)
+    </table>
+</div>
+
+
+    <h3>Upload a new file</h3>
+
+
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DocumentTitle)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DocumentText)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Active)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SubProject.SubProjectName)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.DocumentID}, htmlAttributes: new { @class = "btn btn-smform btn-info" }) |
-                @Html.ActionLink("Details", "Details", new { id = item.DocumentID}, htmlAttributes: new { @class = "btn btn-smform btn-info" }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.DocumentID}, htmlAttributes: new { @class = "btn btn-smform btn-warning" })
-            </td>
-        </tr>
-    }
-
-</table>
-
-    </div>
-
-@{
-    //Layout = null;
-    WebGrid webGrid = new WebGrid(source: Model, canSort: false, canPage: false);
-}
-
-@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    <input type="file" name="postedFile" />
-    <p>Select the file you would like to Upload. After selecting you files, press the upload button, below.</p>
+        <input type="file" name="postedFile" />
+        <p>Select the file you would like to Upload. After selecting you files, press the upload button, below.</p>
         <input type="submit" id="btnUpload" value="Upload" />
-}
-<hr />
-@webGrid.GetHtml(
-        htmlAttributes: new { @id = "WebGrid", @class = "Grid" },
-        columns: webGrid.Columns(
-                 webGrid.Column("DocumentId", "Document Id"),
-                 webGrid.Column("DocumentTitle", "Document Title"),
-                 webGrid.Column("Location", "Image",
-                 format: @<text><img alt="@item.Name"
-                                     src="@Url.Content(item.Path)" /></text>)))
+    }
+    <hr />
 
-<div id="dialog" style="display: none"></div>
+    <div id="dialog" style="display: none"></div>
+
+
+
+@section scripts{
+    @Styles.Render("~/Content/bootstrap1.css")
+
+    <script>
+        $(document).ready(function () {
+            $("#documentlist").DataTable();
+        });
+    </script>
+}
+
+
 
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
