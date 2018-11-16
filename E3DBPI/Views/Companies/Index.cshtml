@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿@model IEnumerable<E3DBPI.Models.Company>
 
 @{
@@ -111,3 +112,128 @@
         });
     </script>
 }
+=======
+﻿@model IEnumerable<E3DBPI.Models.Company>
+
+@{
+    ViewBag.Title = "Companies";
+}
+
+    <h2>@ViewBag.co_cName @ViewBag.Title</h2>
+
+<div class="listing container" >
+    <table class="table" id="companylist">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CompanyID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CompanyName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ServiceLevel)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BillingCycle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.City)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.State)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Zip)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Phone1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WebSite)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Active)
+                </th>
+                <th>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ServiceLevel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BillingCycle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.State)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Zip)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email1)
+                </td>
+                <td>
+                    <a href="http://@Html.DisplayFor(modelItem => item.WebSite)" target="_blank">@Html.DisplayFor(modelItem => item.WebSite)</a>
+                    @*@Html.DisplayFor(modelItem => item.Employees.EmployeeID)*@
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Active)
+                </td>
+                <td></td>
+                <td>
+                    @Html.ActionLink("View", "Details", new { id = item.CompanyID }, htmlAttributes: new { @class = "btn btn-xs btn-info" })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CompanyID }, htmlAttributes: new { @class = "btn btn-xs btn-info" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CompanyID }, htmlAttributes: new { @class = "btn btn-xs btn-warning" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+
+
+
+    <div class="col-md-12" style="text-align:center;margin-top:40px;">
+        @if (User.Identity.IsAuthenticated)
+            {
+                if (User.IsInRole("SuperAdmin"))
+                {
+                <p>
+                    @Html.ActionLink("Create a New Company", "Create", "Companies", new { }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })
+                </p>
+            }
+        }
+
+    </div>
+
+@section scripts{
+    <script>
+    $(document).ready(function () {
+        $('#companylist').DataTable();
+    });
+    </script>
+}
+>>>>>>> 13d69c0749a8905f69bd0e5a1fbcb1d380a4a96f

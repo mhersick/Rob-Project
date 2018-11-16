@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿@model IEnumerable<E3DBPI.ViewModels.Users_in_role_ViewModel>
 
 @{
@@ -55,4 +56,61 @@
         $('#usertable').DataTable();
     });
     </script>
+=======
+﻿@model IEnumerable<E3DBPI.ViewModels.Users_in_role_ViewModel>
+
+@{
+    ViewBag.Title = "User Manager";
+}
+<h2>User Manager</h2>
+
+@Html.ActionLink("Manage Users", "ManageUsers") | @Html.ActionLink("Manage Roles", "ManageRoles") | @Html.ActionLink("Add or Remove a User to/from a role", "AssignRole")
+<hr />
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="box-title">
+            <b>Users and their Roles</b>
+        </h3>
+    </div>
+    <!-- /.box-header -->
+    <div class="panel-body">
+        <div class="content" style="width:900px;">
+            <table class="table table-hover table-bordered table-condensed" id="usertable">
+                <thead>
+                    <tr>
+                        <td><b>Username</b></td>
+                        <td><b>Email</b></td>
+                        <td><b>Confirmed</b></td>
+                        <td><b>Roles</b></td>
+                        <td></td>
+                    </tr>
+                </thead>
+                @foreach (var user in Model)
+            {
+                    <tr>
+                        <td>@user.Username</td>
+                        <td>@user.Email</td>
+                        <td>@Html.CheckBox("EmailConfirmed", @user.EmailConfirmed)</td>
+                        <td>@user.Role</td>
+                        <td>@Html.ActionLink("View", "Details", "Employees", new { id = @user.Username }, htmlAttributes: new { @class = "btn btn-xs btn-info" })</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+
+    <div class="panel-footer">
+        <p class="box-title"><b>Total Users as of @String.Format("{0 : dddd, MMMM d, yyyy}", DateTime.Now)  : </b><span class="label label-primary">@Model.Count()</span></p>
+    </div>
+</div>
+
+
+@section scripts{
+    <script>
+    $(document).ready(function () {
+        $('#usertable').DataTable();
+    });
+    </script>
+>>>>>>> 13d69c0749a8905f69bd0e5a1fbcb1d380a4a96f
 }
