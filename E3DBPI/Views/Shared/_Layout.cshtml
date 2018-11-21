@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -7,371 +6,191 @@
     <title>@ViewBag.Title</title>
 
     @Styles.Render("~/Content/bootstrap.css")
-    @*@Styles.Render("~/Content/bootstrap1.css")*@
     @Styles.Render("~/Content/site.css")
 
-    @Styles.Render("~/Content/DataTables/css/dataTables.jqueryui.css")
-    @*@Styles.Render("~/Content/DataTables/css/dataTables.bootstrap4.css")*@
-    @*@Styles.Render("~/Content/DataTables/css/jquery.dataTables.css")*@
 
+    @*For Calendar drop*@
 
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+        });
 
+        $(function () {
+            $(document).scroll(function () {
+                var $nav = $(".sticky-top");
+                $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+            });
+        });
 
-    @Scripts.Render("~/Scripts/DataTables/dataTables.bootstrap4.js")
-    @Scripts.Render("~/Scripts/DataTables/jquery.dataTables.js")
+        $(document).on("scroll", function () {
+            if ($(document).scrollTop() > 100) {           
+                $("nav").addClass("shrink");
+            } else {
+                $("nav").removeClass("shrink");
+            }
+        });
 
+        $(".navbar-toggle").click(function (event) {
+            $(".navbar-collapse").toggle('in');
+        });
 
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-light navbar-expand-sm bg-white text-dark border-bottom d-none d-md-block">
+        <div class="container-fluid mr-3">
+            <ul class="nav navbar-nav orderNav ml-auto text-dark">
+                <li class="nav-item border-right border-dark  pl-2 pr-2">
+                    <a class="nav-link">800.500.1234</a>
+                </li>
+                <li class="nav-item border-right border-dark  pl-2 pr-2">
+                    <a class="nav-link">Order Prints</a>
+                </li>
+                <li class="nav-item  pl-2 pr-2">
+                    <a class="nav-link">Follow US</a>
+                </li>
+                <li class="nav-item   pl-2 pr-2">
+                    <a class="nav-link" id="socialLinks" href="http://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                </li>
+                <li class="nav-item   pl-2 pr-2">
+                    <a class="nav-link" id="socialLinks" href="https://http://www.twitter.com/"><i class="fab fa-twitter"></i></a>
+                </li>
+                <li class="nav-item   pl-2 pr-2">
+                    <a class="nav-link" id="socialLinks" href="https://plus.google.com/"><i class="fab fa-google-plus"></i></a>
+                </li>
+                <li class="nav-item   pl-2 pr-2">
+                    <a class="nav-link" id="socialLinks" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                </li>
+                <li class="nav-item   pl-2 pr-2">
+                    <a class="nav-link" id="socialLinks" href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <nav class="navbar navbar-light navbar-expand-sm  border-bottom  sticky-top">
+        <a class="navbar-brand" href="~/"><img src="~/Images/ContraxtorLogoFinal.png" style="height:auto; width:150px;padding:2%;" /></a>
+        <button class="navbar-toggler btn-sm" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarSupportedContent">
+            <ul class="nav navbar-nav mr-sm-auto">
+                <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", new { }, htmlAttributes: new { @class = "nav-link text-dark m-1 h6" })</li>
+                <li class="nav-item">@Html.ActionLink("About", "About", "Home", new { }, htmlAttributes: new { @class = "nav-link text-dark m-1 h6" })</li>
+                <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", new { }, htmlAttributes: new { @class = "nav-link text-dark m-1 h6" })</li>
+                <li class="nav-item">@Html.ActionLink("News & Events", "NewsnEvents", "BlogPosts", new { }, htmlAttributes: new { @class = "nav-link text-dark m-1 h6" })</li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    if (User.IsInRole("SuperAdmin"))
+                    {
+                        <li class="nav-item">@Html.ActionLink("Site Admin", "Index", "Admin", new { }, htmlAttributes: new { @class = "nav-link text-dark m-1 h6" })</li>
+                    }
+                    if (User.IsInRole("CompanyAdmin"))
+                    {
+                        <li class="nav-item">@Html.ActionLink("Company Admin", "Index", "CompanyAdmin", new { }, htmlAttributes: new { @class = "nav-link text-dark  m-1 h6" })</li>
+                    }
+                }
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </nav>
 
+    <div class="container-fluid body-content">
+        @RenderBody()
+    </div>
 
+          <div class="container-fluid p-0">
+              <footer class="pl-5 pr-5 pt-3 pd-2" style="background-color:#303030; color:#fff; font-size:10px; text-align:left;">
+                  <div class="row">
+                      <div class="col-md-3" style="text-align:left; ">
+                          <h5 style="font-weight:700;"> COMPANY </h5>
+                          <p>About Contraxtor</p>
+                          <p>Contact Us</p>
+                          <p>Press Room</p>
+                          <p>Customer Case Studies</p>
+                          <p>AEC News</p>
+                      </div>
+                      <div class="col-md-3">
+                          <h5 style="font-weight:700;"> WHY Contraxtor</h5>
+                          <p>Application Features</p>
+                          <p>How It Works</p>
+                          <p>Watch Video</p>
+                          <p>View Demo App</p>
+                      </div>
+                      <div class="col-md-3">
+                          <h5 style="font-weight:700;"> SUPPORT </h5>
+                          <p>How It Works</p>
+                          <p>Getting Started</p>
+                          <p>Technical Support</p>
+                      </div>
+                      <div class="col-md-3">
+                          <h5 style="font-weight:700;"> LICENSEE </h5>
+                          <p>Get Started</p>
+                          <p>Learn More</p>
+                          <p> Customized Branded Sites / Landing Pages</p>
+                      </div>
+                  </div>
+              </footer>
+          </div>
 
+          <div class="container-fluid p-0">
+              <footer class="pl-5 pr-5 pt-3 pd-2" style="background-color:#303030; color:#fff; font-size:10px; text-align:left;">
+                  <div class="row">
+                      <div class="col-md-4">
+                          <h6><a href="#" style="color:#ffffff"><img src="~/Images/ContraxtorLogoFinal.png" height="22" style="margin-left:40px; margin-right:20px" />Sign up for News</a></h6>
+                      </div>
+                      <div class="col-md-4">
+                          <div class="col-md-12" style="text-align:center">
+                              <p><a href="home/Accessibility"> Assessibility </a> | <a href="home/TermsOfUse">Terms of Use</a> | <a href="home/PrivacyPolicy"> Privacy Policy</a> | <a href="home/DCMApolicy"> DMCA Policy</a></p>
+                          </div>
+                          <div class="col-md-12" style="text-align:center">
+                              <p>
+                                  Copyright  &copy; @DateTime.Now.Year - <a href="home/contact"> Contraxtor, Inc.</a> All rights reserved
+                              </p>
+                          </div>
+                      </div>
+                      <div class="col-md-4">
+                          <nav class="navbar navbar-light navbar-expand-sm text-dark">
+                                  <ul class="nav navbar-nav orderNav ml-auto text-dark bg-white ">
+                                      <li class="nav-item  pl-2 pr-2">
+                                          <a class="nav-link">Follow US</a>
+                                      </li>
+                                      <li class="nav-item   pl-2 pr-2">
+                                          <a class="nav-link" id="socialLinks" href="http://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                                      </li>
+                                      <li class="nav-item   pl-2 pr-2">
+                                          <a class="nav-link" id="socialLinks" href="https://http://www.twitter.com/"><i class="fab fa-twitter"></i></a>
+                                      </li>
+                                      <li class="nav-item   pl-2 pr-2">
+                                          <a class="nav-link" id="socialLinks" href="https://plus.google.com/"><i class="fab fa-google-plus"></i></a>
+                                      </li>
+                                      <li class="nav-item   pl-2 pr-2">
+                                          <a class="nav-link" id="socialLinks" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                                      </li>
+                                      <li class="nav-item   pl-2 pr-2">
+                                          <a class="nav-link" id="socialLinks" href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                                      </li>
+                                  </ul>
+                          </nav>
+                          </div>
+                  </div>
+              </footer>
+          </div>
 
-    @*@Scripts.Render("~/Scripts/jquery-ui=1.12.1.js")*@
-    @Scripts.Render("~/Scripts/bootstrap.js")
-    @*@Scripts.Render("~/Scripts/bootstrap1.js")*@
     @Scripts.Render("~/Scripts/jquery-3.3.1.js")
+    @Scripts.Render("~/Scripts/bootstrap.js")
+    @Scripts.Render("~/Scripts/DataTables/jquery.dataTables.js")
     @Scripts.Render("~/Scripts/popper.js")
 
+    @Styles.Render("~/Content/DataTables/css/dataTables.jqueryui.css")
+    @Styles.Render("~/Content/DataTables/css/jquery.dataTables.css")
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-
-
-    @*<script src="~/Scripts/DataTables/jquery.dataTables.js"></script>
-
-    <link href="~/Content/DataTables/css/dataTables.bootstrap.css" rel="stylesheet" />*@
-
-
-
-
-    @*<script src="~/Scripts/jquery-ui=1.12.1.js"></script>
-
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">*@
-
-    <!-- Custom Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-    @*For Calendar drop*@
-
-    <script>
-        $(function () {
-            $("#datepicker").datepicker();
-        });
-
-        $(function () {
-            $(document).scroll(function () {
-                var $nav = $(".sticky-top");
-                $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
-            });
-        });
-
-        $(document).on("scroll", function () {
-            if ($(document).scrollTop() > 100) {           
-                $("nav").addClass("shrink");
-            } else {
-                $("nav").removeClass("shrink");
-            }
-        });
-
-        $(".navbar-toggle").click(function (event) {
-            $(".navbar-collapse").toggle('in');
-        });
-
-    </script>
-</head>
-<body>
-        <nav class="navbar navbar-light navbar-expand-sm bg-dark sticky-top">
-            <a class="navbar-brand" href="~/"><img src="~/Images/ContraxtorLogoFinal.png" style="height:auto; width:150px;padding:2%;" /></a>
-            <button class="navbar-toggler btn-sm" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse" id="navbarSupportedContent">
-                <ul class="nav navbar-nav mr-sm-auto">
-                    <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", new { }, htmlAttributes: new { @class = "nav-link text-white m-1 h6" })</li>
-                    <li class="nav-item">@Html.ActionLink("About", "About", "Home", new { }, htmlAttributes: new { @class = "nav-link text-white m-1 h6" })</li>
-                    <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", new { }, htmlAttributes: new { @class = "nav-link text-white m-1 h6" })</li>
-                    <li class="nav-item">@Html.ActionLink("News & Events", "Index", "BlogPosts", new { }, htmlAttributes: new { @class = "nav-link text-white m-1 h6" })</li>
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        if (User.IsInRole("SuperAdmin"))
-                        {
-                            <li class="nav-item">@Html.ActionLink("Site Admin", "Index", "Admin", new { }, htmlAttributes: new { @class = "nav-link text-white m-1 h6" })</li>
-                        }
-                        if (User.IsInRole("CompanyAdmin"))
-                        {
-                            <li class="nav-item">@Html.ActionLink("Company Admin", "Index", "CompanyAdmin", new { }, htmlAttributes: new { @class = "nav-link text-white  m-1 h6" })</li>
-                        }
-                    }
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </nav>
-
-    <div class="container-fluid body-content">
-        @RenderBody()
-    </div>
-
-          <div class="container-fluid p-0">
-              <footer class="pl-5 pr-5 pt-3 pd-2" style="background-color:#303030; color:#fff; font-size:10px; text-align:left;">
-                  <div class="row">
-                      <div class="col-md-3" style="text-align:left; ">
-                          <h5 style="font-weight:700;"> COMPANY </h5>
-                          <p>About Contraxtor</p>
-                          <p>Contact Us</p>
-                          <p>Press Room</p>
-                          <p>Customer Case Studies</p>
-                          <p>AEC News</p>
-                      </div>
-                      <div class="col-md-3">
-                          <h5 style="font-weight:700;"> WHY Contraxtor</h5>
-                          <p>Application Features</p>
-                          <p>How It Works</p>
-                          <p>Watch Video</p>
-                          <p>View Demo App</p>
-                      </div>
-                      <div class="col-md-3">
-                          <h5 style="font-weight:700;"> SUPPORT </h5>
-                          <p>How It Works</a></p>
-                          <p>Getting Started</p>
-                          <p>Technical Support</p>
-                      </div>
-                      <div class="col-md-3">
-                          <h5 style="font-weight:700;"> LICENSEE </h5>
-                          <p>Get Started</p>
-                          <p>Learn More</a></p>
-                          <p> Customized Branded Sites / Landing Pages</p>
-                      </div>
-                  </div>
-              </footer>
-          </div>
-
-          <div class="container-fluid p-0">
-              <footer class="pl-5 pr-5 pt-3 pd-2" style="background-color:#303030; color:#fff; font-size:10px; text-align:left;">
-                  <div class="row">
-                      <div class="col-md-4">
-                          <h6><a href="#" style="color:#ffffff"><img src="~/Images/ContraxtorLogoFinal.png" height="22" style="margin-left:40px; margin-right:20px" />Sign up for News</a></h6>
-                      </div>
-                      <div class="col-md-4">
-                          <div class="col-md-12" style="text-align:center">
-                              <p><a href="home/Accessibility"> Assessibility </a> | <a href="home/TermsOfUse">Terms of Use</a> | <a href="home/PrivacyPolicy"> Privacy Policy</a> | <a href="home/DCMApolicy"> DMCA Policy</a></p>
-                          </div>
-                          <div class="col-md-12" style="text-align:center">
-                              <p>
-                                  Copyright  &copy; @DateTime.Now.Year - <a href="home/contact"> Contraxtor, Inc.</a> All rights reserved
-                              </p>
-                          </div>
-                      </div>
-                      @*<div class="col-md-4">
-                          <ul class="pull-right" style="text-decoration:none;">
-                              <li>
-                                  <a href="http://www.facebook.com/"><img src="~/Images/FBlogo.png" alt="..." height="22" /></a>
-                              </li>
-                              <li>
-                                  <a href="https://http://www.twitter.com/"><img src="~/Images/twitterlogo.png" alt="..." height="22" /></a>
-                              </li>
-                              <li>
-                                  <a href="https://plus.google.com/"><img src="~/Images/twitterlogo.png" alt="..." height="22" /></a>
-                              </li>
-                              <li>
-                                  <a href="https://www.instagram.com/"><img src="~/Images/instalogo.png" alt="..." height="22" /></a>
-                              </li>
-                              <li>
-                                  <a href="https://www.pinterest.com/"><img src="~/Images/instalogo.png" alt="..." height="22" /></a>
-                              </li>
-                              <li>
-                                  <a href="https://www.pinterest.com/"><img src="~/Images/instalogo.png" alt="..." height="22" /></a>
-                              </li>
-                          </ul>
-                      </div>*@
-                  </div>
-              </footer>
-          </div>
-             
-    
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jqueryUI")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/fontawesome")
-    @Scripts.Render("~/bundles/datatables")
-    @Scripts.Render("~/bundles/modernizr")
-
-    @Styles.Render("~/Content/bootstrap")
-    @Styles.Render("~/Content/fontawesome")
-    @Styles.Render("~/Content/datatables")
-
-
-    
-    @Styles.Render("https://fonts.googleapis.com/css?family=Montserrat:400,700")
-
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />    
 
             @*@RenderSection("scripts", required: false)*@
                 @RenderSection("Scripts", false)
 </body>
 </html>
-=======
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title</title>
 
-    @Styles.Render("~/Content/bootstrap")
-    @Styles.Render("~/Content/css")
-
-
-    <link href="~/Content/Site.css" rel="stylesheet" />
-    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
-    <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    <script src="~/Scripts/bootstrap.js"></script>
-    <script src="~/Scripts/popper.js"></script>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
-    <!-- Custom Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-    @*For Calendar drop*@
-
-    <script>
-        $(function () {
-            $("#datepicker").datepicker();
-        });
-
-        $(function () {
-            $(document).scroll(function () {
-                var $nav = $(".sticky-top");
-                $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
-            });
-        });
-
-        $(document).on("scroll", function () {
-            if ($(document).scrollTop() > 100) {           
-                $("nav").addClass("shrink");
-            } else {
-                $("nav").removeClass("shrink");
-            }
-        });
-
-        $(".navbar-toggle").click(function (event) {
-            $(".navbar-collapse").toggle('in');
-        });
-
-    </script>
-</head>
-<body>
-        <nav class="navbar navbar-light navbar-expand-sm bg-dark sticky-top">
-            <a class="navbar-brand" href="~/"><img src="~/Images/ContraxtorLogoFinal.png" style="height:auto; width:150px;padding:2%;" /></a>
-            <button class="navbar-toggler btn-sm" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse" id="navbarSupportedContent">
-                <ul class="nav navbar-nav mr-sm-auto">
-                    <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", new { }, htmlAttributes: new { @class = "nav-link text-white m-1 h6" })</li>
-                    <li class="nav-item">@Html.ActionLink("About", "About", "Home", new { }, htmlAttributes: new { @class = "nav-link text-white m-1 h6" })</li>
-                    <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", new { }, htmlAttributes: new { @class = "nav-link text-white m-1 h6" })</li>
-                    <li class="nav-item">@Html.ActionLink("News & Events", "Index", "BlogPosts", new { }, htmlAttributes: new { @class = "nav-link text-white m-1 h6" })</li>
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        if (User.IsInRole("SuperAdmin"))
-                        {
-                            <li class="nav-item">@Html.ActionLink("Site Admin", "Index", "Admin", new { }, htmlAttributes: new { @class = "nav-link text-white m-1 h6" })</li>
-                        }
-                        if (User.IsInRole("CompanyAdmin"))
-                        {
-                            <li class="nav-item">@Html.ActionLink("Company Admin", "Index", "CompanyAdmin", new { }, htmlAttributes: new { @class = "nav-link text-white  m-1 h6" })</li>
-                        }
-                    }
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </nav>
-
-    <div class="container-fluid body-content">
-        @RenderBody()
-    </div>
-
-          <div class="container-fluid p-0">
-              <footer class="pl-5 pr-5 pt-3 pd-2" style="background-color:#303030; color:#fff; font-size:10px; text-align:left;">
-                  <div class="row">
-                      <div class="col-md-3" style="text-align:left; ">
-                          <h5 style="font-weight:700;"> COMPANY </h5>
-                          <p>About Contraxtor</p>
-                          <p>Contact Us</p>
-                          <p>Press Room</p>
-                          <p>Customer Case Studies</p>
-                          <p>AEC News</p>
-                      </div>
-                      <div class="col-md-3">
-                          <h5 style="font-weight:700;"> WHY Contraxtor</h5>
-                          <p>Application Features</p>
-                          <p>How It Works</p>
-                          <p>Watch Video</p>
-                          <p>View Demo App</p>
-                      </div>
-                      <div class="col-md-3">
-                          <h5 style="font-weight:700;"> SUPPORT </h5>
-                          <p>How It Works</a></p>
-                          <p>Getting Started</p>
-                          <p>Technical Support</p>
-                      </div>
-                      <div class="col-md-3">
-                          <h5 style="font-weight:700;"> LICENSEE </h5>
-                          <p>Get Started</p>
-                          <p>Learn More</a></p>
-                          <p> Customized Branded Sites / Landing Pages</p>
-                      </div>
-                  </div>
-              </footer>
-          </div>
-
-          <div class="container-fluid p-0">
-              <footer class="pl-5 pr-5 pt-3 pd-2" style="background-color:#303030; color:#fff; font-size:10px; text-align:left;">
-                  <div class="row">
-                      <div class="col-md-4">
-                          <h6><a href="#" style="color:#ffffff"><img src="~/Images/ContraxtorLogoFinal.png" height="22" style="margin-left:40px; margin-right:20px" />Sign up for News</a></h6>
-                      </div>
-                      <div class="col-md-4">
-                          <div class="col-md-12" style="text-align:center">
-                              <p><a href="home/Accessibility"> Assessibility </a> | <a href="home/TermsOfUse">Terms of Use</a> | <a href="home/PrivacyPolicy"> Privacy Policy</a> | <a href="home/DCMApolicy"> DMCA Policy</a></p>
-                          </div>
-                          <div class="col-md-12" style="text-align:center">
-                              <p>
-                                  Copyright  &copy; @DateTime.Now.Year - <a href="home/contact"> Contraxtor, Inc.</a> All rights reserved
-                              </p>
-                          </div>
-                      </div>
-                      @*<div class="col-md-4">
-                          <ul class="pull-right" style="text-decoration:none;">
-                              <li>
-                                  <a href="http://www.facebook.com/"><img src="~/Images/FBlogo.png" alt="..." height="22" /></a>
-                              </li>
-                              <li>
-                                  <a href="https://http://www.twitter.com/"><img src="~/Images/twitterlogo.png" alt="..." height="22" /></a>
-                              </li>
-                              <li>
-                                  <a href="https://plus.google.com/"><img src="~/Images/twitterlogo.png" alt="..." height="22" /></a>
-                              </li>
-                              <li>
-                                  <a href="https://www.instagram.com/"><img src="~/Images/instalogo.png" alt="..." height="22" /></a>
-                              </li>
-                              <li>
-                                  <a href="https://www.pinterest.com/"><img src="~/Images/instalogo.png" alt="..." height="22" /></a>
-                              </li>
-                              <li>
-                                  <a href="https://www.pinterest.com/"><img src="~/Images/instalogo.png" alt="..." height="22" /></a>
-                              </li>
-                          </ul>
-                      </div>*@
-                  </div>
-              </footer>
-          </div>
-             
-    
-
-
-
-    
-    @Styles.Render("https://fonts.googleapis.com/css?family=Montserrat:400,700")
-
-
-            @*@RenderSection("scripts", required: false)*@
-                @RenderSection("Scripts", false)
-</body>
-</html>
->>>>>>> 13d69c0749a8905f69bd0e5a1fbcb1d380a4a96f

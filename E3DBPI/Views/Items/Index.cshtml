@@ -1,213 +1,101 @@
 ﻿@model IEnumerable<E3DBPI.Models.Item>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Products and Services";
 }
 
-<h2>Items</h2>
+<div class="listing container">
+    <h2>@ViewBag.co_cName @ViewBag.Title</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.VendorID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SKU)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ItemName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ItemDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VendorItemID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price3)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price4)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price5)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Size)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Color)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.InStock)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Active)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Featured)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ItemNW)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Limage)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Simage)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Timage)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Pic01)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Pic02)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Pic03)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.WebLink)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Outlet)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OrderMin)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OrderInc)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BoxID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Views)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ranking)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ItemBox.BoxDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ItemCategory.CategoryName)
-        </th>
-        <th></th>
-    </tr>
+    <table class="table" id="items">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ItemName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ItemDescription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InStock)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Active)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Featured)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Timage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Outlet)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Views)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ItemCategory.CategoryName)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InStock)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Active)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Featured)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Timage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Outlet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Views)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemCategory.CategoryName)
+                </td>
+                <td>
+                    @Html.ActionLink("View", "Details", new { id = item.ItemID }, htmlAttributes: new { @class = "btn btn-xs btn-info" })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ItemID }, htmlAttributes: new { @class = "btn btn-xs btn-info" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ItemID }, htmlAttributes: new { @class = "btn btn-xs btn-warning" })
+                </td>
+            </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.VendorID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SKU)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ItemName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ItemDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.VendorItemID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price2)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price3)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price4)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price5)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Size)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Color)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.InStock)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Active)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Featured)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ItemNW)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Limage)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Simage)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Timage)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Pic01)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Pic02)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Pic03)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.WebLink)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Outlet)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OrderMin)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OrderInc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BoxID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Views)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ranking)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ItemBox.BoxDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ItemCategory.CategoryName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ItemID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ItemID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ItemID })
-        </td>
-    </tr>
+    </table>
+    <p class="buttonbox">
+        <a href="javascript:void(0);" onclick="history.go(-1);" class="btn btn-lg btn-primary" role="button" aria-disabled="true">Return</a>
+        @Html.ActionLink("Create New", "Create", new { }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })
+    </p>
+
+</div>
+
+@section scripts{
+    <script>
+            $(document).ready(function () {
+                $("#items").DataTable();
+            });
+    </script>
 }
-
-</table>

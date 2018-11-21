@@ -4,72 +4,72 @@
     ViewBag.Title = "Item Categories";
 }
 
-<h2>@ViewBag.Title</h2>
+<div class="listing container">
+    <h2>@ViewBag.co_cName @ViewBag.Title</h2>
+    <table class="table" id="itemcategories">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Featured)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsSubCat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubCatOf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sequence)
+            </th>
+            <th></th>
+        </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CategoryName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CategoryDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CategoryHeader)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Featured)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsSubCat)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SubCatOf)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sequence)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Featured)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsSubCat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubCatOf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sequence)
+                </td>
+                <td width="15%">
+                    @Html.ActionLink("View", "Details", new { id = item.CategoryID }, htmlAttributes: new { @class = "btn btn-xs btn-info" })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CategoryID }, htmlAttributes: new { @class = "btn btn-xs btn-info" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CategoryID }, htmlAttributes: new { @class = "btn btn-xs btn-warning" })
+                </td>
+            </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CategoryName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CategoryDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CategoryHeader)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Featured)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsSubCat)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SubCatOf)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CategoryLongText)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Notes)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sequence)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CategoryID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CategoryID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CategoryID })
-        </td>
-    </tr>
+    </table>
+    <p class="buttonbox">
+        <a href="javascript:void(0);" onclick="history.go(-1);" class="btn btn-lg btn-primary" role="button" aria-disabled="true">Return</a>
+        @Html.ActionLink("Create New", "Create", new { }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })
+    </p>
+
+</div>
+
+@section scripts{
+    <script>
+            $(document).ready(function () {
+                $("#itemcategories").DataTable();
+            });
+    </script>
 }
-
-</table>

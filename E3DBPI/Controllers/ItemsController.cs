@@ -17,7 +17,7 @@ namespace E3DBPI.Controllers
         // GET: Items
         public ActionResult Index()
         {
-            var items = db.Items.Include(i => i.ItemBox).Include(i => i.ItemCategory);
+            var items = db.Items.Include(i => i.ItemBox).Include(i => i.ItemCategory).Include(i => i.ItemBox1);
             return View(items.ToList());
         }
 
@@ -41,6 +41,7 @@ namespace E3DBPI.Controllers
         {
             ViewBag.ItemID = new SelectList(db.ItemBoxes, "BoxID", "BoxDescription");
             ViewBag.CategoryID = new SelectList(db.ItemCategories, "CategoryID", "CategoryName");
+            ViewBag.BoxID = new SelectList(db.ItemBoxes, "BoxID", "BoxDescription");
             return View();
         }
 
@@ -60,6 +61,7 @@ namespace E3DBPI.Controllers
 
             ViewBag.ItemID = new SelectList(db.ItemBoxes, "BoxID", "BoxDescription", item.ItemID);
             ViewBag.CategoryID = new SelectList(db.ItemCategories, "CategoryID", "CategoryName", item.CategoryID);
+            ViewBag.BoxID = new SelectList(db.ItemBoxes, "BoxID", "BoxDescription", item.BoxID);
             return View(item);
         }
 
@@ -77,6 +79,7 @@ namespace E3DBPI.Controllers
             }
             ViewBag.ItemID = new SelectList(db.ItemBoxes, "BoxID", "BoxDescription", item.ItemID);
             ViewBag.CategoryID = new SelectList(db.ItemCategories, "CategoryID", "CategoryName", item.CategoryID);
+            ViewBag.BoxID = new SelectList(db.ItemBoxes, "BoxID", "BoxDescription", item.BoxID);
             return View(item);
         }
 
@@ -95,6 +98,7 @@ namespace E3DBPI.Controllers
             }
             ViewBag.ItemID = new SelectList(db.ItemBoxes, "BoxID", "BoxDescription", item.ItemID);
             ViewBag.CategoryID = new SelectList(db.ItemCategories, "CategoryID", "CategoryName", item.CategoryID);
+            ViewBag.BoxID = new SelectList(db.ItemBoxes, "BoxID", "BoxDescription", item.BoxID);
             return View(item);
         }
 

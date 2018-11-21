@@ -47,7 +47,7 @@ namespace E3DBPI.Controllers
 
             if (id == null)                                                     // nothing passed. Show full list
             {
-                ViewBag.co_cName = "Administrators Only! - All ";
+                ViewBag.co_cName = "Admin - All ";
 
                 //var company = db.Companies.Include(e => e.Active);
                 //return View(company.ToList());

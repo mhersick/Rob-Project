@@ -1,39 +1,36 @@
 ﻿@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
 @{
-    ViewBag.Title = "Manage Roles";
+    ViewBag.Title = "Role Manager";
 }
-<h2>Roles Listing </h2>
-
-@Html.ActionLink("Manage Users", "ManageUsers") | @Html.ActionLink("Manage Roles", "ManageRoles") | @Html.ActionLink("Add or Remove a User to/from a role", "AssignRole")
-<hr />
 <div class="panel panel-primary">
-    <div class="panel-heading">
-        <h3 class="box-title">
-            <b>Defined Roles</b>
-        </h3>
-    </div>
     <!-- /.box-header -->
     <div class="panel-body">
-        <table class="table table-hover table-bordered table-condensed" id="example1">
-            <thead>
-                <tr>
-                    <td><b>Role Name</b></td>
-                    <td><b></b></td>
-                    <td><b></b></td>
-                </tr>
-            </thead>
-            @foreach (var role in Model)
+        <div class="listing container">
+            <div class="panel-heading">
+                <h2>@ViewBag.co_cName @ViewBag.Title</h2>
+                @Html.ActionLink("Manage Users", "ManageUsers") | @Html.ActionLink("Manage Roles", "ManageRoles") | @Html.ActionLink("Manage User Roles", "AssignRole")
+                <hr />
+            </div>
+            <table class="table" id="roletable">
+                <thead>
+                    <tr>
+                        <td><b>Role Name</b></td>
+                        <td><b></b></td>
+                        <td><b></b></td>
+                    </tr>
+                </thead>
+                @foreach (var role in Model)
             {
-                <tr>
-                    <td>@role.Name</td>
-                    <td><b>@Html.ActionLink("Edit", "RoleEdit", new { roleName = @role.Name })</b></td>
-                    <td><b><span onclick="return confirm('Are you sure to delete Role?')"><a href="/Admin/RoleDelete?RoleName=@role.Name" class="delLink" style="color:red;">Delete</a></span></b></td>
+                    <tr>
+                        <td>@role.Name</td>
+                        <td><b>@Html.ActionLink("Edit", "RoleEdit", new { roleName = @role.Name }, htmlAttributes: new { @class = "btn btn-xs btn-info" })</b></td>
+                        <td><b><span onclick="return confirm('Are you sure to delete Role?')"><a href="/Admin/RoleDelete?RoleName=@role.Name" class="delLink btn btn-xs btn-warning">Delete</a></span></b></td>
 
-                </tr>
-            }
-        </table>
-    </div>
-
+                    </tr>
+                }
+            </table>
+        </div>
+</div>
     <div class="panel-footer">
         <p class="box-title"><b>Total Roles as of @String.Format("{0 : dddd, MMMM d, yyyy}", DateTime.Now)  : </b><span class="label label-primary">@Model.Count() </span></p>
     </div>
@@ -63,7 +60,14 @@
 
     }
 </div>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('#roletable').DataTable();
+        });
+    </script>
 
+}
 
 
 

@@ -294,10 +294,6 @@ namespace E3DBPI.Controllers
 
             return View("RegisterSummary");                                 //  Present the Register Summary page to the user
                     }
-
-
-
-
         //-----------------------------------------------------------------------------------------------------------
         // Display the Registration Summary
         //-----------------------------------------------------------------------------------------------------------

@@ -11,12 +11,14 @@ namespace E3DBPI.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class BlogComment
     {
         public int PostCommentID { get; set; }
         public int PostID { get; set; }
         public string PostCommentAuthor { get; set; }
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public Nullable<System.DateTime> PostCommentDate { get; set; }
         public string PostCommentContent { get; set; }
         public Nullable<bool> Deleted { get; set; }

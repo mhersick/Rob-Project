@@ -11,7 +11,8 @@ namespace E3DBPI.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class BlogPost
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,6 +24,7 @@ namespace E3DBPI.Models
         public int PostID { get; set; }
         public int Post_CategoryID { get; set; }
         public string Post_author { get; set; }
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public System.DateTime Post_Date { get; set; }
         public string Post_Tite { get; set; }
         public string Post_Content { get; set; }

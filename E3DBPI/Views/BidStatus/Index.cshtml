@@ -4,29 +4,30 @@
     ViewBag.Title = "Bid Status Listing";
 }
 
-<div class="listing">
+<div class="listing container">
     <h2>@ViewBag.co_cName @ViewBag.Title</h2>
 
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.BidStatusName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Active)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Deleted)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Sequence)
-            </th>
-            <th></th>
-        </tr>
-
+    <table class="table" id="bidstatus">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.BidStatusName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Active)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Deleted)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sequence)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
         @foreach (var item in Model)
         {
             <tr>
@@ -46,21 +47,24 @@
                     @Html.DisplayFor(modelItem => item.Sequence)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.BidStatusID }, htmlAttributes: new { @class = "btn btn-smform btn-info" })
-                    @Html.ActionLink("View", "Details", new { id = item.BidStatusID }, htmlAttributes: new { @class = "btn btn-smform btn-info" })
-                    @Html.ActionLink("Delete", "Delete", new { id = item.BidStatusID }, htmlAttributes: new { @class = "btn btn-smform btn-warning" })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.BidStatusID }, htmlAttributes: new { @class = "btn btn-xs btn-info" })
+                    @Html.ActionLink("View", "Details", new { id = item.BidStatusID }, htmlAttributes: new { @class = "btn btn-xs btn-info" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.BidStatusID }, htmlAttributes: new { @class = "btn btn-xs btn-warning" })
                 </td>
             </tr>
         }
 
     </table>
+    <p class="buttonbox">
+        <a href="javascript:void(0);" onclick="history.go(-1);" class="btn btn-lg btn-primary" role="button" aria-disabled="true">Return</a>
+        @Html.ActionLink("Create New", "Create", new { }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })
+    </p>
+
     </div>
-    <div class="col-md-12" style="text-align:center;margin-top:40px;">
-        @if (User.Identity.IsAuthenticated)
-            {
-                if (User.IsInRole("SuperAdmin"))
-                {
-                <p>@Html.ActionLink("Create a New BidStatus", "Create", "BidStatus", new { }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })</p>
-            }
-        }
-    </div>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("#bidstatus").DataTable();
+        });
+    </script>
+}

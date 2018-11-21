@@ -411,6 +411,8 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap\bootstrap.css" />
+    <Content Include="Content\bootstrap\bootstrap.min.css" />
     <Content Include="Content\css\entypo.css" />
     <Content Include="Content\css\entypo\entypo-social.svg" />
     <Content Include="Content\css\entypo\entypo.svg" />
@@ -898,6 +900,8 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Content\bootstrap\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap\bootstrap.css.map" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -1142,11 +1146,6 @@
     <Content Include="Views\OrderStatus\Details.cshtml" />
     <Content Include="Views\OrderStatus\Edit.cshtml" />
     <Content Include="Views\OrderStatus\Index.cshtml" />
-    <Content Include="Views\Items\Create.cshtml" />
-    <Content Include="Views\Items\Delete.cshtml" />
-    <Content Include="Views\Items\Details.cshtml" />
-    <Content Include="Views\Items\Edit.cshtml" />
-    <Content Include="Views\Items\Index.cshtml" />
     <Content Include="Views\ProjectStatus\Create.cshtml" />
     <Content Include="Views\ProjectStatus\Delete.cshtml" />
     <Content Include="Views\ProjectStatus\Details.cshtml" />
@@ -1256,6 +1255,12 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Items\Create.cshtml" />
+    <Content Include="Views\Items\Delete.cshtml" />
+    <Content Include="Views\Items\Details.cshtml" />
+    <Content Include="Views\Items\Edit.cshtml" />
+    <Content Include="Views\Items\Index.cshtml" />
+    <Content Include="Views\BlogPosts\NewsnEvents.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1314,5 +1319,4 @@
   </Target>
   <Target Name="AfterBuild">
   </Target> -->
-
 </Project>

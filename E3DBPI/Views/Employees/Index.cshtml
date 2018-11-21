@@ -82,18 +82,17 @@
 
     </table>
 
-    <div class="col-md-12" style="text-align:center;margin-top:40px;">
-        @if (User.Identity.IsAuthenticated)
+    <div class="col-md-12">
+        <p class="buttonbox">
+            <a href="javascript:void(0);" onclick="history.go(-1);" class="btn btn-lg btn-primary" role="button" aria-disabled="true">Return</a>
+            @if (User.Identity.IsAuthenticated)
             {
                 if (User.IsInRole("CompanyAdmin"))
                 {
-
-                <p>
                     @Html.ActionLink("Create a New Employee", "CreateEmployee", new { }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })
-                </p>
+                }
             }
-        }
-
+        </p>
     </div>
 
 
@@ -102,8 +101,6 @@
 
 </div>
 @section scripts{
-    @Styles.Render("~/Content/bootstrap1.css")
-
     <script>
     $(document).ready(function () {
         $("#employeelist").DataTable();

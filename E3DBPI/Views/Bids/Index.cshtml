@@ -4,15 +4,79 @@
     ViewBag.Title = "Project/Task Bids";
 }
 
-<style>
-    .listing h2 {
-        margin-bottom: 40px;
-    }
-</style>
 
-    <h2>@ViewBag.co_cName @ViewBag.Title</h2>
+    <div class="listing container">
+        <h2>@ViewBag.co_cName @ViewBag.Title</h2>
+        <h4>Incoming Bids on Projects you have Posted</h4>
 
-    <div class="listing container" style="width:40%">
+        <table class="table" id="bidslist2">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BidDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Company)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SubProjectID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SubProject.SubProjectName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BidAmt)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BidStatus)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ActionDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Active)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BidDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Company)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SubProjectID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SubProject.SubProjectName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BidAmt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BidStatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ActionDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Active)
+                    </td>
+                    <td width="15%">
+                        @Html.ActionLink("View", "Details", new { id = item.BidID }, htmlAttributes: new { @class = "btn btn-xs btn-info" }) |
+                        @Html.ActionLink("Edit", "Edit", new { id = item.BidID }, htmlAttributes: new { @class = "btn btn-xs btn-info" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.BidID }, htmlAttributes: new { @class = "btn btn-xs btn-warning" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <h4>Outgoing Bids you have placed on Projects</h4>
+
         <table class="table" id="bidslist">
             <thead>
                 <tr>
@@ -80,23 +144,35 @@
 
         </table>
 
-        </div>
-        <div class="row">
-            <div class="col-md-6" style="text-align:center;margin-top:40px;">
+
+
+
+
+
+        <div class="col-md-12">
+            <p class="buttonbox">
+                <a href="javascript:void(0);" onclick="history.go(-1);" class="btn btn-lg btn-primary" role="button" aria-disabled="true">Return</a>
                 @Html.ActionLink("Open Projects - List", "Index", "SubProjects", new { }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })
-            </div>
-            <div class="col-md-6" style="text-align:center;margin-top:40px;">
                 @Html.ActionLink("Open Projects - Calendar", "SubProjectCalendar", "SubProjects", new { }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })
-            </div>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    if (User.IsInRole("CompanyAdmin"))
+                    {
+
+                    }
+                }
+            </p>
         </div>
 
+
+
+    </div>
 
     @section scripts{
-        @Styles.Render("~/Content/bootstrap1.css")
-
         <script>
             $(document).ready(function () {
                 $("#bidslist").DataTable();
+                $("#bidslist2").DataTable();
             });
         </script>
     }

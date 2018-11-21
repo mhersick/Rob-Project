@@ -4,9 +4,9 @@
     ViewBag.Title = "Incoming Contact Form Listing";
 }
 
-<h2>@ViewBag.Title</h2>
 
 <div class="listing container">
+    <h2>@ViewBag.Title</h2>
     <table class="table" id="contactslist">
         <thead>
             <tr>
@@ -36,7 +36,7 @@
                 </th>
                 <th></th>
             </tr>
-
+</thead>        
             @foreach (var item in Model)
             {
                 <tr>
@@ -73,10 +73,13 @@
             }
 
     </table>
+
+    <p class="buttonbox">
+        <a href="javascript:void(0);" onclick="history.go(-1);" class="btn btn-lg btn-primary" role="button" aria-disabled="true">Return</a>
+    </p>
+
 </div>
     @section scripts{
-        @Styles.Render("~/Content/bootstrap1.css")
-
         <script>
             $(document).ready(function () {
                 $("#contactslist").DataTable();

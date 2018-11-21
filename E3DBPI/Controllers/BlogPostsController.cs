@@ -10,18 +10,25 @@ using E3DBPI.Models;
 
 namespace E3DBPI.Controllers
 {
-    [Authorize(Roles = "SuperAdmin, Contributor")]
 
     public class BlogPostsController : Controller
     {
         private SiteDBEntities db = new SiteDBEntities();
 
         // GET: BlogPosts
+        [Authorize(Roles = "SuperAdmin, Author")]
         public ActionResult Index()
         {
             var blogPosts = db.BlogPosts.Include(b => b.BlogCategory);
             return View(blogPosts.ToList());
         }
+        // GET: BlogPosts
+        public ActionResult NewsnEvents()
+        {
+            var blogPosts = db.BlogPosts.Include(b => b.BlogCategory);
+            return View(blogPosts.ToList());
+        }
+
 
         // GET: BlogPosts/Details/5
         public ActionResult Details(int? id)
@@ -39,6 +46,7 @@ namespace E3DBPI.Controllers
         }
 
         // GET: BlogPosts/Create
+        [Authorize(Roles = "SuperAdmin, Author")]
         public ActionResult Create()
         {
             ViewBag.Post_CategoryID = new SelectList(db.BlogCategories, "Post_CategoryID", "Post_CategoryName");
@@ -64,6 +72,7 @@ namespace E3DBPI.Controllers
         }
 
         // GET: BlogPosts/Edit/5
+        [Authorize(Roles = "SuperAdmin, Author")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -97,6 +106,7 @@ namespace E3DBPI.Controllers
         }
 
         // GET: BlogPosts/Delete/5
+        [Authorize(Roles = "SuperAdmin, Author")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

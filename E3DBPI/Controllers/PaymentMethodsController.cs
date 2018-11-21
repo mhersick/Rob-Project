@@ -42,7 +42,7 @@ namespace E3DBPI.Controllers
 
             if (id == null)                                                     // nothing passed. Show full list
             {
-                ViewBag.co_cName = "Administrators Only! - All ";
+                ViewBag.co_cName = "Admin - All ";
 
                 var paymentmethods = db.PaymentMethods.Include(e => e.Company);
                 return View(paymentmethods.ToList());

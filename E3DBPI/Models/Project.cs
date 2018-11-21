@@ -11,7 +11,8 @@ namespace E3DBPI.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Project
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -25,18 +26,24 @@ namespace E3DBPI.Models
         public string ProjectDescription { get; set; }
         public int ProjectStatus { get; set; }
         public int ProjectCategory { get; set; }
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public Nullable<System.DateTime> OpenDate { get; set; }
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public Nullable<System.DateTime> BidOpenDate { get; set; }
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public Nullable<System.DateTime> BidCloseDate { get; set; }
         public int CompanyID { get; set; }
         public bool Deleted { get; set; }
         public bool Active { get; set; }
         public string Notes { get; set; }
         public bool Complete { get; set; }
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public Nullable<System.DateTime> CompletionDate { get; set; }
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public Nullable<System.DateTime> RequiredDate { get; set; }
         public Nullable<int> AcceptedBid { get; set; }
         public Nullable<int> AcceptedCompany { get; set; }
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public Nullable<System.DateTime> ActionDate { get; set; }
         public string SiteAddress1 { get; set; }
         public string SiteAddress2 { get; set; }

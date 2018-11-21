@@ -1,117 +1,103 @@
 ﻿@model IEnumerable<E3DBPI.Models.ServicePlan>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Service Plans";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ServicePlanName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShortDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LongDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Seats)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Storage)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FeatureA)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FeatureB)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FeatureC)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FeatureD)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FeatureE)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AddSeatCost)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MontlhyCost)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AnnualCost)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DiscountPercent)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sequence)
-        </th>
-        <th></th>
-    </tr>
+<div class="listing container">
+    <h2>@ViewBag.co_cName @ViewBag.Title</h2>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ServicePlanName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShortDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LongDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Seats)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Storage)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FeatureA)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FeatureB)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FeatureC)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FeatureD)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FeatureE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AddSeatCost)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MontlhyCost)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AnnualCost)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DiscountPercent)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sequence)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ServicePlanID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ServicePlanID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ServicePlanID })
-        </td>
-    </tr>
+    <table class="table" id="serviceplans">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ServicePlanName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ShortDescription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LongDescription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Seats)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Storage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AddSeatCost)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MontlhyCost)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AnnualCost)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DiscountPercent)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sequence)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ServicePlanName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShortDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LongDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Seats)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Storage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AddSeatCost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MontlhyCost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AnnualCost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiscountPercent)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sequence)
+                </td>
+                <td>
+                    @Html.ActionLink("View", "Details", new { id = item.ServicePlanID }, htmlAttributes: new { @class = "btn btn-xs btn-info" })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ServicePlanID }, htmlAttributes: new { @class = "btn btn-xs btn-info" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ServicePlanID }, htmlAttributes: new { @class = "btn btn-xs btn-warning" })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <p class="buttonbox">
+        <a href="javascript:void(0);" onclick="history.go(-1);" class="btn btn-lg btn-primary" role="button" aria-disabled="true">Return</a>
+        @Html.ActionLink("Create New", "Create", new { }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })
+    </p>
+
+
+</div>
+@section scripts{
+    <script>
+            $(document).ready(function () {
+                $("#serviceplans").DataTable();
+            });
+    </script>
 }
-
-</table>

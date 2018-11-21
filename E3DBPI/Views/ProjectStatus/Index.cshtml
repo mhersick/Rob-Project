@@ -1,51 +1,64 @@
 ﻿@model IEnumerable<E3DBPI.Models.ProjectStatu>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Project Status";
 }
 
-<h2>Project Status</h2>
+<div class="listing container">
+    <h2>@ViewBag.co_cName @ViewBag.Title</h2>
+    <table class="table" id="projectstatus">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProjectStatusID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sequence)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Active)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProjectStatusID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sequence)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Active)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ProjectStatusID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ProjectStatusID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ProjectStatusID })
+                </td>
+            </tr>
+        }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ProjectStatusID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sequence)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Active)
-        </th>
-        <th></th>
-    </tr>
+    </table>
+    <p class="buttonbox">
+        <a href="javascript:void(0);" onclick="history.go(-1);" class="btn btn-lg btn-primary" role="button" aria-disabled="true">Return</a>
+        @Html.ActionLink("Create New", "Create", new { }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })
+    </p>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProjectStatusID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sequence)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Active)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProjectStatusID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProjectStatusID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProjectStatusID })
-        </td>
-    </tr>
-}
+    </div>
 
-</table>
+    @section scripts{
+        <script>
+            $(document).ready(function () {
+                $("#projectstatus").DataTable();
+            });
+        </script>
+    }

@@ -11,7 +11,8 @@ namespace E3DBPI.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Order
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -25,10 +26,12 @@ namespace E3DBPI.Models
         public int CompanyID { get; set; }
         public string CustOrderNumber { get; set; }
         public string OrderStatus { get; set; }
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public System.DateTime OrderDate { get; set; }
         public Nullable<System.DateTime> ShipDate { get; set; }
         public string PaymentStatus { get; set; }
         public Nullable<int> PaymentID { get; set; }
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public Nullable<System.DateTime> PaymentDate { get; set; }
         public Nullable<int> ShipToAddressID { get; set; }
         public Nullable<int> ShipperID { get; set; }

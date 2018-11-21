@@ -11,12 +11,14 @@ namespace E3DBPI.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Bid
     {
         public int BidID { get; set; }
         public int SubProjectID { get; set; }
         public int CompanyID { get; set; }
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public System.DateTime BidDate { get; set; }
         public string BidText { get; set; }
         public string BidLimitations { get; set; }

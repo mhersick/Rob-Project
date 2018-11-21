@@ -96,6 +96,8 @@ section#home {
         padding:5%;
     }
 
+    
+
    
 /*----------------------------------------------------------------------------------------------------------------------------- */
 /*             1.1 Carousel Styling  */
@@ -114,38 +116,48 @@ section#home {
 /* ----------------------------------------------------------------------------------------------------------------------------- */
 
 .icons{
-    margin-top:5%;
-    width:100%;
-    height:auto;
+    margin-top:2%;
+    border:2px solid darkorange !important;
+    font-size:12px;
+}
+
+.icons > .card-title{
+    font-size:15px;
 }
 .card-img-top {
-    
     padding:5%;
 }
 
-div .card-columns {
+ .card-columns {
     margin: 10% 15%;
 }
 
-div .quote {
+ div .quote {
     background-color: slategray;
     padding: 5% 25%;
     border-radius: 5px;
 }
-div .card-deck {
+ .card-deck {
     text-align: left;
-    margin: 0 50px 50px 50px
+    margin: 0 2% 5% 2%;
 }
 
-div .news {
+.news {
     text-align: center;
+    border: 2px solid darkorange !important;
+    transition:transform 0.2s;
 }
 
-.card-img-top {
-    width: 100%;
-    height: 15vw;
-    object-fit: cover;
+.news:hover{
+    transform:scale(1.1);
 }
+
+.card-img {
+    width: 100%;
+    height: 10vw;
+    object-fit:contain;
+}
+
 
 
     /*----------------------------------------------------------------------------------------------------------------------------- */
@@ -377,6 +389,10 @@ textarea.form-control {
     margin-bottom: 40px;
 }
 
+.listing .form-inline {
+    display: block;
+}
+
 input, select, textarea {
     max-width: none;
 }
@@ -423,6 +439,17 @@ input, select, textarea {
         background-color: #fff;
     }*/
 
+.buttonbox {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.btn-xs {
+    font-size: .6rem;
+    padding: 2px 3px;
+    margin-top: 1px;
+}
 .btn-sm {
     font-size: 1em;
     padding: 4px 6px ;
@@ -463,11 +490,20 @@ box-shadow: none
     background-color: #EA973F;
 }
 
+.learnMore{
+    background-color:darkorange !important;
+    border:none!important;
+}
+
 
 .nav-link:hover,#regster-link{
     background-color:orange;
     border-radius:5px;
     
+}
+
+.sticky-top{
+    background-color:slategrey;
 }
 
 .sticky-top.scrolled {
@@ -485,6 +521,22 @@ nav.navbar {
         padding: 0;  
     }
 
+.navbar-nav > li > a:hover {
+    background-color:orange;
+    border-radius:5px;
+}
+.navbar-nav > li > a#socialLinks{
+    border-right:none;
+}
+
+.navbar-nav > li > a:last-child {
+    border-right: none;
+    
+}
+        /*.navbar-nav>li:last-child {
+            margin-right:0;
+            margin-left:0;
+        }*/
 
 
 
@@ -631,6 +683,10 @@ ul.social-buttons, li.social {
 .botfold button:hover{
     transform:scale(1.1);
 }
+
+.why{
+    border-radius:10px;
+}
  
 /*.navbar-nav .nav li .nav-link .nav-item{
     color:#fff;
@@ -663,9 +719,9 @@ ul.social-buttons, li.social {
 }
 
 /* Aesthetic */
-body {
+/*body {
     background: #222;
-}
+}*/
 
 .accordion {
     margin-top: 20px;

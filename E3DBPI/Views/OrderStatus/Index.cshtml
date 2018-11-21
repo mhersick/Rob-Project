@@ -1,51 +1,64 @@
 ﻿@model IEnumerable<E3DBPI.Models.OrderStatu>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Order Status";
 }
 
-<h2>Order Status</h2>
+<div class="listing container">
+    <h2>@ViewBag.co_cName @ViewBag.Title</h2>
+    <table class="table" id="orderstatus">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderStatus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Active)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sequence)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Active)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sequence)
+                </td>
+                <td>
+                    @Html.ActionLink("View", "Details", new { id = item.OrderStatusID }, htmlAttributes: new { @class = "btn btn-xs btn-info" })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.OrderStatusID }, htmlAttributes: new { @class = "btn btn-xs btn-info" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.OrderStatusID }, htmlAttributes: new { @class = "btn btn-xs btn-warning" })
+                </td>
+            </tr>
+        }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.OrderStatus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Active)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sequence)
-        </th>
-        <th></th>
-    </tr>
+    </table>
+    <p class="buttonbox">
+        <a href="javascript:void(0);" onclick="history.go(-1);" class="btn btn-lg btn-primary" role="button" aria-disabled="true">Return</a>
+        @Html.ActionLink("Create New", "Create", new { }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })
+    </p>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.OrderStatus)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Active)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sequence)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.OrderStatusID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.OrderStatusID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.OrderStatusID })
-        </td>
-    </tr>
+</div>
+
+@section scripts{
+    <script>
+            $(document).ready(function () {
+                $("#orderstatus").DataTable();
+            });
+    </script>
 }
-
-</table>

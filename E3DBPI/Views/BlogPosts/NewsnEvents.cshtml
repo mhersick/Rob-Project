@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<E3DBPI.Models.BlogPost>
 
 @{
-    ViewBag.Title = "Contraxtor News & Events";
+    ViewBag.Title = "Contraxtor News & Events Display";
 }
 
 <div class="listing container">
@@ -72,15 +72,15 @@
 
 <div class="col-md-12">
     <p class="buttonbox">
-    <a href="javascript:void(0);" onclick="history.go(-1);" class="btn btn-lg btn-primary" role="button" aria-disabled="true">Return</a>
-    @if (User.Identity.IsAuthenticated)
+        <a href="javascript:void(0);" onclick="history.go(-1);" class="btn btn-lg btn-primary" role="button" aria-disabled="true">Return</a>
+        @if (User.Identity.IsAuthenticated)
             {
                 if (User.IsInRole("SuperAdmin"))
                 {
-        @Html.ActionLink("Create a New Article", "Create", "BlogPosts", new { }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })
-        @Html.ActionLink("Manage Article Comments", "Index", "BlogComments", new { }, htmlAttributes: new { @class = "btn btn-lg btn-warning" })
+                @Html.ActionLink("Create a New Article", "Create", "BlogPosts", new { }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })
+                @Html.ActionLink("Manage Article Comments", "Index", "BlogComments", new { }, htmlAttributes: new { @class = "btn btn-lg btn-warning" })
+            }
         }
-    }
     </p>
 
 </div>
@@ -91,22 +91,24 @@
 
 
 
-    <div class="col-md-12" style="text-align:center;margin-top:40px;">
-        @if (User.Identity.IsAuthenticated)
-            {
-                if (User.IsInRole("SuperAdmin"))
-                {
-            }
+<div class="col-md-12" style="text-align:center;margin-top:40px;">
+    @if (User.Identity.IsAuthenticated)
+    {
+        if (User.IsInRole("SuperAdmin"))
+        {
         }
-    </div>
+    }
+</div>
 
 
-    @section scripts{
-        <script>
+@section scripts{
+    <script>
             $(document).ready(function () {
                 $("#articlelist").DataTable();
             });
-        </script>
-    }
+    </script>
+}
+
+
 
 

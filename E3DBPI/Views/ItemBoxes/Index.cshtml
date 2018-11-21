@@ -4,78 +4,91 @@
     ViewBag.Title = "Item Boxes";
 }
 
-<h2>@ViewBag.Title</h2>
+<div class="listing container">
+    <h2>@ViewBag.co_cName @ViewBag.Title</h2>
+    <table class="table" id="itemboxes">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.BoxID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BoxDescription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BoxWidth)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BoxLength)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BoxHeight)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BoxNW)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BoxCF)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InnerOuter)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InnerBoxFor)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BoxID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BoxDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BoxWidth)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BoxLength)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BoxHeight)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BoxNW)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BoxCF)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InnerOuter)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InnerBoxFor)
+                </td>
+                <td>
+                    @Html.ActionLink("View", "Details", new { id = item.BoxID }, htmlAttributes: new { @class = "btn btn-xs btn-info" })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.BoxID }, htmlAttributes: new { @class = "btn btn-xs btn-info" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.BoxID }, htmlAttributes: new { @class = "btn btn-xs btn-warning" })
+                </td>
+            </tr>
+        }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.BoxID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BoxDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BoxWidth)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BoxLength)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BoxHeight)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BoxNW)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BoxCF)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.InnerOuter)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.InnerBoxFor)
-        </th>
-        <th></th>
-    </tr>
+    </table>
+    <p class="buttonbox">
+        <a href="javascript:void(0);" onclick="history.go(-1);" class="btn btn-lg btn-primary" role="button" aria-disabled="true">Return</a>
+        @Html.ActionLink("Create New", "Create", new { }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })
+    </p>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.BoxID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BoxDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BoxWidth)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BoxLength)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BoxHeight)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BoxNW)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BoxCF)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.InnerOuter)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.InnerBoxFor)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BoxID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BoxID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BoxID })
-        </td>
-    </tr>
+</div>
+
+@section scripts{
+    <script>
+            $(document).ready(function () {
+                $("#itemboxes").DataTable();
+            });
+    </script>
 }
-
-</table>

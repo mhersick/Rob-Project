@@ -4,9 +4,8 @@
     ViewBag.Title = "Teams";
 }
 
-<h2>@ViewBag.co_cName @ViewBag.Title</h2>
-
-<div class="listing container" style="width:30%">
+<div class="listing container">
+    <h2>@ViewBag.co_cName @ViewBag.Title</h2>
     <table class="table" id="teamslist">
         <thead>
             <tr>
@@ -49,12 +48,12 @@
         }
 
     </table>
+    <p class="buttonbox">
+        <a href="javascript:void(0);" onclick="history.go(-1);" class="btn btn-lg btn-primary" role="button" aria-disabled="true">Return</a>
+    </p>
+
     </div>
     @section scripts{
-
-
-        @Styles.Render("~/Content/bootstrap1.css")
-
         <script>
             $(document).ready(function () {
                 $("#teamslist").DataTable();

@@ -38,7 +38,7 @@
                     @Html.DisplayFor(modelItem => item.MessageDate)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.FromFName) @Html.DisplayFor(modelItem => item.FromLName) (@Html.DisplayFor(modelItem => item.FromEmail))<br/>
+                    @Html.DisplayFor(modelItem => item.FromFName) @Html.DisplayFor(modelItem => item.FromLName) (@Html.DisplayFor(modelItem => item.FromEmail))<br />
                     @Html.DisplayFor(modelItem => item.FromCompany)
                 </td>
                 <td>
@@ -64,24 +64,15 @@
             </tr>
         }
     </table>
-    </div>
 
-    <div class="row" style="text-align:center;margin-top:40px;">
-        <div class="col-md-6">
-            <p>
-                @Html.ActionLink("Create a New Message", "Create", "Messages", new { }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })
-            </p>
-        </div>
-        <div class="col-md-6">
-            <p>
-                @Html.ActionLink("Delete Selected", "Index", "Messages", new { }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })
-            </p>
-        </div>
-    </div>
+    <p class="buttonbox">
+        <a href="javascript:void(0);" onclick="history.go(-1);" class="btn btn-lg btn-primary" role="button" aria-disabled="true">Return</a>
+        @Html.ActionLink("Create a New Message", "Create", "Messages", new { }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })
+        @Html.ActionLink("Delete Selected", "Index", "Messages", new { }, htmlAttributes: new { @class = "btn btn-md btn-danger" })
+    </p>
+</div>
 
 @section scripts{
-    @Styles.Render("~/Content/bootstrap1.css")
-
     <script>
     $(document).ready(function () {
         $("#messagelist").DataTable();

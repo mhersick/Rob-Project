@@ -3,8 +3,8 @@
 @{
     ViewBag.Title = "Documents";
 }
+<div class="listing container">
     <h2>@ViewBag.co_cName @ViewBag.Title</h2>
-<div class="listing container" style="width:40%">
     <table class="table" id="documentlist">
         <thead>
             <tr>
@@ -47,27 +47,39 @@
         }
 
     </table>
+    <p class="buttonbox">
+        <a href="javascript:void(0);" onclick="history.go(-1);" class="btn btn-lg btn-primary" role="button" aria-disabled="true">Return</a>
+    </p>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        if (User.IsInRole("CompanyAdmin"))
+        {
+            <hr class="border-dark"/>
+            <div class="col-md-12 buttonbox">
+                <h3>You are Authorized to upload new Files</h3>
+
+
+                @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                    <h5 style="margin-bottom:20px;">Select the file you would like to Upload. After making your selection, press the upload button, below.</h5>
+                    <input type="file" name="postedFile" class="btn btn-md btn-info" />
+                        <input type="submit" id="btnUpload" value="Upload this File" class="btn btn-md btn-danger" />
+
+                     }
+
+            </div>
+
+        }
+    }
+    <div id="dialog" style="display: none"></div>
+
 </div>
 
-
-    <h3>Upload a new file</h3>
-
-
-    @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-        <input type="file" name="postedFile" />
-        <p>Select the file you would like to Upload. After selecting you files, press the upload button, below.</p>
-        <input type="submit" id="btnUpload" value="Upload" />
-    }
-    <hr />
-
-    <div id="dialog" style="display: none"></div>
 
 
 
 @section scripts{
-    @Styles.Render("~/Content/bootstrap1.css")
-
     <script>
         $(document).ready(function () {
             $("#documentlist").DataTable();
@@ -96,6 +108,8 @@
                 $('#dialog').dialog('open');
             });
         });
+
+
 </script>
 
 

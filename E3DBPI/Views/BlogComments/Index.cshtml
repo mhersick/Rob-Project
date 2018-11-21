@@ -1,57 +1,70 @@
 ﻿@model IEnumerable<E3DBPI.Models.BlogComment>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "News and Event Comments";
 }
 
-<h2>Blog Comments</h2>
+<div class="listing container">
+    <h2>@ViewBag.co_cName @ViewBag.Title</h2>
+    <table class="table" id="blogcomments">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PostCommentDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PostCommentAuthor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PostCommentContent)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PostCommentCompanyID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BlogPost.Post_author)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostCommentDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostCommentAuthor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostCommentContent)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostCommentCompanyID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BlogPost.Post_author)
+                </td>
+                <td>
+                    @Html.ActionLink("View", "Details", new { id = item.PostCommentID }, htmlAttributes: new { @class = "btn btn-xs btn-info" })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.PostCommentID }, htmlAttributes: new { @class = "btn btn-xs btn-info" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.PostCommentID }, htmlAttributes: new { @class = "btn btn-xs btn-warning" })
+                </td>
+            </tr>
+        }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.PostCommentDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PostCommentAuthor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PostCommentContent)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PostCommentCompanyID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BlogPost.Post_author)
-        </th>
-        <th></th>
-    </tr>
+    </table>
+    <p class="buttonbox">
+        <a href="javascript:void(0);" onclick="history.go(-1);" class="btn btn-lg btn-primary" role="button" aria-disabled="true">Return</a>
+        @Html.ActionLink("Create New", "Create", new { }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })
+    </p>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.PostCommentDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PostCommentAuthor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PostCommentContent)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PostCommentCompanyID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BlogPost.Post_author)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PostCommentID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PostCommentID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PostCommentID })
-        </td>
-    </tr>
+</div>
+
+@section scripts{
+    <script>
+            $(document).ready(function () {
+                $("#blogcomments").DataTable();
+            });
+    </script>
 }
-
-</table>
