@@ -1,72 +1,44 @@
 ﻿@model IEnumerable<E3DBPI.Models.BlogPost>
 
 @{
-    ViewBag.Title = "Contraxtor News & Events Display";
+    ViewBag.Title = "Contraxtor™ News & Events";
 }
 
-<div class="listing container">
-    <h2>@ViewBag.Title</h2>
-    <table class="table" id="articlelist">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Post_Date)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Post_author)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Post_Tite)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Post_Status)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Post_Featured)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Post_Views)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.BlogCategory.Post_CategoryName)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
+<div class="row mt-5 mb-5">
+    <div class="col-md-12">
+        <h1 style="text-align:center">@ViewBag.Title</h1>
+    </div>
+</div>
+<div class="card-deck">
+    @foreach (var item in Model)
+    {
+        <div class="card news shadow">
+            <a href="Details?ID=@Html.DisplayFor(modelItem => item.PostID)">
+            <img class="card-img-top" src="/images/@Html.DisplayFor(modelItem => item.Post_Image1)"></a>
+            <h4>@Html.DisplayFor(modelItem => item.Post_Tite)</h4>
+            <p style="font-size:1em;color:#000; text-align:center;padding-left:20px;padding-right:20px">@Html.DisplayFor(modelItem => item.Post_Content)</p>
+            <p style="font-size:.7em;color:#000; text-align:center;padding-left:20px;padding-right:20px">
+                BY: @Html.DisplayFor(modelItem => item.Post_author)
+                @Html.DisplayFor(modelItem => item.Post_Date)
+            </p>
+        </div>
+    }
+</div>
+
+
+@*<div class="listing container">
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Post_Date)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Post_author)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Post_Tite)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Post_Status)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Post_Featured)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Post_Views)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.BlogCategory.Post_CategoryName)
-                </td>
-                <td width="15%">
-                    @Html.ActionLink("View", "Details", new { id = item.PostID }, htmlAttributes: new { @class = "btn btn-xs btn-info" })
-                    @Html.ActionLink("Edit", "Edit", new { id = item.PostID }, htmlAttributes: new { @class = "btn btn-xs btn-info" })
-                    @Html.ActionLink("Delete", "Delete", new { id = item.PostID }, htmlAttributes: new { @class = "btn btn-xs btn-warning" })
-                </td>
-            </tr>
+            <div class="card news shadow">
+                <img class="card-img-top" src="/images/@Html.DisplayFor(modelItem => item.Post_Image1)">
+                <h4>@Html.DisplayFor(modelItem => item.Post_Tite)</h4>
+                <p style="font-size:1em;color:#000; text-align:center;padding-left:20px;padding-right:20px">@Html.DisplayFor(modelItem => item.Post_Content)</p>
+                <p style="font-size:.7em;color:#000; text-align:center;padding-left:20px;padding-right:20px">BY: @Html.DisplayFor(modelItem => item.Post_author) 
+                @Html.DisplayFor(modelItem => item.Post_Date) 
+                @Html.ActionLink("View", "Details", new { id = item.PostID }, htmlAttributes: new { @class = "btn btn-xs btn-info" })</p>
+            </div>
         }
-
-    </table>
-</div>
+</div>*@
 
 
 
@@ -78,7 +50,6 @@
                 if (User.IsInRole("SuperAdmin"))
                 {
                 @Html.ActionLink("Create a New Article", "Create", "BlogPosts", new { }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })
-                @Html.ActionLink("Manage Article Comments", "Index", "BlogComments", new { }, htmlAttributes: new { @class = "btn btn-lg btn-warning" })
             }
         }
     </p>

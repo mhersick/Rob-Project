@@ -1,178 +1,193 @@
 ﻿@model E3DBPI.Models.BlogPost
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Contraxtor Article";
 }
+<section class="container" id="articlepost" style="text-align:center">
+    <article>
+        <div style="text-align:center; margin-top:15px;">
+            <h2>@Html.DisplayFor(model => model.Post_Tite)</h2>
+            <hr />
+            <img src="/images/@Html.DisplayFor(model => model.Post_Image1)" style="max-width:640px;">
 
-<h2>Details</h2>
+            <div class="row">
+                <div class="col-md-4 text-right">
+                    <p>Author: @Html.DisplayFor(model => model.Post_author)</p>
+                </div>
+                <div class="col-md-4">
+                    <p>Category: @Html.DisplayFor(model => model.Post_CategoryID)</p>
+                </div>
+                <div class="col-md-4 text-left">
+                    <p>@Html.DisplayFor(model => model.Post_Date)</p>
+                </div>
+            </div>
+            <h3 style="font-style:italic;margin-left:0;margin-right:0;"> @Html.DisplayFor(model => model.Post_Content)</h3>
+        </div>
+        <div class="row" style="margin-top:40px;margin-bottom:40px;">
+            <div class="col-md-12">
+                <p style="font-size:16px;"> @Html.DisplayFor(model => model.Post_ArticleContent)</p>
+            </div>
+        </div>
 
-<div>
-    <h4>BlogPost</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Post_author)
-        </dt>
+            <!-- Social Media SHARE buttons -->
+            <h4 style="text-align:left">Share this Article on:</h4>
+            <div class="row center-block" style="margin-bottom:20px; float:none; text-align:left">
+                <div style="float:left; margin-right:10px;"> <a href="https://www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"></a>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Post_author)
-        </dd>
+                <div style="float:left;margin-right:10px;" class="fb-share-button" data-href='/BlogPosts/Details?ID=@Html.DisplayFor(model => model.PostID)' data-layout="button"> </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Post_Date)
-        </dt>
+                <div style="float:left;margin-right:10px;">
+                    <a class="twitter-share-button" href="https://twitter.com/intent/tweet?"></a>
+                    <link rel="canonical" href='/BlogPosts/Details?ID=@Html.DisplayFor(model => model.PostID)' />
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Post_Date)
-        </dd>
+                <div style="float:left;margin-right:10px;" class="g-plus" data-action="share" data-annotation="none" data-href='/BlogPosts/Details?ID=@Html.DisplayFor(model => model.PostID)'></div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Post_Tite)
-        </dt>
+                <div style="float:left;margin-right:10px;">
+                <script type="IN/Share">
+                </script>
+                </div>
+            </div>
+        </article>
 
-        <dd>
-            @Html.DisplayFor(model => model.Post_Tite)
-        </dd>
+    <div class="row buttonbox">
+        <div class="col-md-4">
+            @Html.ActionLink("Previous Article", "Details", "BlogPosts", new { id = Model.PostID }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })
+        </div>
+        <div class="col-md-4">
+            @*@Html.ActionLink("Back to News & Events", "NewsnEvents", "BlogPosts", new { }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })*@
+            <a href="javascript:void(0);" onclick="history.go(-1);" class="btn btn-lg btn-primary" role="button" aria-disabled="true">Return</a>
+        </div>
+        <div class="col-md-4">
+            @Html.ActionLink("Next Article", "Details", "BlogPosts", new { id = Model.PostID }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })
+        </div>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Post_Content)
-        </dt>
+        @if (User.Identity.IsAuthenticated)
+        {
+            if (User.IsInRole("SuperAdmin"))
+            {
 
-        <dd>
-            @Html.DisplayFor(model => model.Post_Content)
-        </dd>
+                <h3 style="margin-top:60px; margin-bottom:20px;">Administrator Section</h3>
+                <div>
+                    @Html.ActionLink("Manage Article Comments", "Index", "BlogComments", new { id = Model.PostID }, htmlAttributes: new { @class = "btn btn-lg btn-warning" })
+                    @Html.ActionLink("Create a New Article", "Create", "BlogPosts", new { }, htmlAttributes: new { @class = "btn btn-lg btn-primary" })
+                    @Html.ActionLink("Edit this Article", "Edit", new { id = Model.PostID }, htmlAttributes: new { @class = "btn btn-lg btn-success" })
+                    @Html.ActionLink("Delete this Article", "Delete", new { id = Model.PostID }, htmlAttributes: new { @class = "btn btn-lg btn-danger" })
+                </div>
+                <div class="row" style="margin-top:20px;">
+                    <div class="col-md-2">
+                        Category: @Html.DisplayFor(model => model.BlogCategory.Post_CategoryName)
+                    </div>
+                    <div class="col-md-2">
+                        Comments Allowed: @Html.DisplayFor(model => model.Post_CommentsAllowed)
+                    </div>
+                    <div class="col-md-2">
+                        Review Comments: @Html.DisplayFor(model => model.Post_CommentsReview)
+                    </div>
+                    <div class="col-md-2">
+                        Post Status: @Html.DisplayFor(model => model.Post_Status)
+                    </div>
+                    <div class="col-md-2">
+                        Featured: @Html.DisplayFor(model => model.Post_Featured)
+                    </div>
+                    <div class="col-md-2">
+                        Views: @Html.DisplayFor(model => model.Post_Views)
+                    </div>
+                </div>
+                <div class="row" style="margin-top:20px;">
+                    <div class="col-md-3">
+                        Image 1: @Html.DisplayFor(model => model.Post_Image1)<br />
+                        <img src="/images/@Html.DisplayFor(model => model.Post_Image1)" style="max-width:240px;">
+                    </div>
+                    <div class="col-md-3">
+                        Image 2: @Html.DisplayFor(model => model.Post_Image1)<br />
+                        <img src="/images/@Html.DisplayFor(model => model.Post_Image2)" alt="No Image" style="max-width:240px;">
+                    </div>
+                    <div class="col-md-3">
+                        Image 3: @Html.DisplayFor(model => model.Post_Image1)<br />
+                        <img src="/images/@Html.DisplayFor(model => model.Post_Image3)" alt="No Image" style="max-width:240px;">
+                    </div>
+                    <div class="col-md-3">
+                        Banner 1: @Html.DisplayFor(model => model.Post_Banner1)<br />
+                        <img src="/images/@Html.DisplayFor(model => model.Post_Banner1)" alt="No Image" style="max-width:240px;">
+                    </div>
+                </div>
+                <div class="row" style="margin-top:20px;">
+                    <div class="col-md-3">
+                        Link1 URL: @Html.DisplayFor(model => model.Post_URL1)
+                    </div>
+                    <div class="col-md-3">
+                        Link2 URL: @Html.DisplayFor(model => model.Post_URL2)
+                    </div>
+                    <div class="col-md-3">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Post_Status)
-        </dt>
+                    </div>
+                    <div class="col-md-3">
 
-        <dd>
-            @Html.DisplayFor(model => model.Post_Status)
-        </dd>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:20px;">
+                    <div class="col-md-3">
+                        Active: @Html.DisplayFor(model => model.Post_Active)
+                    </div>
+                    <div class="col-md-3">
+                        Deleted: @Html.DisplayFor(model => model.Post_Deleted)
+                    </div>
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-3">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Post_Deleted)
-        </dt>
+                    </div>
+                </div>
+            }
+        }
 
-        <dd>
-            @Html.DisplayFor(model => model.Post_Deleted)
-        </dd>
+</section>
+<script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Post_Active)
-        </dt>
+<script type="text/javascript">
 
-        <dd>
-            @Html.DisplayFor(model => model.Post_Active)
-        </dd>
+    window.twttr = (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+            t = window.twttr || {};
+        if (d.getElementById(id)) return t;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Post_Featured)
-        </dt>
+        t._e = [];
+        t.ready = function (f) {
+            t._e.push(f);
+        };
 
-        <dd>
-            @Html.DisplayFor(model => model.Post_Featured)
-        </dd>
+        return t;
+    }(document, "script", "twitter-wjs"));
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Post_Views)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Post_Views)
-        </dd>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Post_CommentsAllowed)
-        </dt>
+<script type="text/javascript"
+        async defer
+        src="//assets.pinterest.com/js/pinit.js">
+</script>
 
-        <dd>
-            @Html.DisplayFor(model => model.Post_CommentsAllowed)
-        </dd>
+<script type="text/javascript" src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="https://apis.google.com/js/platform.js"></script>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Post_Image1)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Post_Image1)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Post_Image2)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Post_Image2)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Post_Image3)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Post_Image3)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Post_Banner1)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Post_Banner1)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Post_Article)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Post_Article)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Post_ArticleContent)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Post_ArticleContent)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Post_URL1)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Post_URL1)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Post_URL2)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Post_URL2)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Post_CommentsReview)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Post_CommentsReview)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BlogCategory.Post_CategoryName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BlogCategory.Post_CategoryName)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.PostID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<style>
+.ig-b- { display: inline-block; }
+.ig-b- img { visibility: hidden; }
+.ig-b-:hover { background-position: 0 -60px; } .ig-b-:active { background-position: 0 -120px; }
+.ig-b-16 { width: 16px; height: 16px; background: url(//badges.instagram.com/static/images/ig-badge-sprite-16.png) no-repeat 0 0; }
+.ig-b-16 { background-image: url(//badges.instagram.com/static/images/ig-badge-sprite-16@2x.png); background-size: 60px 178px; } }
+</style>

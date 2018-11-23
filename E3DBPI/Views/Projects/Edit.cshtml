@@ -232,3 +232,10 @@
     </div>
 }
 
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+    $(function () {
+        $("#datepicker").datepicker();
+    });
+    </script>

@@ -18,9 +18,6 @@
                     @Html.DisplayNameFor(model => model.ProjectID)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.SubProjectID)
-                </th>
-                <th>
                     @Html.DisplayNameFor(model => model.SubProjectName)
                 </th>
                 <th>
@@ -35,18 +32,6 @@
                 <th>
                     @Html.DisplayNameFor(model => model.RequiredDate)
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.AcceptedBid)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.AcceptedCompany)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ActionDate)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Dependencies)
-                </th>
                 <th></th>
             </tr>
         </thead>
@@ -60,9 +45,6 @@
                     @Html.DisplayFor(modelItem => item.SubProjectID)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.SubProjectName)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.SubProjectStatus)
                 </td>
                 <td>
@@ -74,18 +56,6 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.RequiredDate)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AcceptedBid)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AcceptedCompany)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ActionDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Dependencies)
-                </td>
                 <td width="15%">
                     @Html.ActionLink("View", "Details", new { id = item.SubProjectID }, htmlAttributes: new { @class = "btn btn-xs btn-info" })
                     @Html.ActionLink("Edit", "Edit", new { id = item.SubProjectID }, htmlAttributes: new { @class = "btn btn-xs btn-info" })
@@ -95,6 +65,7 @@
         }
 
     </table>
+</div>
     <p class="buttonbox">
         <a href="javascript:void(0);" onclick="history.go(-1);" class="btn btn-lg btn-primary" role="button" aria-disabled="true">Return</a>
         @if (User.Identity.IsAuthenticated)
@@ -105,9 +76,6 @@
             }
         }
     </p>
-
-
-</div>
 @section scripts{
     <script>
             $(document).ready(function () {
